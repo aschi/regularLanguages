@@ -53,11 +53,27 @@ public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutom
 	}
 
 	@Override
-	public void mutate(int depth) {
+	public void mutate(int nochanges) {
 		
 		
 	}
 	
+	private void changeRandomLink(){
+		Random rnd = new Random();
+		
+		Symbol s = getAlphabet().get(rnd.nextInt(getAlphabet().size()-1));
+		int origin = rnd.nextInt(getStates().size());
+		int target = rnd.nextInt(getStates().size());
+		
+		changeLink(origin, s, target);
+	}
 	
+	private void addRandomState(){
+		
+	}
+	
+	private void removeRandomState(){
+		
+	}
 	
 }

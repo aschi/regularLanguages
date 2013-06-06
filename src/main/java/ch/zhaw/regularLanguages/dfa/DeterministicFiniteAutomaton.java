@@ -26,6 +26,26 @@ public class DeterministicFiniteAutomaton {
 	}
 
 
+	public State getStartState() {
+		return startState;
+	}
+
+	public void setStartState(State startState) {
+		this.startState = startState;
+	}
+
+	public List<State> getStates() {
+		return states;
+	}
+
+	public List<State> getAcceptStates() {
+		return acceptStates;
+	}
+
+	public List<Symbol> getAlphabet() {
+		return alphabet;
+	}
+
 	
 	/**
 	 * 
