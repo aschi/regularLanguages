@@ -110,4 +110,42 @@ public class DeterministicFiniteAutomaton {
 	public void minimizeAutomaton(){
 		//TODO: Implement
 	}
+	
+	@Override
+	public DeterministicFiniteAutomaton clone(){
+		List<State> states = new ArrayList<State>();
+		State startState;
+		List<State> acceptingStates = new ArrayList<State>();
+		List<Symbol> alphabet;
+		
+		int i;
+
+		//use the same alphabet
+		alphabet = getAlphabet();
+		
+		//copy states
+		i=0;
+		for(int n = 0; n < getStates().size(); n++){
+			State s = getStates().get(n);
+			states.add(new State(s.getId()));
+			i++;
+		}
+		
+		//copy transitionTable
+		for(int n = 0; n < getStates().size(); n++){
+			State s = getStates().get(n);
+			
+			TransitionTable tt = new TransitionTable();
+			for(Symbol sym : s.getTransitionTable().transitionTable.keySet()){
+				int targetIndex = getStates().indexOf(s.getTransitionTable().transitionTable.get(sym));
+				tt.addTransition(sym, states.get(targetIndex));
+			}
+			
+			states.get(n).setTransitionTable(tt);
+		}
+		
+		startState = states.get(getStates().indexOf(getStartState()));
+		
+		return null;
+	}
 }

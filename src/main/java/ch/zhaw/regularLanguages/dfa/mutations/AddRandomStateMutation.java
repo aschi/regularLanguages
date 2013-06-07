@@ -31,6 +31,8 @@ public class AddRandomStateMutation implements RandomMutation{
 		state.setTransitionTable(tt);
 		states.add(state);
 		
+		
+		//TODO: Soviele Verbindungen wie der Durchschnittlîche Knoten als Eingang hat
 		//add link from a random node to this new one
 		dfa.changeLink(rnd.nextInt(i-1), alphabet.get(rnd.nextInt(noSymbols)), i);
 		

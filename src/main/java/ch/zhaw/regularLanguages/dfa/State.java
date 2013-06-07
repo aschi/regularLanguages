@@ -27,6 +27,11 @@ public class State {
 		return tt.process(symbol);
 	}
 	
+	public String getId(){
+		return this.id;
+	}
+	
+	
 	public String toString(){
 		return id;
 	}
