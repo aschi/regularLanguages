@@ -50,7 +50,7 @@ public class DeterministicFiniteAutomaton {
 	/**
 	 * 
 	 */
-	private void initSimpleAutomaton(){
+	public void initSimpleAutomaton(){
 		alphabet = new ArrayList<Symbol>();
 		alphabet.add(Symbol.epsilon);
 		alphabet.add(Symbol.a);

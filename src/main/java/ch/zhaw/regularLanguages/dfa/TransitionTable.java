@@ -21,6 +21,20 @@ public class TransitionTable {
 		transitionTable.put(symbol, state);
 	}
 	
+	/**
+	 * Remove all links to the old target and replace it with a link to a new target
+	 * @param oldTarget
+	 * @param newTarget
+	 */
+	public void replaceTarget(State oldTarget, State newTarget){
+		for(Symbol s : transitionTable.keySet()){
+			if(transitionTable.get(s) == oldTarget){
+				transitionTable.remove(s);
+				transitionTable.put(s, newTarget);
+			}
+		}
+	}
+	
 	public State process(Symbol symbol){
 		return transitionTable.get(symbol);		
 	}

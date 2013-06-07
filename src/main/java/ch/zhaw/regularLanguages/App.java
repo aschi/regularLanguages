@@ -16,6 +16,7 @@ public class App
     public static void main( String[] args )
     {
     	DeterministicFiniteAutomaton dfa = new DeterministicFiniteAutomaton();
+    	dfa.initSimpleAutomaton();
     	
     	List<Symbol> input = new ArrayList<Symbol>();
     	input.add(Symbol.b);

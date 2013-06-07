@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import ch.zhaw.regularLanguages.dfa.mutation.MutationRegister;
 import ch.zhaw.regularLanguages.languages.Symbol;
 
 public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutomaton implements Mutable{
@@ -22,7 +23,7 @@ public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutom
 		
 		int noSymbols = alphabet.size();
 		int noStates = rnd.nextInt(noSymbols*2)+1;
-		int noAcceptStates = rnd.nextInt((noStates < 5 ? 1 : noSymbols / 5));
+		int noAcceptStates = (noStates < 5 ? 1 : rnd.nextInt(noSymbols / 5));
 		
 		List<State> states = new ArrayList<State>();
 		List<State> acceptStates = new ArrayList<State>();
@@ -54,26 +55,11 @@ public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutom
 
 	@Override
 	public void mutate(int nochanges) {
+		MutationRegister mr = new MutationRegister();
 		
-		
+		boolean check = false;
+		do{
+			check = mr.mutate(this);
+		}while(check == false);
 	}
-	
-	private void changeRandomLink(){
-		Random rnd = new Random();
-		
-		Symbol s = getAlphabet().get(rnd.nextInt(getAlphabet().size()-1));
-		int origin = rnd.nextInt(getStates().size());
-		int target = rnd.nextInt(getStates().size());
-		
-		changeLink(origin, s, target);
-	}
-	
-	private void addRandomState(){
-		
-	}
-	
-	private void removeRandomState(){
-		
-	}
-	
 }
