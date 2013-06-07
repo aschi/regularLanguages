@@ -1,4 +1,4 @@
-package ch.zhaw.regularLanguages.dfa.mutation;
+package ch.zhaw.regularLanguages.dfa.mutations;
 
 import java.util.Random;
 

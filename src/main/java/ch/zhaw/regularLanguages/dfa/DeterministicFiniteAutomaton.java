@@ -9,7 +9,7 @@ import ch.zhaw.regularLanguages.languages.Symbol;
 public class DeterministicFiniteAutomaton {
 	private List<State> states;
 	private State startState;
-	private List<State> acceptStates;
+	private List<State> acceptingStates;
 	private List<Symbol> alphabet;
 	
 	public DeterministicFiniteAutomaton(){
@@ -17,11 +17,11 @@ public class DeterministicFiniteAutomaton {
 	}	
 
 	public DeterministicFiniteAutomaton(List<State> states, State startState,
-			List<State> acceptStates, List<Symbol> alphabet) {
+			List<State> acceptingStates, List<Symbol> alphabet) {
 		super();
 		this.states = states;
 		this.startState = startState;
-		this.acceptStates = acceptStates;
+		this.acceptingStates = acceptingStates;
 		this.alphabet = alphabet;
 	}
 
@@ -39,7 +39,7 @@ public class DeterministicFiniteAutomaton {
 	}
 
 	public List<State> getAcceptStates() {
-		return acceptStates;
+		return acceptingStates;
 	}
 
 	public List<Symbol> getAlphabet() {
@@ -57,7 +57,7 @@ public class DeterministicFiniteAutomaton {
 		alphabet.add(Symbol.b);
 		
 		states = new ArrayList<State>();
-		acceptStates = new ArrayList<State>();
+		acceptingStates = new ArrayList<State>();
 		
 		State q0 = new State("q0");
 		State q1 = new State("q1");
@@ -78,7 +78,7 @@ public class DeterministicFiniteAutomaton {
 		states.add(q0);
 		states.add(q1);
 		
-		acceptStates.add(q1);
+		acceptingStates.add(q1);
 		startState = q0;
 	}
 	
@@ -99,8 +99,8 @@ public class DeterministicFiniteAutomaton {
 		states.get(origin).getTransitionTable().updateTransition(symbol, states.get(target));
 	}
 	
-	public boolean isAcceptState(State state){
-		if(acceptStates != null && acceptStates.contains(state)){
+	public boolean isAcceptingState(State state){
+		if(acceptingStates != null && acceptingStates.contains(state)){
 			return true;
 		}else{
 			return false;

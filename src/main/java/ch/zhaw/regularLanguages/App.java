@@ -32,6 +32,6 @@ public class App
     	input.add(Symbol.b);
     	
     	State result = dfa.process(input);
-        System.out.println(dfa.isAcceptState(result));
+        System.out.println(dfa.isAcceptingState(result));
     }
 }
