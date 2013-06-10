@@ -43,12 +43,29 @@ public class App
     	words.add("b");
     	words.add("ab");
     	words.add("ba");
-    	words.add("aba");
-    	words.add("bab");
+    	words.add("aa");
+    	words.add("ab");
+    	words.add("aaa");
     	words.add("aab");
+    	words.add("aba");
+    	words.add("abb");
+    	words.add("baa");
+    	words.add("bab");
     	words.add("bbb");
     	words.add("abab");
     	words.add("baba");
+    	words.add("aaaa");
+    	words.add("aaab");
+    	words.add("aaba");
+    	words.add("aabb");
+    	words.add("abaa");
+    	words.add("abba");
+    	words.add("abbb");
+    	words.add("baaa");
+    	words.add("baab");
+    	words.add("bbaa");
+    	words.add("bbab");
+    	words.add("bbbb");
     	
     	ProblemSet<List<Character>, Boolean> testProblems = LanguageHelper.generateLanguageProblemSet(".*abab$", words);
     	SimpleEvolutionaryAlgorithm<RandomDeterministicFiniteAutomaton> sea = new SimpleEvolutionaryAlgorithm<RandomDeterministicFiniteAutomaton>(testProblems, LanguageHelper.generateSymbolList("ab"), RandomDeterministicFiniteAutomaton.class);
@@ -56,6 +73,13 @@ public class App
     	if(sea.getWinner() != null){
     		System.out.println("Winner!");
     		GraphvizRenderer.renderGraph(sea.getWinner(), "testOutput.svg");
+    		
+    		
+    		System.out.println(testProblems);
+    		System.out.println("Max C: "+ sea.getMaxC() + " / ProblemSetSize : " + sea.getProblemSetSize());
+    		for(int i = 0; i < sea.getCounter().length;i++){
+    			System.out.println("["+i+"] " + sea.getCounter()[i]);
+    		}
     	}else{
     		System.out.println("No winner!");
     		System.out.println(testProblems);

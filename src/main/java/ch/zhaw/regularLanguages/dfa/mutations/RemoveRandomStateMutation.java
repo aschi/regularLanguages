@@ -18,8 +18,14 @@ public class RemoveRandomStateMutation implements RandomMutation {
 			return false;
 		}else{
 			//index of the state to be removed
-			int i = rnd.nextInt(states.size());
-			State oldState = states.get(i);
+			int i;
+			State oldState = null;
+			
+			//Start state shall not be removed
+			do{
+				i = rnd.nextInt(states.size());
+				oldState = states.get(i);
+			}while(dfa.getStartState() == oldState || (dfa.getAcceptingStates().contains(oldState) && dfa.getAcceptingStates().size() == 1));
 			
 			//replace links to the to-be-removed state from all other states
 			for(State s : states){
@@ -32,6 +38,10 @@ public class RemoveRandomStateMutation implements RandomMutation {
 					newState = states.get(rnd.nextInt(states.size()));	
 				}while(newState == oldState);
 				s.getTransitionTable().replaceTarget(oldState, newState); // random link
+			}
+
+			if(dfa.getAcceptingStates().contains(oldState)){
+				dfa.getAcceptingStates().remove(oldState);
 			}
 			
 			//remove the old state

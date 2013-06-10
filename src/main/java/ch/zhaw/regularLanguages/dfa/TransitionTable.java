@@ -25,12 +25,16 @@ public class TransitionTable {
 	 * @param newTarget
 	 */
 	public void replaceTarget(State oldTarget, State newTarget){
+		Map<Character, State> newTransitionTable = new HashMap<Character, State>();
+		
 		for(Character c : transitionTable.keySet()){
 			if(transitionTable.get(c) == oldTarget){
-				transitionTable.remove(c);
-				transitionTable.put(c, newTarget);
+				newTransitionTable.put(c, newTarget);
+			}else{
+				newTransitionTable.put(c, transitionTable.get(c));
 			}
 		}
+		transitionTable = newTransitionTable;
 	}
 	
 	public State process(Character character){

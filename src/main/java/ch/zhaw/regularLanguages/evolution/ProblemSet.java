@@ -20,6 +20,10 @@ public class ProblemSet<P,S> {
 		}
 	}
 	
+	public S getSolution(P problem){
+		return map.get(problem);
+	}
+	
 	public boolean checkSolution(P problem, S solution){
 		return map.get(problem).equals(solution);
 	}	

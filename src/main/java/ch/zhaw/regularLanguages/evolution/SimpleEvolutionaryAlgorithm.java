@@ -8,10 +8,11 @@ import java.util.List;
 import java.util.Set;
 
 import ch.zhaw.regularLanguages.dfa.DeterministicFiniteAutomaton;
+import ch.zhaw.regularLanguages.dfa.State;
 
 public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAutomaton & Mutable> implements EvolutionaryAlgorithm<AUTOMATON>{
 	private final int CYCLE_LIMIT = 1000;
-	private final int NO_START_AUTOMATONS = 1000;
+	private final int NO_START_AUTOMATONS = 100;
 	
 	private AUTOMATON winner;
 	private Set<AUTOMATON>best;
@@ -30,6 +31,8 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 	public SimpleEvolutionaryAlgorithm(ProblemSet<List<Character>, Boolean> problemSet, List<Character> alphabet, Class<AUTOMATON> classTypeDef) {
 		this.problemSet = problemSet;	
 		this.maxFitness = problemSet.getProblemSet().size();
+		
+		System.out.println("Max Fitness: " + maxFitness);
 		counter = new long[problemSet.getProblemSet().size()];
 		this.classTypeDef = classTypeDef;
 		this.alphabet = alphabet;
@@ -91,7 +94,7 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 		List <AUTOMATON>newList = null;
 		
 		while(cycle < CYCLE_LIMIT && finalForm == false){
-			System.out.println("Cycle: "+cycle +" objects: " + objects.size() + "newList : " + (newList != null ? newList.size() : "null"));
+			System.out.println("Cycle: "+cycle);
 			
 			if(fitness == null){
 				fitness = new LinkedList<EvolutionCandidate<AUTOMATON>>();
@@ -99,11 +102,15 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 				fitness.clear();
 			}
 			
+			
 			for(AUTOMATON obj : objects){
 				fitness.add(new EvolutionCandidate<AUTOMATON>(obj, automatonFitness(obj)));
 			}
+			System.out.println("fitness values calculated..");
 			
 			Collections.sort(fitness);
+			
+			System.out.println("fitness values sorted..");
 			
 			//take the fitter half and clone & mutate all elements and put them into a new list
 			
@@ -112,29 +119,26 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 			}else{
 				newList.clear();
 			}
-			if(best == null){
-				best = new HashSet<AUTOMATON>();
-			}else{
-				best.clear();
-			}
 			for(int i = 0;i < (fitness.size())/2;i++){
 				if(fitness.get(i).getFitness() == maxFitness){
+					automatonFitness(fitness.get(i).getObj());
 					winner = fitness.get(i).getObj();
+					finalForm = true;
 					break;
 				}else{
 					if(fitness.get(i).getFitness() > maxC){
 						maxC = fitness.get(i).getFitness();
 						System.out.println("new maxC: " + maxC);
-						best.add(fitness.get(i).getObj());
-					}else if(fitness.get(i).getFitness() == maxC){
-						best.add(fitness.get(i).getObj());
 					}
+					
 					newList.add(fitness.get(i).getObj()); //add old object
 					AUTOMATON newClone = (AUTOMATON)fitness.get(i).getObj().clone();
 					newClone.mutate(1);
 					newList.add(newClone); //add mutated clone
 				}
 			}
+			
+			System.out.println("clear list & set newlist");
 			
 			//continue with new list
 			objects.clear();
@@ -148,7 +152,9 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 		int c = 0;
 		int i = 0;
 		for(List<Character> problem : problemSet.getProblemSet()){
-			if(problemSet.checkSolution(problem, obj.isAcceptingState(obj.process(problem)))){
+			State state = obj.process(problem);
+			boolean isAccepting = obj.isAcceptingState(state);
+			if(problemSet.checkSolution(problem, isAccepting)){
 				c++;
 				counter[i]++;
 			}

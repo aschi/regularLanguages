@@ -3,11 +3,10 @@ package ch.zhaw.regularLanguages.dfa;
 import java.util.ArrayList;
 import java.util.List;
 
-import ch.zhaw.regularLanguages.evolution.Mutable;
 import ch.zhaw.regularLanguages.graphicalOutput.GraphvizRenderable;
 import ch.zhaw.regularLanguages.languages.LanguageHelper;
 
-public class DeterministicFiniteAutomaton implements GraphvizRenderable, Mutable {
+public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 	private List<State> states;
 	private State startState;
 	private List<State> acceptingStates;
@@ -152,6 +151,9 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable, Mutable
 		
 		//acceptingStates
 		for(State s : getAcceptingStates()){
+			if(getStates().indexOf(s) == -1){
+				System.out.println("accepting state not in state list!!");
+			}
 			acceptingStates.add(states.get(getStates().indexOf(s)));
 		}
 		
@@ -174,11 +176,5 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable, Mutable
 		output += "}";
 		
 		return output;
-	}
-
-	@Override
-	public void mutate(int nochanges) {
-		// TODO Auto-generated method stub
-		
 	}
 }

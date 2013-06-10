@@ -59,6 +59,13 @@ public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutom
 		
 	}
 
+	public RandomDeterministicFiniteAutomaton(DeterministicFiniteAutomaton dfa) {
+		setAcceptingStates(dfa.getAcceptingStates());
+		setAlphabet(dfa.getAlphabet());
+		setStartState(dfa.getStartState());
+		setStates(dfa.getStates());
+	}
+
 	@Override
 	public void mutate(int nochanges) {
 		if(mr == null){
@@ -70,4 +77,11 @@ public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutom
 			check = mr.mutate(this);
 		}while(check == false);
 	}
+	
+	@Override
+	public Object clone(){
+		DeterministicFiniteAutomaton dfa = (DeterministicFiniteAutomaton)super.clone();
+		return new RandomDeterministicFiniteAutomaton(dfa);
+	}
+		
 }
