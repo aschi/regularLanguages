@@ -1,6 +1,5 @@
 package ch.zhaw.regularLanguages.dfa;
 
-import ch.zhaw.regularLanguages.languages.Symbol;
 
 public class State {
 	private String id;
@@ -23,8 +22,8 @@ public class State {
 		this.tt = tt;
 	}
 	
-	public State process(Symbol symbol){
-		return tt.process(symbol);
+	public State process(Character character){
+		return tt.process(character);
 	}
 	
 	public String getId(){

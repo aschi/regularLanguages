@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Random;
 
 import ch.zhaw.regularLanguages.dfa.mutations.MutationRegister;
-import ch.zhaw.regularLanguages.languages.Symbol;
+import ch.zhaw.regularLanguages.evolution.Mutable;
 
 public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutomaton implements Mutable{
+	private MutationRegister mr = new MutationRegister();
+	
 	
 	/**
 	 * Generates a random state machine.
@@ -18,12 +20,12 @@ public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutom
 	 * @param alphabet list of symbols
 	 * @return a random deterministic finite automaton for the given alphabet
 	 */
-	public static DeterministicFiniteAutomaton generate(List<Symbol> alphabet){
+	public RandomDeterministicFiniteAutomaton(List<Character> alphabet, int complexity){
 		Random rnd = new Random();
-		
 		int noSymbols = alphabet.size();
-		int noStates = rnd.nextInt(noSymbols*2)+1;
-		int noAcceptingStates = (noStates < 5 ? 1 : rnd.nextInt(noSymbols / 5));
+		int maxStates = noSymbols*complexity*2;
+		int noStates = rnd.nextInt(maxStates)+1;
+		int noAcceptingStates = (noStates < 5 ? 1 : rnd.nextInt(noStates / 5));
 		
 		List<State> states = new ArrayList<State>();
 		List<State> acceptingStates = new ArrayList<State>();
@@ -50,12 +52,18 @@ public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutom
 			acceptingStates.add(state);
 		}
 		
-		return new DeterministicFiniteAutomaton(states, states.get(0), acceptingStates, alphabet);
+		setStates(states);
+		setStartState(states.get(0));
+		setAcceptingStates(acceptingStates);
+		setAlphabet(alphabet);
+		
 	}
 
 	@Override
 	public void mutate(int nochanges) {
-		MutationRegister mr = new MutationRegister();
+		if(mr == null){
+			mr = new MutationRegister();
+		}
 		
 		boolean check = false;
 		do{

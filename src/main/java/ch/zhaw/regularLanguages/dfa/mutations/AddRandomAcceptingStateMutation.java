@@ -17,9 +17,9 @@ public class AddRandomAcceptingStateMutation implements RandomMutation{
 		
 		do{
 			state = states.get(rnd.nextInt(states.size()));
-		}while(dfa.getAcceptStates().contains(state));
+		}while(dfa.getAcceptingStates().contains(state));
 		
-		dfa.getAcceptStates().add(state);
+		dfa.getAcceptingStates().add(state);
 		
 		//return true as it can not fail
 		return true;
