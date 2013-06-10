@@ -63,6 +63,8 @@ public class App
     		for(int i = 0; i < sea.getCounter().length;i++){
     			System.out.println("["+i+"] " + sea.getCounter()[i]);
     		}
+    		
+    		System.out.println(sea.getBest().size());
     	}
     }
 }

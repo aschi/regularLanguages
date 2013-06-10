@@ -2,8 +2,10 @@ package ch.zhaw.regularLanguages.evolution;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import ch.zhaw.regularLanguages.dfa.DeterministicFiniteAutomaton;
 
@@ -12,6 +14,7 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 	private final int NO_START_AUTOMATONS = 1000;
 	
 	private AUTOMATON winner;
+	private Set<AUTOMATON>best;
 	private int maxC = 0;
 	private int maxFitness;
 	
@@ -65,6 +68,10 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 		}
 	}
 	
+	public Set<AUTOMATON> getBest(){
+		return best;
+	}
+	
 	public long[] getCounter(){
 		return counter;
 	}
@@ -81,10 +88,16 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 	public void startEvolution() {
 		int cycle = 0;
 		boolean finalForm = false;
+		List <AUTOMATON>newList = null;
+		
 		while(cycle < CYCLE_LIMIT && finalForm == false){
-			System.out.println("Cycle: "+cycle);
+			System.out.println("Cycle: "+cycle +" objects: " + objects.size() + "newList : " + (newList != null ? newList.size() : "null"));
 			
-			fitness = new LinkedList<EvolutionCandidate<AUTOMATON>>();
+			if(fitness == null){
+				fitness = new LinkedList<EvolutionCandidate<AUTOMATON>>();
+			}else{
+				fitness.clear();
+			}
 			
 			for(AUTOMATON obj : objects){
 				fitness.add(new EvolutionCandidate<AUTOMATON>(obj, automatonFitness(obj)));
@@ -93,12 +106,29 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 			Collections.sort(fitness);
 			
 			//take the fitter half and clone & mutate all elements and put them into a new list
-			List <AUTOMATON>newList = new LinkedList<AUTOMATON>();
+			
+			if(newList == null){
+				newList = new LinkedList<AUTOMATON>();
+			}else{
+				newList.clear();
+			}
+			if(best == null){
+				best = new HashSet<AUTOMATON>();
+			}else{
+				best.clear();
+			}
 			for(int i = 0;i < (fitness.size())/2;i++){
 				if(fitness.get(i).getFitness() == maxFitness){
 					winner = fitness.get(i).getObj();
 					break;
 				}else{
+					if(fitness.get(i).getFitness() > maxC){
+						maxC = fitness.get(i).getFitness();
+						System.out.println("new maxC: " + maxC);
+						best.add(fitness.get(i).getObj());
+					}else if(fitness.get(i).getFitness() == maxC){
+						best.add(fitness.get(i).getObj());
+					}
 					newList.add(fitness.get(i).getObj()); //add old object
 					AUTOMATON newClone = (AUTOMATON)fitness.get(i).getObj().clone();
 					newClone.mutate(1);
@@ -107,7 +137,8 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 			}
 			
 			//continue with new list
-			objects = newList;
+			objects.clear();
+			objects.addAll(newList);
 
 			cycle++;
 		}
@@ -125,7 +156,14 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 		}
 		return c;
 	}
+
+	@Override
+	public EvolutionResult evolve(AUTOMATON obj1, AUTOMATON obi2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
+	/*
 	@Override
 	public EvolutionResult evolve(AUTOMATON obj1,
 			AUTOMATON obj2) {
@@ -181,4 +219,5 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 			return EvolutionResult.IN_PROGRESS;
 		}
 	}
+	*/
 }
