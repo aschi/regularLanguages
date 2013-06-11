@@ -30,15 +30,7 @@ public class App
         */
     	
     	List<String> words = new LinkedList<String>();
-    	words.add("aabab");
-    	words.add("ababa");
-    	words.add("bbbaabab");
-    	words.add("ababaab");
-    	words.add("aaaaababaaaaaababab");
-    	words.add("ababaaaabbbbaaaabbbbaaa");
-    	words.add("aababbabbabbababbabab");
-    	words.add("bbbbbb");
-    	words.add("aaaaaaaa");
+    	words.add("");
     	words.add("a");
     	words.add("b");
     	words.add("ab");
@@ -66,14 +58,30 @@ public class App
     	words.add("bbaa");
     	words.add("bbab");
     	words.add("bbbb");
+    	words.add("aabab");
+    	words.add("ababa");
+    	words.add("bbbaabab");
+    	words.add("ababaab");
+    	words.add("aaaaababaaaaaababab");
+    	words.add("ababaaaabbbbaaaabbbbaaa");
+    	words.add("aababbabbabbababbabab");
+    	words.add("bbbbbb");
+    	words.add("aaaaaaaa");
+
     	
     	ProblemSet<List<Character>, Boolean> testProblems = LanguageHelper.generateLanguageProblemSet(".*abab$", words);
     	SimpleEvolutionaryAlgorithm<RandomDeterministicFiniteAutomaton> sea = new SimpleEvolutionaryAlgorithm<RandomDeterministicFiniteAutomaton>(testProblems, LanguageHelper.generateSymbolList("ab"), RandomDeterministicFiniteAutomaton.class);
     	sea.startEvolution();
     	if(sea.getWinner() != null){
     		System.out.println("Winner!");
-    		GraphvizRenderer.renderGraph(sea.getWinner(), "testOutput.svg");
+    		GraphvizRenderer.renderGraph(sea.getWinner(), "winner.svg");
     		
+    		int n = 0;
+    		for(RandomDeterministicFiniteAutomaton o : sea.getObjects()){
+    			GraphvizRenderer.renderGraph(o, n+".svg");
+    			System.out.println("Generating: " + n+".svg");
+    			n++;
+    		}
     		
     		System.out.println(testProblems);
     		System.out.println("Max C: "+ sea.getMaxC() + " / ProblemSetSize : " + sea.getProblemSetSize());
@@ -88,7 +96,12 @@ public class App
     			System.out.println("["+i+"] " + sea.getCounter()[i]);
     		}
     		
-    		System.out.println(sea.getBest().size());
+    		int n = 0;
+    		for(RandomDeterministicFiniteAutomaton o : sea.getObjects()){
+    			GraphvizRenderer.renderGraph(o, n+".svg");
+    			System.out.println("Generating: " + n+".svg");
+    			n++;
+    		}
     	}
     }
 }

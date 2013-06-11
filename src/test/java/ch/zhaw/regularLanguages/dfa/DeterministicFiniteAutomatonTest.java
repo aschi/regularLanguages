@@ -4,11 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.TestCase;
+
+import org.junit.Before;
+import org.junit.Test;
+
 import ch.zhaw.regularLanguages.languages.LanguageHelper;
 
 public class DeterministicFiniteAutomatonTest extends TestCase {
 	DeterministicFiniteAutomaton dfa;
 	
+	@Before
 	public void setUp(){
 		dfa = new DeterministicFiniteAutomaton();
 		dfa.setAlphabet(LanguageHelper.generateSymbolList("ab"));
@@ -41,10 +46,15 @@ public class DeterministicFiniteAutomatonTest extends TestCase {
 		dfa.setStartState(startState);
 	}
 	
-	public void changeLinkTest(){
-		dfa.changeLink(0, 'a', 1);
+	@Test
+	public void testChangeLink(){
+		dfa.changeLink(0, LanguageHelper.generateSymbolList("a").get(0), 1);
 		int keySetSize = dfa.getStates().get(0).getTransitionTable().getTransitionTable().keySet().size();
 		State newTarget = dfa.getStates().get(0).getTransitionTable().process('a');
+		
+		System.out.println(keySetSize);
+		System.out.println(newTarget.getId());
+		
 		assertTrue(newTarget == dfa.getStates().get(1) && keySetSize == 2);
 				
 	}

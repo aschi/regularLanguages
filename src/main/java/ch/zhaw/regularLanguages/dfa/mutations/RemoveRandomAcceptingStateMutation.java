@@ -12,12 +12,12 @@ public class RemoveRandomAcceptingStateMutation implements RandomMutation{
 	public boolean mutate(DeterministicFiniteAutomaton dfa) {
 		Random rnd = new Random();
 		
-		List<State> acceptStates = dfa.getAcceptingStates();
+		List<State> acceptingStates = dfa.getAcceptingStates();
 		
-		if(acceptStates.size() <=1){
+		if(acceptingStates.size() <=1){
 			return false;
 		}else{
-			acceptStates.remove(rnd.nextInt(acceptStates.size()));
+			acceptingStates.remove(rnd.nextInt(acceptingStates.size()));
 			return true;
 		}
 	}

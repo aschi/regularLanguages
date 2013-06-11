@@ -19,6 +19,17 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 	public DeterministicFiniteAutomaton(List<State> states, State startState,
 			List<State> acceptingStates, List<Character> alphabet) {
 		super();
+		
+		if(alphabet.isEmpty()){
+			throw new IllegalArgumentException("Alphabet can not be empty!");
+		}
+		if(states.isEmpty()){
+			throw new IllegalArgumentException("States can not be empty!");	
+		}
+		if(startState == null){
+			throw new IllegalArgumentException("Start state can not be null!");				
+		}
+		
 		this.states = states;
 		this.startState = startState;
 		this.acceptingStates = acceptingStates;
@@ -88,10 +99,15 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 		startState = q0;
 	}
 	
-	public State process(List<Character> input){
+	public State process(List<Character> input) throws Exception{
 		State current = this.startState;
 		//System.out.println("Start: " + current);
 		for(int i = 0;i < input.size();i++){
+			if(current.getTransitionTable().getTransitionTable().keySet().size() != alphabet.size()){
+				throw new Exception("TransitionTable is incorrect!!!");
+			}
+			
+			
 			if(current != null){
 				current = current.process(input.get(i));
 				//System.out.println("Step " + i + ":" + current);

@@ -8,11 +8,13 @@ import java.util.List;
 import java.util.Set;
 
 import ch.zhaw.regularLanguages.dfa.DeterministicFiniteAutomaton;
+import ch.zhaw.regularLanguages.dfa.RandomDeterministicFiniteAutomaton;
 import ch.zhaw.regularLanguages.dfa.State;
+import ch.zhaw.regularLanguages.graphicalOutput.GraphvizRenderer;
 
 public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAutomaton & Mutable> implements EvolutionaryAlgorithm<AUTOMATON>{
 	private final int CYCLE_LIMIT = 1000;
-	private final int NO_START_AUTOMATONS = 100;
+	private final int NO_START_AUTOMATONS = 50;
 	
 	private AUTOMATON winner;
 	private Set<AUTOMATON>best;
@@ -41,6 +43,10 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 	
 	public AUTOMATON getWinner(){
 		return winner;
+	}
+	
+	public List<AUTOMATON> getObjects(){
+		return objects;
 	}
 	
 	private void initTestList(){
@@ -93,7 +99,7 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 		boolean finalForm = false;
 		List <AUTOMATON>newList = null;
 		
-		while(cycle < CYCLE_LIMIT && finalForm == false){
+		A : while(cycle < CYCLE_LIMIT && finalForm == false){
 			System.out.println("Cycle: "+cycle);
 			
 			if(fitness == null){
@@ -124,7 +130,7 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 					automatonFitness(fitness.get(i).getObj());
 					winner = fitness.get(i).getObj();
 					finalForm = true;
-					break;
+					break A;
 				}else{
 					if(fitness.get(i).getFitness() > maxC){
 						maxC = fitness.get(i).getFitness();
@@ -152,7 +158,14 @@ public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAu
 		int c = 0;
 		int i = 0;
 		for(List<Character> problem : problemSet.getProblemSet()){
-			State state = obj.process(problem);
+			State state = null;
+			try {
+				state = obj.process(problem);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.exit(0);
+			}
 			boolean isAccepting = obj.isAcceptingState(state);
 			if(problemSet.checkSolution(problem, isAccepting)){
 				c++;
