@@ -1,7 +1,10 @@
 package ch.zhaw.regularLanguages.dfa;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import ch.zhaw.regularLanguages.graphicalOutput.GraphvizRenderable;
 import ch.zhaw.regularLanguages.languages.LanguageHelper;
@@ -11,6 +14,9 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 	private State startState;
 	private List<State> acceptingStates;
 	private List<Character> alphabet;
+	
+	//temp used to avoid endless loops in minimisation loop
+	private List<State> alreadyProcessed;
 	
 	public DeterministicFiniteAutomaton(){
 		initSimpleAutomaton();
@@ -104,7 +110,7 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 		//System.out.println("Start: " + current);
 		for(int i = 0;i < input.size();i++){
 			if(current.getTransitionTable().getTransitionTable().keySet().size() != alphabet.size()){
-				throw new Exception("TransitionTable is incorrect!!!");
+				throw new Exception("TransitionTable is inconsistent!!!");
 			}
 			
 			
@@ -129,7 +135,40 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 	}
 	
 	public void minimizeAutomaton(){
-		//TODO: Implement
+		//remove unreachable states
+		State  reachable;
+		Set<State> reachableStates = new HashSet<State>();
+		
+		alreadyProcessed = new LinkedList<State>();
+		
+		reachableStates.add(this.startState);
+		for(State current : reachableStates){
+			
+			for(int i = 0;i < alphabet.size();i++){
+				if(current != null){
+					reachable = current.process(alphabet.get(i));
+					reachableStates.add(reachable);
+					//System.out.println("Step " + i + ":" + current);
+				}
+			}
+		}
+	}
+	
+	public Set<State> getChildren(State s){
+		if(!alreadyProcessed.contains(s)){
+			Set<State> temp = new HashSet<State>();
+			State tar;
+			for(int i = 0;i < alphabet.size();i++){
+				if(s != null){
+					tar = s.process(alphabet.get(i));
+					temp.addAll(getChildren(tar));
+				}
+			}
+			alreadyProcessed.add(s);
+			return temp;
+		}else{
+			return null;
+		}
 	}
 	
 	@Override
