@@ -30,7 +30,21 @@ public class State {
 		return this.id;
 	}
 	
+	@Override
+	public boolean equals(Object o){
+		if(o instanceof State){
+			State s = (State)o;
+			if(s.getId().equals(this.getId())){
+				return true;
+			}
+		}
+		return false;
+	}
 	
+	@Override
+	public int hashCode(){
+		return getId().hashCode();
+	}
 	public String toString(){
 		return id;
 	}

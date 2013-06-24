@@ -1,7 +1,7 @@
 package ch.zhaw.regularLanguages.dfa.mutations;
 
-import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import ch.zhaw.regularLanguages.dfa.DeterministicFiniteAutomaton;
 import ch.zhaw.regularLanguages.dfa.State;
@@ -12,18 +12,29 @@ public class AddRandomStateMutation implements RandomMutation{
 	public boolean mutate(DeterministicFiniteAutomaton dfa) {
 		Random rnd = new Random();
 		
-		List<State> states = dfa.getStates();
-		List<Character> alphabet = dfa.getAlphabet();
+		Set<State> states = dfa.getStates();
+		State[] stateArr = states.toArray(new State[0]);
 		
-		int noSymbols = alphabet.size();
-		int i = states.size();
+		char[] alphabet = dfa.getAlphabet();
 		
-		State state = new State("q"+i);
+		int noSymbols = alphabet.length;
+		//int i = states.size();
+		
+		int i = 0;
+		String stateId = "q"+i;
+		while(!dfa.isStateIdAvailable(stateId)){
+			i++;
+			stateId = "q"+i;
+		}
+		State state = new State(stateId);
+			
+		i = states.size();
+		
 		TransitionTable tt = new TransitionTable();
 		
 		//generate transition table		
 		for(int n = 0;n < noSymbols;n++){
-			tt.addTransition(alphabet.get(n), states.get(rnd.nextInt(i)));
+			tt.addTransition(alphabet[n], stateArr[rnd.nextInt(i)]);
 		}
 		
 		//add the new state
@@ -32,30 +43,27 @@ public class AddRandomStateMutation implements RandomMutation{
 		
 		int avg = calcNOAverageIncomingEdges(states);
 		for(int n = 0;n < ((avg/2) + rnd.nextInt(avg*2 - avg/2 + 1));n++){
-			dfa.changeLink(rnd.nextInt((i<1?1:i-1)), alphabet.get(rnd.nextInt(noSymbols)), i);
+			State origin = dfa.getState(new State("q"+rnd.nextInt((i<1?1:i-1))));
+			dfa.changeLink(origin, alphabet[rnd.nextInt(noSymbols)], state);
 		}
 		
 		//return true as it can not fail
 		return true;
 	}
 	
-	private int calcNOAverageIncomingEdges(List<State> states){
-		int[] counter = new int[states.size()];
+	private int calcNOAverageIncomingEdges(Set<State> states){
+		int total = 0;
 		
 		for(State s : states){
 			for(Character c : s.getTransitionTable().getTransitionTable().keySet()){
-				int i = states.indexOf(s.getTransitionTable().getTransitionTable().get(c));
-				counter[i]++;
+				State target = s.getTransitionTable().getTransitionTable().get(c);
+				if(target != null){
+					total++;
+				}
 			}
 		}
 		
-		int total = 0;
-		for(int c : counter){
-			total+=c;
-		}
-		
 		int avg = total/states.size();
-		
 		return avg;
 	}
 }

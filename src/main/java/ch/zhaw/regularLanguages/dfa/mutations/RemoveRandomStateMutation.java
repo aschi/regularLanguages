@@ -1,7 +1,7 @@
 package ch.zhaw.regularLanguages.dfa.mutations;
 
-import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import ch.zhaw.regularLanguages.dfa.DeterministicFiniteAutomaton;
 import ch.zhaw.regularLanguages.dfa.State;
@@ -12,9 +12,10 @@ public class RemoveRandomStateMutation implements RandomMutation {
 	public boolean mutate(DeterministicFiniteAutomaton dfa) {
 		Random rnd = new Random();
 		
-		List<State> states = dfa.getStates();
+		Set<State> states = dfa.getStates();
+		State[] stateArr = states.toArray(new State[0]);
 		
-		if(states.size() <= 1){
+		if(states.size() <= 2){
 			return false;
 		}else{
 			//index of the state to be removed
@@ -24,7 +25,7 @@ public class RemoveRandomStateMutation implements RandomMutation {
 			//Start state shall not be removed
 			do{
 				i = rnd.nextInt(states.size());
-				oldState = states.get(i);
+				oldState = stateArr[i];
 			}while(dfa.getStartState() == oldState || (dfa.getAcceptingStates().contains(oldState) && dfa.getAcceptingStates().size() == 1));
 			
 			//replace links to the to-be-removed state from all other states
@@ -35,7 +36,7 @@ public class RemoveRandomStateMutation implements RandomMutation {
 				//get a replacement state
 				State newState = null;
 				do{
-					newState = states.get(rnd.nextInt(states.size()));	
+					newState = stateArr[rnd.nextInt(states.size())];	
 				}while(newState == oldState);
 				s.getTransitionTable().replaceTarget(oldState, newState); // random link
 			}

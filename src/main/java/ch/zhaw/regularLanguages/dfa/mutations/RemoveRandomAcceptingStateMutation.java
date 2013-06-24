@@ -1,7 +1,7 @@
 package ch.zhaw.regularLanguages.dfa.mutations;
 
-import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import ch.zhaw.regularLanguages.dfa.DeterministicFiniteAutomaton;
 import ch.zhaw.regularLanguages.dfa.State;
@@ -12,7 +12,7 @@ public class RemoveRandomAcceptingStateMutation implements RandomMutation{
 	public boolean mutate(DeterministicFiniteAutomaton dfa) {
 		Random rnd = new Random();
 		
-		List<State> acceptingStates = dfa.getAcceptingStates();
+		Set<State> acceptingStates = dfa.getAcceptingStates();
 		
 		if(acceptingStates.size() <=1){
 			return false;

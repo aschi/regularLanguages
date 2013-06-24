@@ -20,6 +20,8 @@ public class MutationRegister implements RandomMutation{
 	@Override
 	public boolean mutate(DeterministicFiniteAutomaton dfa) {
 		Random rnd = new Random();
-		return mutList.get(rnd.nextInt(mutList.size())).mutate(dfa);
+		int i = rnd.nextInt(mutList.size());
+		//System.out.println("Mutation "+i);
+		return mutList.get(i).mutate(dfa);
 	}
 }

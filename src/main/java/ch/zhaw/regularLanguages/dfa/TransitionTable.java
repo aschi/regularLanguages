@@ -11,12 +11,22 @@ public class TransitionTable {
 	}
 	
 	public void addTransition(Character character, State state){
+		doubleCheckRemove(character);
 		transitionTable.put(character, state);
 	}
 	
 	public void updateTransition(Character character, State state){
-		transitionTable.remove(character);
+		doubleCheckRemove(character);
 		transitionTable.put(character, state);
+	}
+	
+	public void doubleCheckRemove(Character character){
+		transitionTable.remove(character);
+		for(Character c : transitionTable.keySet()){
+			if(c.charValue() == character.charValue()){
+				transitionTable.remove(c);
+			}
+		}
 	}
 	
 	/**

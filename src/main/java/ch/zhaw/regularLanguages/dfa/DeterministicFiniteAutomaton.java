@@ -2,31 +2,26 @@ package ch.zhaw.regularLanguages.dfa;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
 import ch.zhaw.regularLanguages.graphicalOutput.GraphvizRenderable;
-import ch.zhaw.regularLanguages.languages.LanguageHelper;
 
 public class DeterministicFiniteAutomaton implements GraphvizRenderable{
-	private List<State> states;
+	private Set<State> states;
 	private State startState;
-	private List<State> acceptingStates;
-	private List<Character> alphabet;
-	
-	//temp used to avoid endless loops in minimisation loop
-	private List<State> alreadyProcessed;
+	private Set<State> acceptingStates;
+	private char[] alphabet;
 	
 	public DeterministicFiniteAutomaton(){
 		initSimpleAutomaton();
 	}	
 
-	public DeterministicFiniteAutomaton(List<State> states, State startState,
-			List<State> acceptingStates, List<Character> alphabet) {
+	public DeterministicFiniteAutomaton(Set<State> states, State startState,
+			Set<State> acceptingStates, char[] alphabet) {
 		super();
 		
-		if(alphabet.isEmpty()){
+		if(alphabet.length == 0){
 			throw new IllegalArgumentException("Alphabet can not be empty!");
 		}
 		if(states.isEmpty()){
@@ -51,27 +46,27 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 		this.startState = startState;
 	}
 
-	public List<State> getStates() {
+	public Set<State> getStates() {
 		return states;
 	}
 
-	public List<State> getAcceptingStates() {
+	public Set<State> getAcceptingStates() {
 		return acceptingStates;
 	}
 
-	public List<Character> getAlphabet() {
+	public char[] getAlphabet() {
 		return alphabet;
 	}
 
-	public void setStates(List<State> states) {
+	public void setStates(Set<State> states) {
 		this.states = states;
 	}
 
-	public void setAcceptingStates(List<State> acceptingStates) {
+	public void setAcceptingStates(Set<State> acceptingStates) {
 		this.acceptingStates = acceptingStates;
 	}
 
-	public void setAlphabet(List<Character> alphabet) {
+	public void setAlphabet(char[] alphabet) {
 		this.alphabet = alphabet;
 	}
 
@@ -79,10 +74,11 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 	 * 
 	 */
 	public void initSimpleAutomaton(){
-		alphabet = LanguageHelper.generateSymbolList("ab");
+		char[] alphabet = {'a', 'b'};
+		setAlphabet(alphabet);
 		
-		states = new ArrayList<State>();
-		acceptingStates = new ArrayList<State>();
+		states = new HashSet<State>();
+		acceptingStates = new HashSet<State>();
 		
 		State q0 = new State("q0");
 		State q1 = new State("q1");
@@ -105,25 +101,34 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 		startState = q0;
 	}
 	
-	public State process(List<Character> input) throws Exception{
+	
+	public boolean isStateIdAvailable(String stateId){
+		for(State s : states){
+			if(s.equals(stateId)){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	
+	
+	public State process(char[] input){
 		State current = this.startState;
 		//System.out.println("Start: " + current);
-		for(int i = 0;i < input.size();i++){
-			if(current.getTransitionTable().getTransitionTable().keySet().size() != alphabet.size()){
-				throw new Exception("TransitionTable is inconsistent!!!");
-			}
-			
-			
+		for(int i = 0;i < input.length;i++){
 			if(current != null){
-				current = current.process(input.get(i));
+				current = current.process(input[i]);
 				//System.out.println("Step " + i + ":" + current);
 			}
 		}
 		return current;
 	}
 	
-	public void changeLink(int origin, Character character, int target){
-		states.get(origin).getTransitionTable().updateTransition(character, states.get(target));
+	public void changeLink(State origin, Character character, State target){
+		if(states.contains(origin) && states.contains(target)){
+			origin.getTransitionTable().updateTransition(character, target);
+		}
 	}
 	
 	public boolean isAcceptingState(State state){
@@ -134,88 +139,107 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 		}
 	}
 	
+	
 	public void minimizeAutomaton(){
 		//remove unreachable states
 		State  reachable;
 		Set<State> reachableStates = new HashSet<State>();
 		
-		alreadyProcessed = new LinkedList<State>();
-		
 		reachableStates.add(this.startState);
-		for(State current : reachableStates){
+		A: while(true){
+			int lastCount = reachableStates.size();
+		
+			Set<State> newReachableStates = new HashSet<State>(reachableStates);
 			
-			for(int i = 0;i < alphabet.size();i++){
-				if(current != null){
-					reachable = current.process(alphabet.get(i));
-					reachableStates.add(reachable);
-					//System.out.println("Step " + i + ":" + current);
+			for(State current : reachableStates){
+				for(int i = 0;i < alphabet.length;i++){
+					if(current != null){
+						reachable = current.process(alphabet[i]);
+						newReachableStates.add(reachable);
+						//System.out.println("Step " + i + ":" + current);
+					}
 				}
 			}
-		}
-	}
-	
-	public Set<State> getChildren(State s){
-		if(!alreadyProcessed.contains(s)){
-			Set<State> temp = new HashSet<State>();
-			State tar;
-			for(int i = 0;i < alphabet.size();i++){
-				if(s != null){
-					tar = s.process(alphabet.get(i));
-					temp.addAll(getChildren(tar));
-				}
+			
+			reachableStates.clear();
+			reachableStates.addAll(newReachableStates);
+			
+			if(reachableStates.size() == lastCount){
+				break A;
 			}
-			alreadyProcessed.add(s);
-			return temp;
-		}else{
-			return null;
 		}
+		
+		List<State> newStates = new ArrayList<State>();
+		for(State s : states){
+			if(reachableStates.contains(s)){
+				newStates.add(s);
+			}else{
+				acceptingStates.remove(s);
+			}
+		}
+		states.clear();
+		states.addAll(newStates);
+		
 	}
 	
+
 	@Override
 	public Object clone(){
-		List<State> states = new ArrayList<State>();
+		Set<State> states = new HashSet<State>();
 		State startState;
-		List<State> acceptingStates = new ArrayList<State>();
-		List<Character> alphabet;
+		Set<State> acceptingStates = new HashSet<State>();
+		char[] alphabet;
 		
 		
 		//use the same alphabet
 		alphabet = getAlphabet();
 		
 		//copy states
-		for(int n = 0; n < getStates().size(); n++){
-			State s = getStates().get(n);
+		for(State s : getStates()){
 			states.add(new State(s.getId()));
 		}
 		
+		
 		//copy transitionTable
-		for(int n = 0; n < getStates().size(); n++){
-			State s = getStates().get(n);
-			
+		for(State s : getStates()){
 			TransitionTable tt = new TransitionTable();
+			
 			for(Character c : s.getTransitionTable().transitionTable.keySet()){
-				int targetIndex = getStates().indexOf(s.getTransitionTable().transitionTable.get(c));
-				tt.addTransition(c, states.get(targetIndex));
+				State oldStateRef = s.getTransitionTable().getTransitionTable().get(c);
+				tt.addTransition(c, getStateRef(states, oldStateRef));
 			}
 			
-			states.get(n).setTransitionTable(tt);
+			getStateRef(states, s).setTransitionTable(tt);
 		}
 		
 		//startState
-		startState = states.get(getStates().indexOf(getStartState()));
+		startState = getStateRef(states, getStartState());
 		
 		//acceptingStates
 		for(State s : getAcceptingStates()){
-			if(getStates().indexOf(s) == -1){
+			if(!getStates().contains(s)){
 				System.out.println("accepting state not in state list!!");
 			}
-			acceptingStates.add(states.get(getStates().indexOf(s)));
+			acceptingStates.add(getStateRef(states, s));
 		}
 		
 		return new DeterministicFiniteAutomaton(states, startState,
 				acceptingStates, alphabet);
 	}
-		
+	
+	public State getState(State searchToken){
+		return getStateRef(states, searchToken);
+	}
+	
+	public State getStateRef(Set<State> newStateSet, State oldRef){
+		for(State newRef : newStateSet){
+			if(newRef.equals(oldRef)){
+				return newRef;
+			}
+		}
+		return null;
+	}
+	
 	public String generateDotString(){
 		
 		String output = "digraph G {" + System.getProperty("line.separator");

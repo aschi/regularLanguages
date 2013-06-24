@@ -1,187 +1,110 @@
 package ch.zhaw.regularLanguages.evolution;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
-import ch.zhaw.regularLanguages.dfa.DeterministicFiniteAutomaton;
-import ch.zhaw.regularLanguages.dfa.RandomDeterministicFiniteAutomaton;
-import ch.zhaw.regularLanguages.dfa.State;
-import ch.zhaw.regularLanguages.graphicalOutput.GraphvizRenderer;
-
-public class SimpleEvolutionaryAlgorithm<AUTOMATON extends DeterministicFiniteAutomaton & Mutable> implements EvolutionaryAlgorithm<AUTOMATON>{
+public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>{
 	private final int CYCLE_LIMIT = 1000;
-	private final int NO_START_AUTOMATONS = 50;
+		
+	private List<E> candidates;
 	
-	private AUTOMATON winner;
-	private Set<AUTOMATON>best;
-	private int maxC = 0;
+	private E winner;
+	
 	private int maxFitness;
+	private int maxC;
 	
-	private List<AUTOMATON> objects; 
-	private List<EvolutionCandidate<AUTOMATON>> fitness;
 	
-	private List<Character> alphabet;
+	private ProblemSet<PSI, PSO> problemSet;
+	private ProblemSet<PSI, PSO> stressTestProblems;
+	private long[] counter;
 	
-	private ProblemSet<List<Character>, Boolean> problemSet;
-	long[] counter;
-	private Class<AUTOMATON> classTypeDef;
-	
-	public SimpleEvolutionaryAlgorithm(ProblemSet<List<Character>, Boolean> problemSet, List<Character> alphabet, Class<AUTOMATON> classTypeDef) {
+	public SimpleEvolutionaryAlgorithm(ProblemSet<PSI, PSO> problemSet, ProblemSet<PSI, PSO> stressTestProblems, List<E> candidates) {
 		this.problemSet = problemSet;	
+		this.candidates = candidates;
 		this.maxFitness = problemSet.getProblemSet().size();
+		this.stressTestProblems = stressTestProblems;
 		
 		System.out.println("Max Fitness: " + maxFitness);
 		counter = new long[problemSet.getProblemSet().size()];
-		this.classTypeDef = classTypeDef;
-		this.alphabet = alphabet;
-		initTestList();
 	}
 	
-	public AUTOMATON getWinner(){
+	public E getWinner(){
 		return winner;
-	}
-	
-	public List<AUTOMATON> getObjects(){
-		return objects;
-	}
-	
-	private void initTestList(){
-		objects = new LinkedList<AUTOMATON>();
-		
-		for(int i = 0;i < NO_START_AUTOMATONS;i++){
-			try {
-				objects.add(classTypeDef.getConstructor(new Class[] { List.class, Integer.TYPE}).newInstance(new Object[] {alphabet, 3}));
-			} catch (InstantiationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SecurityException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
-	
-	public Set<AUTOMATON> getBest(){
-		return best;
-	}
-	
-	public long[] getCounter(){
-		return counter;
 	}
 	
 	public int getMaxC(){
 		return maxC;
 	}
 	
+	public long[] getCounter(){
+		return counter;
+	}
+	
+	public List<E> getCandidates(){
+		return candidates;
+	}
+	
 	public int getProblemSetSize(){
 		return problemSet.getProblemSet().size();
 	}
 
-	@Override
 	public void startEvolution() {
 		int cycle = 0;
 		boolean finalForm = false;
-		List <AUTOMATON>newList = null;
+		List <E>newList = null;
 		
 		A : while(cycle < CYCLE_LIMIT && finalForm == false){
 			System.out.println("Cycle: "+cycle);
 			
-			if(fitness == null){
-				fitness = new LinkedList<EvolutionCandidate<AUTOMATON>>();
-			}else{
-				fitness.clear();
-			}
-			
-			
-			for(AUTOMATON obj : objects){
-				fitness.add(new EvolutionCandidate<AUTOMATON>(obj, automatonFitness(obj)));
+			//calculate fitness values
+			for(E c : candidates){
+				c.setFitness(c.fitness(problemSet, counter));
 			}
 			System.out.println("fitness values calculated..");
 			
-			Collections.sort(fitness);
+			Collections.sort(candidates);
 			
 			System.out.println("fitness values sorted..");
 			
 			//take the fitter half and clone & mutate all elements and put them into a new list
 			
 			if(newList == null){
-				newList = new LinkedList<AUTOMATON>();
+				newList = new LinkedList<E>();
 			}else{
 				newList.clear();
 			}
-			for(int i = 0;i < (fitness.size())/2;i++){
-				if(fitness.get(i).getFitness() == maxFitness){
-					automatonFitness(fitness.get(i).getObj());
-					winner = fitness.get(i).getObj();
-					finalForm = true;
-					break A;
-				}else{
-					if(fitness.get(i).getFitness() > maxC){
-						maxC = fitness.get(i).getFitness();
-						System.out.println("new maxC: " + maxC);
+			for(int i = 0;i < (candidates.size())/2;i++){
+				if(candidates.get(i).getFitness() == maxFitness){
+					System.out.println("Winner candidate found..stresstesting it");
+					if(candidates.get(i).stressTest(stressTestProblems)){
+						winner = candidates.get(i);
+						finalForm = true;
+						break A;
 					}
-					
-					newList.add(fitness.get(i).getObj()); //add old object
-					AUTOMATON newClone = (AUTOMATON)fitness.get(i).getObj().clone();
-					newClone.mutate(1);
-					newList.add(newClone); //add mutated clone
 				}
+				if(candidates.get(i).getFitness() > maxC){
+					maxC = candidates.get(i).getFitness();
+					System.out.println("new maxC: " + maxC);
+				}
+				
+				newList.add(candidates.get(i)); //add old object
+				//System.out.println("candidate added");
+				newList.add((E)candidates.get(i).cloneWithMutation()); //add mutated clone
+				//System.out.println("clone added");
 			}
 			
 			System.out.println("clear list & set newlist");
 			
 			//continue with new list
-			objects.clear();
-			objects.addAll(newList);
+			candidates.clear();
+			candidates.addAll(newList);
 
 			cycle++;
 		}
 	}
 
-	public int automatonFitness(AUTOMATON obj){
-		int c = 0;
-		int i = 0;
-		for(List<Character> problem : problemSet.getProblemSet()){
-			State state = null;
-			try {
-				state = obj.process(problem);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				System.exit(0);
-			}
-			boolean isAccepting = obj.isAcceptingState(state);
-			if(problemSet.checkSolution(problem, isAccepting)){
-				c++;
-				counter[i]++;
-			}
-			i++;
-		}
-		return c;
-	}
 
-	@Override
-	public EvolutionResult evolve(AUTOMATON obj1, AUTOMATON obi2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	/*
 	@Override
 	public EvolutionResult evolve(AUTOMATON obj1,
