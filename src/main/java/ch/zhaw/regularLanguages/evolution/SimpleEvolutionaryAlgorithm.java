@@ -49,7 +49,7 @@ public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>
 		return problemSet.getProblemSet().size();
 	}
 
-	public void startEvolution() {
+	/*public void startEvolution() {
 		int cycle = 0;
 		boolean finalForm = false;
 		List <E>newList = null;
@@ -102,8 +102,71 @@ public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>
 
 			cycle++;
 		}
-	}
+	}*/
 
+	public void startEvolution() {
+		int cycle = 0;
+		boolean finalForm = false;
+		List <E>newList = null;
+		
+		A : while(cycle < CYCLE_LIMIT && finalForm == false){
+			System.out.println("Cycle: "+cycle);
+			
+			if(newList == null){
+				newList = new LinkedList<E>();
+			}else{
+				newList.clear();
+			}
+			
+			for(int i = 0;i < candidates.size();i+=2){
+				int n = (i <= 0 ? candidates.size()-1 : i-1);
+				
+				int fitnessI = candidates.get(i).fitness(problemSet, counter);
+				int fitnessN = candidates.get(n).fitness(problemSet, counter);
+				
+				if(fitnessI == maxFitness){
+					System.out.println("Winner candidate found..stresstesting it");
+					if(candidates.get(i).stressTest(stressTestProblems)){
+						winner = candidates.get(i);
+						finalForm = true;
+						break A;
+					}
+				}
+				if(fitnessN == maxFitness){
+					System.out.println("Winner candidate found..stresstesting it");
+					if(candidates.get(n).stressTest(stressTestProblems)){
+						winner = candidates.get(n);
+						finalForm = true;
+						break A;
+					}
+				}
+				
+				
+				int x = fitnessI - fitnessN;
+				if(x == 0){
+					//candidate n = candidate i
+					newList.add(candidates.get(i));
+					newList.add(candidates.get(n));
+				}else if(x < 0){
+					//candidate n > candidate i
+					newList.add(candidates.get(n));
+					newList.add((E)candidates.get(n).cloneWithMutation());
+				}else if(x > 0){
+					//candidate i > candidate n
+					newList.add(candidates.get(i));
+					newList.add((E)candidates.get(i).cloneWithMutation());	
+				}
+			}
+			
+			System.out.println("clear list & set newlist");
+			candidates.clear();
+			candidates.addAll(newList);
+			
+			cycle++;
+		}
+	}
+	
+	
 
 	/*
 	@Override
