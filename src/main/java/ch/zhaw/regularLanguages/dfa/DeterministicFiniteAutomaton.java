@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import ch.zhaw.regularLanguages.dfa.optimisation.Otpimiser;
+import ch.zhaw.regularLanguages.dfa.optimisation.UnreachableStateRemover;
 import ch.zhaw.regularLanguages.graphicalOutput.GraphvizRenderable;
 
 public class DeterministicFiniteAutomaton implements GraphvizRenderable{
@@ -12,6 +14,8 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 	private State startState;
 	private Set<State> acceptingStates;
 	private char[] alphabet;
+	
+	private Otpimiser<DeterministicFiniteAutomaton> removeUnreachableStates = new UnreachableStateRemover();
 	
 	public DeterministicFiniteAutomaton(){
 		initSimpleAutomaton();
@@ -141,45 +145,10 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 	
 	
 	public void minimizeAutomaton(){
-		//remove unreachable states
-		State  reachable;
-		Set<State> reachableStates = new HashSet<State>();
-		
-		reachableStates.add(this.startState);
-		A: while(true){
-			int lastCount = reachableStates.size();
-		
-			Set<State> newReachableStates = new HashSet<State>(reachableStates);
-			
-			for(State current : reachableStates){
-				for(int i = 0;i < alphabet.length;i++){
-					if(current != null){
-						reachable = current.process(alphabet[i]);
-						newReachableStates.add(reachable);
-						//System.out.println("Step " + i + ":" + current);
-					}
-				}
-			}
-			
-			reachableStates.clear();
-			reachableStates.addAll(newReachableStates);
-			
-			if(reachableStates.size() == lastCount){
-				break A;
-			}
-		}
-		
-		List<State> newStates = new ArrayList<State>();
-		for(State s : states){
-			if(reachableStates.contains(s)){
-				newStates.add(s);
-			}else{
-				acceptingStates.remove(s);
-			}
-		}
-		states.clear();
-		states.addAll(newStates);
-		
+		System.out.println("Minimize Automaton:");
+		System.out.println("No States before: " + getStates().size());
+		removeUnreachableStates.optimise(this);
+		System.out.println("No States after: " + getStates().size());
 	}
 	
 
@@ -240,7 +209,20 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 		return null;
 	}
 	
+	public State getStateById(String id){
+		State rv = null;
+		
+		for(State s : getStates()){
+			if(s.getId().equals(id)){
+				rv = s;
+				break;
+			}
+		}
+		return rv;
+	}
+	
 	public String generateDotString(){
+		minimizeAutomaton();
 		
 		String output = "digraph G {" + System.getProperty("line.separator");
 		for(State s : states){
@@ -249,8 +231,18 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 			}
 		}
 		for(State s : acceptingStates){
-			output+= s + " [peripheries=2]" + System.getProperty("line.separator");
+			if(!s.equals(startState)){
+				output+= s + " [peripheries=2]" + System.getProperty("line.separator");
+			}
+			
 		}
+		
+		if(acceptingStates.contains(startState)){
+			output += getStartState() + " [color=darkred,peripheries=2]" + System.getProperty("line.separator");
+		}else{
+			output += getStartState() + " [color=darkred]" + System.getProperty("line.separator");
+		}
+		
 		
 		output += "}";
 		

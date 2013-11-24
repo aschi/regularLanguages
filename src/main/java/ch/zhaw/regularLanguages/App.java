@@ -5,8 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import org.hamcrest.Condition.Step;
-
 import ch.zhaw.regularLanguages.dfa.RandomDeterministicFiniteAutomaton;
 import ch.zhaw.regularLanguages.evolution.DeterministicFiniteAutomatonEvolutionCandidate;
 import ch.zhaw.regularLanguages.evolution.ProblemSet;
@@ -93,7 +91,14 @@ public class App
     		candidates.add(new DeterministicFiniteAutomatonEvolutionCandidate<RandomDeterministicFiniteAutomaton>(RandomDeterministicFiniteAutomaton.class, alphabet));
     	}
     	
+    	int n = 0;
+		for(DeterministicFiniteAutomatonEvolutionCandidate<RandomDeterministicFiniteAutomaton> o : candidates){
+			GraphvizRenderer.renderGraph(o.getObj(), n+".svg");
+			System.out.println("Generating: " + n+".svg");
+			n++;
+		}
     	
+    	/*
     	SimpleEvolutionaryAlgorithm<DeterministicFiniteAutomatonEvolutionCandidate<RandomDeterministicFiniteAutomaton>, CharArrayWrapper, Boolean> sea = new SimpleEvolutionaryAlgorithm<DeterministicFiniteAutomatonEvolutionCandidate<RandomDeterministicFiniteAutomaton>, CharArrayWrapper, Boolean>(testProblems, stressTestProblems, candidates);
     	sea.startEvolution();
     	if(sea.getWinner() != null){
@@ -135,5 +140,6 @@ public class App
     			n++;
     		}
     	}
+    	*/
     }
 }

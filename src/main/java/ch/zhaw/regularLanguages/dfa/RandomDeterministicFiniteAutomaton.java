@@ -22,10 +22,14 @@ public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutom
 	 */
 	public RandomDeterministicFiniteAutomaton(char[] alphabet, int complexity){
 		Random rnd = new Random();
+		int rndI = 0;
 		int noSymbols = alphabet.length;
 		int maxStates = noSymbols*complexity*2;
 		int noStates = rnd.nextInt(maxStates)+1;
 		int noAcceptingStates = (noStates < 5 ? 1 : rnd.nextInt(noStates / 5));
+		noAcceptingStates = noAcceptingStates < 1 ? 1 : noAcceptingStates; //ensure it is at least 1
+		
+		System.out.println("Number of Accepting States: " + noAcceptingStates);
 		
 		Set<State> states = new HashSet<State>();
 		Set<State> acceptingStates = new HashSet<State>();
@@ -40,26 +44,39 @@ public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutom
 		for(int i = 0; i < noStates;i++){
 			TransitionTable tt = new TransitionTable();
 			for(int n = 0;n < noSymbols;n++){
-				tt.addTransition(alphabet[n], stateArr[rnd.nextInt(noStates)]);
+				rndI = (noStates == 1 ? 0 : rnd.nextInt(noStates));
+				tt.addTransition(alphabet[n], stateArr[rndI]);
 			}
 			stateArr[i].setTransitionTable(tt);
 		}
 		
+		setStates(states);
+		setStartState(getStateById("q0"));
+		setAlphabet(alphabet);
+		
+		minimizeAutomaton(); //remove unreachable states
+		
+		noStates = getStates().size();
+		stateArr = getStates().toArray(new State[0]);
+		
+		//add accepting states
 		for(int i = 0;i < noAcceptingStates;i++){
 			State state;
 			do{
-				state = stateArr[rnd.nextInt(noStates)];
+				rndI = (noStates == 1 ? 0 : rnd.nextInt(noStates));
+				state = stateArr[rndI];
+				System.out.println("Accepting State: " + state);
 			}while(acceptingStates.contains(state));
 			
 			acceptingStates.add(state);
 		}
 		
-		setStates(states);
-		setStartState(stateArr[0]);
 		setAcceptingStates(acceptingStates);
-		setAlphabet(alphabet);
+		
 		
 	}
+
+	
 
 	
 	
