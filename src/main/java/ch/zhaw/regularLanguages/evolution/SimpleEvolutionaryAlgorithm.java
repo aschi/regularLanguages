@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>{
-	private final int CYCLE_LIMIT = 1000;
+	private final int CYCLE_LIMIT = 10000;
 		
 	private List<E> candidates;
 	
@@ -109,6 +109,10 @@ public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>
 		boolean finalForm = false;
 		List <E>newList = null;
 		
+		long countEq = 0;
+		long countNbig = 0;
+		long countIbig = 0;
+		
 		A : while(cycle < CYCLE_LIMIT && finalForm == false){
 			System.out.println("Cycle: "+cycle);
 			
@@ -141,17 +145,35 @@ public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>
 					}
 				}
 				
+				if(fitnessI > maxC){
+					maxC = fitnessI;
+					System.out.println("new maxC: " + maxC);
+				}
+				
+				if(fitnessN > maxC){
+					maxC = fitnessN;
+					System.out.println("new maxC: " + maxC);
+				}
+				
 				
 				int x = fitnessI - fitnessN;
 				if(x == 0){
+					countEq++;
 					//candidate n = candidate i
-					newList.add(candidates.get(i));
-					newList.add(candidates.get(n));
+					if(Math.random() < 0.5){
+						newList.add(candidates.get(i));
+						newList.add((E)candidates.get(i).cloneWithMutation());
+					}else{
+						newList.add(candidates.get(n));
+						newList.add((E)candidates.get(n).cloneWithMutation());						
+					}
 				}else if(x < 0){
+					countNbig++;
 					//candidate n > candidate i
 					newList.add(candidates.get(n));
 					newList.add((E)candidates.get(n).cloneWithMutation());
 				}else if(x > 0){
+					countIbig++;
 					//candidate i > candidate n
 					newList.add(candidates.get(i));
 					newList.add((E)candidates.get(i).cloneWithMutation());	
@@ -162,8 +184,13 @@ public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>
 			candidates.clear();
 			candidates.addAll(newList);
 			
+			Collections.shuffle(candidates);
+			
 			cycle++;
 		}
+		System.out.println("EQ:"+ countEq);
+		System.out.println("NBiger:"+ countNbig);
+		System.out.println("IBiger:"+ countIbig);
 	}
 	
 	

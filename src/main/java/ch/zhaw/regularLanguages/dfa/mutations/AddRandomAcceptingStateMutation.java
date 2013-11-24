@@ -10,6 +10,10 @@ public class AddRandomAcceptingStateMutation implements RandomMutation{
 
 	@Override
 	public boolean mutate(DeterministicFiniteAutomaton dfa) {
+		if(dfa.getStates().size() == dfa.getAcceptingStates().size()){
+			return false;
+		}
+		
 		Random rnd = new Random();
 		
 		Set<State> states = dfa.getStates();
