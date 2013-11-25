@@ -1,9 +1,7 @@
 package ch.zhaw.regularLanguages.dfa;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import ch.zhaw.regularLanguages.dfa.optimisation.Otpimiser;
 import ch.zhaw.regularLanguages.dfa.optimisation.UnreachableStateRemover;
@@ -81,8 +79,8 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 		char[] alphabet = {'a', 'b'};
 		setAlphabet(alphabet);
 		
-		states = new HashSet<State>();
-		acceptingStates = new HashSet<State>();
+		states = new TreeSet<State>();
+		acceptingStates = new TreeSet<State>();
 		
 		State q0 = new State("q0");
 		State q1 = new State("q1");
@@ -154,9 +152,9 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 
 	@Override
 	public Object clone(){
-		Set<State> states = new HashSet<State>();
+		Set<State> states = new TreeSet<State>();
 		State startState;
-		Set<State> acceptingStates = new HashSet<State>();
+		Set<State> acceptingStates = new TreeSet<State>();
 		char[] alphabet;
 		
 		

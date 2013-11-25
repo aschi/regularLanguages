@@ -1,8 +1,8 @@
 package ch.zhaw.regularLanguages.dfa;
 
-import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import java.util.TreeSet;
 
 import ch.zhaw.regularLanguages.dfa.mutations.MutationRegister;
 import ch.zhaw.regularLanguages.evolution.candidates.Mutable;
@@ -31,8 +31,8 @@ public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutom
 		
 		System.out.println("Number of Accepting States: " + noAcceptingStates);
 		
-		Set<State> states = new HashSet<State>();
-		Set<State> acceptingStates = new HashSet<State>();
+		Set<State> states = new TreeSet<State>();
+		Set<State> acceptingStates = new TreeSet<State>();
 		
 		for(int i = 0; i < noStates;i++){
 			State state = new State("q"+i);

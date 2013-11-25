@@ -1,7 +1,7 @@
 package ch.zhaw.regularLanguages.dfa;
 
 
-public class State {
+public class State implements Comparable<State> {
 	private String id;
 	private TransitionTable tt;
 	
@@ -47,5 +47,10 @@ public class State {
 	}
 	public String toString(){
 		return id;
+	}
+
+	@Override
+	public int compareTo(State o) {
+		return id.compareTo(o.getId());
 	}
 }
