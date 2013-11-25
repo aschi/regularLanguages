@@ -234,7 +234,6 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 			if(!s.equals(startState)){
 				output+= s + " [peripheries=2]" + System.getProperty("line.separator");
 			}
-			
 		}
 		
 		if(acceptingStates.contains(startState)){
