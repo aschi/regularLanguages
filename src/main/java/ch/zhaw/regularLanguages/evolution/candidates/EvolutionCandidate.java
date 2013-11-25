@@ -1,4 +1,4 @@
-package ch.zhaw.regularLanguages.evolution;
+package ch.zhaw.regularLanguages.evolution.candidates;
 
 public abstract class EvolutionCandidate<T, PS> implements Comparable<EvolutionCandidate<T, PS>>{
 	private T obj;

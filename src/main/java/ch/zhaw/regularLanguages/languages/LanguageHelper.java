@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import ch.zhaw.regularLanguages.evolution.ProblemSet;
+import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
 
 public class LanguageHelper {
 	public static CharArrayWrapper generateSymbolList(String s){

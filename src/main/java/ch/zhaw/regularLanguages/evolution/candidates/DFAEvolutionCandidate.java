@@ -1,23 +1,24 @@
-package ch.zhaw.regularLanguages.evolution;
+package ch.zhaw.regularLanguages.evolution.candidates;
 
 import java.lang.reflect.InvocationTargetException;
 
 import ch.zhaw.regularLanguages.dfa.DeterministicFiniteAutomaton;
 import ch.zhaw.regularLanguages.dfa.State;
+import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
 import ch.zhaw.regularLanguages.languages.CharArrayWrapper;
 
 
-public class DeterministicFiniteAutomatonEvolutionCandidate<AUTOMATON extends DeterministicFiniteAutomaton & Mutable> extends EvolutionCandidate<AUTOMATON, ProblemSet<CharArrayWrapper, Boolean>>{
+public class DFAEvolutionCandidate<AUTOMATON extends DeterministicFiniteAutomaton & Mutable> extends EvolutionCandidate<AUTOMATON, ProblemSet<CharArrayWrapper, Boolean>>{
 	private char[] alphabet;
 	
-	public DeterministicFiniteAutomatonEvolutionCandidate(Class<AUTOMATON> classTypeDef, char[] alphabet){
+	public DFAEvolutionCandidate(Class<AUTOMATON> classTypeDef, char[] alphabet){
 		super();
 		this.alphabet = alphabet;
 		setClassTypeDef(classTypeDef);
 		setObj(initObj());
 	}
 	
-	public DeterministicFiniteAutomatonEvolutionCandidate(Class<AUTOMATON> classTypeDef, char[] alphabet, AUTOMATON obj){
+	public DFAEvolutionCandidate(Class<AUTOMATON> classTypeDef, char[] alphabet, AUTOMATON obj){
 		setClassTypeDef(classTypeDef);
 		setObj(obj);
 		this.alphabet = alphabet;
@@ -74,7 +75,7 @@ public class DeterministicFiniteAutomatonEvolutionCandidate<AUTOMATON extends De
 	public Object cloneWithMutation(){
 		AUTOMATON newClone = (AUTOMATON)this.getObj().clone();
 		newClone.mutate(1);
-		return new DeterministicFiniteAutomatonEvolutionCandidate(getClassTypeDef(), alphabet, newClone);
+		return new DFAEvolutionCandidate(getClassTypeDef(), alphabet, newClone);
 	}
 	
 	public boolean stressTest(ProblemSet<CharArrayWrapper, Boolean> stressTestProblems){

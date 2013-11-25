@@ -2,7 +2,7 @@ package ch.zhaw.regularLanguages.languages;
 
 import java.util.Random;
 
-import ch.zhaw.regularLanguages.evolution.ProblemGenerator;
+import ch.zhaw.regularLanguages.evolution.problems.ProblemGenerator;
 import ch.zhaw.regularLanguages.helpers.Tuple;
 
 

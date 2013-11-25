@@ -4,7 +4,10 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>{
+import ch.zhaw.regularLanguages.evolution.candidates.EvolutionCandidate;
+import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
+
+public class EAWithConsistentGlobalProblemSet<E extends EvolutionCandidate, PSI, PSO>{
 	private final int CYCLE_LIMIT = 10000;
 		
 	private List<E> candidates;
@@ -18,7 +21,7 @@ public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>
 	private ProblemSet<PSI, PSO> problemSet;
 	private ProblemSet<PSI, PSO> stressTestProblems;
 	
-	public SimpleEvolutionaryAlgorithm(ProblemSet<PSI, PSO> problemSet, ProblemSet<PSI, PSO> stressTestProblems, List<E> candidates) {
+	public EAWithConsistentGlobalProblemSet(ProblemSet<PSI, PSO> problemSet, ProblemSet<PSI, PSO> stressTestProblems, List<E> candidates) {
 		this.problemSet = problemSet;	
 		this.candidates = candidates;
 		this.maxFitness = problemSet.getProblemSet().size();
@@ -33,6 +36,10 @@ public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>
 	
 	public int getMaxC(){
 		return maxC;
+	}
+	
+	public ProblemSet<PSI, PSO> getProblemSet(){
+		return problemSet;
 	}
 		
 	public List<E> getCandidates(){

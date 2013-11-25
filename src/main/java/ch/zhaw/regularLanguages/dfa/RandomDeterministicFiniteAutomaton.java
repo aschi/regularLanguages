@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Set;
 
 import ch.zhaw.regularLanguages.dfa.mutations.MutationRegister;
-import ch.zhaw.regularLanguages.evolution.Mutable;
+import ch.zhaw.regularLanguages.evolution.candidates.Mutable;
 
 public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutomaton implements Mutable{
 	private MutationRegister mr = new MutationRegister();

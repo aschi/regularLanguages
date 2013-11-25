@@ -1,4 +1,4 @@
-package ch.zhaw.regularLanguages.evolution;
+package ch.zhaw.regularLanguages.evolution.problems;
 
 import java.util.Collections;
 import java.util.LinkedList;

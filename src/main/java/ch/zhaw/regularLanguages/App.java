@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Set;
 
 import ch.zhaw.regularLanguages.dfa.RandomDeterministicFiniteAutomaton;
-import ch.zhaw.regularLanguages.evolution.DeterministicFiniteAutomatonEvolutionCandidate;
-import ch.zhaw.regularLanguages.evolution.ProblemSet;
-import ch.zhaw.regularLanguages.evolution.SimpleEvolutionaryAlgorithm;
+import ch.zhaw.regularLanguages.evolution.EAWithConsistentGlobalProblemSet;
+import ch.zhaw.regularLanguages.evolution.candidates.DFAEvolutionCandidate;
+import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
 import ch.zhaw.regularLanguages.graphicalOutput.GraphvizRenderer;
 import ch.zhaw.regularLanguages.languages.CharArrayWrapper;
 import ch.zhaw.regularLanguages.languages.LanguageHelper;
@@ -86,13 +86,13 @@ public class App
     	
 		ProblemSet<CharArrayWrapper, Boolean> stressTestProblems = LanguageHelper.generateLanguageProblemSet(".*abab$", stressTestWords);
     	
-    	List<DeterministicFiniteAutomatonEvolutionCandidate<RandomDeterministicFiniteAutomaton>> candidates = new LinkedList<DeterministicFiniteAutomatonEvolutionCandidate<RandomDeterministicFiniteAutomaton>>();
+    	List<DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>> candidates = new LinkedList<DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>>();
     	for(int i = 0; i < NO_AUTOMATONS;i++){
-    		candidates.add(new DeterministicFiniteAutomatonEvolutionCandidate<RandomDeterministicFiniteAutomaton>(RandomDeterministicFiniteAutomaton.class, alphabet));
+    		candidates.add(new DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>(RandomDeterministicFiniteAutomaton.class, alphabet));
     	}
     	
     	
-    	SimpleEvolutionaryAlgorithm<DeterministicFiniteAutomatonEvolutionCandidate<RandomDeterministicFiniteAutomaton>, CharArrayWrapper, Boolean> sea = new SimpleEvolutionaryAlgorithm<DeterministicFiniteAutomatonEvolutionCandidate<RandomDeterministicFiniteAutomaton>, CharArrayWrapper, Boolean>(testProblems, stressTestProblems, candidates);
+    	EAWithConsistentGlobalProblemSet<DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>, CharArrayWrapper, Boolean> sea = new EAWithConsistentGlobalProblemSet<DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>, CharArrayWrapper, Boolean>(testProblems, stressTestProblems, candidates);
     	sea.startEvolution();
     	if(sea.getWinner() != null){
     		System.out.println("Winner!");
@@ -100,7 +100,7 @@ public class App
     		GraphvizRenderer.renderGraph(sea.getWinner().getObj(), "winner.svg");
     		
     		int n = 0;
-    		for(DeterministicFiniteAutomatonEvolutionCandidate<RandomDeterministicFiniteAutomaton> o : sea.getCandidates()){
+    		for(DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton> o : sea.getCandidates()){
     			GraphvizRenderer.renderGraph(o.getObj(), n+".svg");
     			System.out.println("Generating: " + n+".svg");
     			n++;
@@ -108,8 +108,8 @@ public class App
     		
     		System.out.println(testProblems);
     		System.out.println("Max C: "+ sea.getMaxC() + " / ProblemSetSize : " + sea.getProblemSetSize());
-    		for(int i = 0; i < sea.getCounter().length;i++){
-    			System.out.println("["+i+"] " + sea.getCounter()[i]);
+    		for(int i = 0; i < sea.getProblemSet().getSolvedCounter().length;i++){
+    			System.out.println("["+i+"] " + sea.getProblemSet().getSolvedCounter()[i]);
     		}
     		
     		System.out.println("StressTestWords count: " + stressTestWords.size());
@@ -122,12 +122,12 @@ public class App
     		System.out.println("No winner!");
     		System.out.println(testProblems);
     		System.out.println("Max C: "+ sea.getMaxC() + " / ProblemSetSize : " + sea.getProblemSetSize());
-    		for(int i = 0; i < sea.getCounter().length;i++){
-    			System.out.println("["+i+"] " + sea.getCounter()[i]);
+    		for(int i = 0; i < sea.getProblemSet().getSolvedCounter().length;i++){
+    			System.out.println("["+i+"] " + sea.getProblemSet().getSolvedCounter()[i]);
     		}
     		
     		int n = 0;
-    		for(DeterministicFiniteAutomatonEvolutionCandidate<RandomDeterministicFiniteAutomaton> o : sea.getCandidates()){
+    		for(DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton> o : sea.getCandidates()){
     			GraphvizRenderer.renderGraph(o.getObj(), n+".svg");
     			System.out.println("Generating: " + n+".svg");
     			n++;
