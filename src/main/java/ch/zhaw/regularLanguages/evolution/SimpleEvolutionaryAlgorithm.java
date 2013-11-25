@@ -17,7 +17,6 @@ public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>
 	
 	private ProblemSet<PSI, PSO> problemSet;
 	private ProblemSet<PSI, PSO> stressTestProblems;
-	private long[] counter;
 	
 	public SimpleEvolutionaryAlgorithm(ProblemSet<PSI, PSO> problemSet, ProblemSet<PSI, PSO> stressTestProblems, List<E> candidates) {
 		this.problemSet = problemSet;	
@@ -26,7 +25,6 @@ public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>
 		this.stressTestProblems = stressTestProblems;
 		
 		System.out.println("Max Fitness: " + maxFitness);
-		counter = new long[problemSet.getProblemSet().size()];
 	}
 	
 	public E getWinner(){
@@ -36,11 +34,7 @@ public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>
 	public int getMaxC(){
 		return maxC;
 	}
-	
-	public long[] getCounter(){
-		return counter;
-	}
-	
+		
 	public List<E> getCandidates(){
 		return candidates;
 	}
@@ -125,8 +119,8 @@ public class SimpleEvolutionaryAlgorithm<E extends EvolutionCandidate, PSI, PSO>
 			for(int i = 0;i < candidates.size();i+=2){
 				int n = (i <= 0 ? candidates.size()-1 : i-1);
 				
-				int fitnessI = candidates.get(i).fitness(problemSet, counter);
-				int fitnessN = candidates.get(n).fitness(problemSet, counter);
+				int fitnessI = candidates.get(i).fitness(problemSet);
+				int fitnessN = candidates.get(n).fitness(problemSet);
 				
 				if(fitnessI == maxFitness){
 					System.out.println("Winner candidate found..stresstesting it");

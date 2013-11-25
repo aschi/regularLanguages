@@ -24,7 +24,7 @@ public class DeterministicFiniteAutomatonEvolutionCandidate<AUTOMATON extends De
 	}
 	
 	@Override
-	public int fitness(ProblemSet<CharArrayWrapper, Boolean> problemSet, long[] counter) {
+	public int fitness(ProblemSet<CharArrayWrapper, Boolean> problemSet) {
 		AUTOMATON obj = getObj();
 		
 		int c = 0;
@@ -34,7 +34,6 @@ public class DeterministicFiniteAutomatonEvolutionCandidate<AUTOMATON extends De
 			state = obj.process(problem.getData());
 			boolean isAccepting = obj.isAcceptingState(state);
 			if(problemSet.checkSolution(problem, isAccepting)){
-				counter[i]++; //problem has been solved -> count it
 				c++;
 			}
 			i++;

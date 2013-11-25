@@ -46,7 +46,7 @@ public abstract class EvolutionCandidate<T, PS> implements Comparable<EvolutionC
 		this.fitness = fitness;
 	}
 
-	public abstract int fitness(PS problemSet, long[] counter);
+	public abstract int fitness(PS problemSet);
 	public abstract Object cloneWithMutation();
 	public abstract boolean stressTest(PS problemSet);
 	

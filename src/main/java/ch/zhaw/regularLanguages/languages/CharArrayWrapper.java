@@ -2,7 +2,7 @@ package ch.zhaw.regularLanguages.languages;
 
 import java.util.Arrays;
 
-public class CharArrayWrapper {
+public class CharArrayWrapper{
 	private char[] data;
 
 	public CharArrayWrapper(char[] data) {
