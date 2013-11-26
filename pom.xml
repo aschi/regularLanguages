@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://d www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>ch.zhaw</groupId>
+  <groupId>ch.zhaw.regularLanguages</groupId>
   <artifactId>regularLanguages</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
@@ -35,5 +35,12 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    
+    <dependency>
+	  <groupId>dk.brics.automaton</groupId>
+	  <artifactId>automaton</artifactId>
+	  <version>1.11-8</version>
+    </dependency>
+    
   </dependencies>
 </project>
