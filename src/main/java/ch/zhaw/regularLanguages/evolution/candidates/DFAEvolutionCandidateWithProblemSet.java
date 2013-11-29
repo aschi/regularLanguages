@@ -7,10 +7,18 @@ import ch.zhaw.regularLanguages.dfa.State;
 import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
 import ch.zhaw.regularLanguages.languages.CharArrayWrapper;
 
+//TODO: Implement :)
 
 public class DFAEvolutionCandidateWithProblemSet<AUTOMATON extends DeterministicFiniteAutomaton & Mutable> extends EvolutionCandidateWithProblemSet<AUTOMATON, ProblemSet<CharArrayWrapper, Boolean>>{
-	private char[] alphabet;
 	
+	public DFAEvolutionCandidateWithProblemSet(AUTOMATON obj,
+			ProblemSet<CharArrayWrapper, Boolean> problemSet) {
+		super(obj, problemSet);
+		// TODO Auto-generated constructor stub
+	}
+
+	private char[] alphabet;
+	/*
 	public DFAEvolutionCandidateWithProblemSet(Class<AUTOMATON> classTypeDef, char[] alphabet){
 		super();
 		this.alphabet = alphabet;
@@ -23,7 +31,7 @@ public class DFAEvolutionCandidateWithProblemSet<AUTOMATON extends Deterministic
 		setObj(obj);
 		this.alphabet = alphabet;
 	}
-	
+	*/
 	@Override
 	public int fitness(ProblemSet<CharArrayWrapper, Boolean> problemSet) {
 		AUTOMATON obj = getObj();
@@ -72,11 +80,13 @@ public class DFAEvolutionCandidateWithProblemSet<AUTOMATON extends Deterministic
 		return null;
 	}
 	
+	/*
 	public Object cloneWithMutation(){
 		AUTOMATON newClone = (AUTOMATON)this.getObj().clone();
 		newClone.mutate(1);
 		return new DFAEvolutionCandidateWithProblemSet(getClassTypeDef(), alphabet, newClone);
 	}
+	*/
 	
 	public boolean stressTest(ProblemSet<CharArrayWrapper, Boolean> stressTestProblems){
 		AUTOMATON obj = getObj();
@@ -90,5 +100,11 @@ public class DFAEvolutionCandidateWithProblemSet<AUTOMATON extends Deterministic
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public Object cloneWithMutation() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
