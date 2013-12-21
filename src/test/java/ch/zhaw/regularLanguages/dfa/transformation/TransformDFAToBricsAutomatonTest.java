@@ -1,6 +1,6 @@
 package ch.zhaw.regularLanguages.dfa.transformation;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -14,9 +14,10 @@ import ch.zhaw.regularLanguages.dfa.TransitionTable;
 import dk.brics.automaton.Automaton;
 import dk.brics.automaton.RegExp;
 
-public class TransformDFAToRegexpTest {
+public class TransformDFAToBricsAutomatonTest {
 	private DeterministicFiniteAutomaton dfa;
-	private Transformer<DeterministicFiniteAutomaton, String> t;
+	private Transformer<DeterministicFiniteAutomaton, Automaton> t;
+	private Automaton referenceAutomaton;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -63,22 +64,15 @@ public class TransformDFAToRegexpTest {
 		acceptingStates.add(q3);
 		
 		dfa = new DeterministicFiniteAutomaton(states, q0, acceptingStates, alphabet);
-		t = new TransformDFAToRegexp();
+		t = new TransformDFAToBricsAutomaton();
+		
+		referenceAutomaton = new RegExp("[abc]*abc").toAutomaton();
 	}
 
 	@Test
 	public void testTransform() {
-		String out = (t.transform(dfa));
-		
-		System.out.println(out);
-		
-		RegExp r = new RegExp(out);
-		Automaton a = r.toAutomaton();
-		//a.reduce();
-		System.out.println(a.toString());
-		System.out.println(r.toAutomaton().getShortestExample(true));
-		
-		fail("Not yet implemented");
+		Automaton out = t.transform(dfa);
+		assertEquals(out, referenceAutomaton);
 	}
 
 }
