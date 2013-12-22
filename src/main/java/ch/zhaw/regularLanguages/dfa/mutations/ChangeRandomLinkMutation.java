@@ -12,9 +12,15 @@ public class ChangeRandomLinkMutation implements RandomMutation{
 		Random rnd = new Random();
 		
 		Character c = dfa.getAlphabet()[rnd.nextInt(dfa.getAlphabet().length)];
-		State origin = dfa.getState(new State("q"+rnd.nextInt(dfa.getStates().size())));
-		State target = dfa.getState(new State("q"+rnd.nextInt(dfa.getStates().size())));
+		State origin;
+		State target;
 		
+		do{
+			origin = dfa.getState(new State("q"+rnd.nextInt(dfa.getStates().size())));
+		}while(origin == null);
+		do{
+			target = dfa.getState(new State("q"+rnd.nextInt(dfa.getStates().size())));
+		}while(target == null);
 		dfa.changeLink(origin, c, target);
 		
 		//return true as it can not fail

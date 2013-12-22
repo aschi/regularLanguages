@@ -43,7 +43,11 @@ public class AddRandomStateMutation implements RandomMutation{
 		
 		int avg = calcNOAverageIncomingEdges(states);
 		for(int n = 0;n < ((avg/2) + rnd.nextInt(avg*2 - avg/2 + 1));n++){
-			State origin = dfa.getState(new State("q"+rnd.nextInt((i<=1?1:i-1))));
+			State origin;
+			do{
+				origin = dfa.getState(new State("q"+rnd.nextInt((i<=1?1:i-1))));
+			}while(origin==null);
+			
 			dfa.changeLink(origin, alphabet[rnd.nextInt(noSymbols)], state);
 		}
 		

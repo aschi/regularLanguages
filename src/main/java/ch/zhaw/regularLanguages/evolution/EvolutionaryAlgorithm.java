@@ -5,8 +5,7 @@ import java.util.List;
 import ch.zhaw.regularLanguages.evolution.candidates.EvolutionCandidate;
 
 public interface EvolutionaryAlgorithm<E extends EvolutionCandidate> {
-	public void startEvolution();
+	public long startEvolution(long cycleLimit);
 	public E getWinner();
 	public List<E> getCandidates();
-
 }

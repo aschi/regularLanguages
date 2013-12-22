@@ -17,7 +17,7 @@ public class RemoveRandomAcceptingStateMutation implements RandomMutation{
 		if(acceptingStates.size() <=1){
 			return false;
 		}else{
-			acceptingStates.remove(rnd.nextInt(acceptingStates.size()));
+			acceptingStates.remove(acceptingStates.toArray()[rnd.nextInt(acceptingStates.size()-1)]);
 			return true;
 		}
 	}

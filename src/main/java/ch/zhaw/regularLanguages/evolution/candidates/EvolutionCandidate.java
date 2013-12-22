@@ -1,6 +1,6 @@
 package ch.zhaw.regularLanguages.evolution.candidates;
 
-public abstract class EvolutionCandidate<T, PS> implements Comparable<EvolutionCandidate<T, PS>>{
+public abstract class EvolutionCandidate<T, PS, R> implements Comparable<EvolutionCandidate<T, PS, R>>{
 	private T obj;
 	private int fitness;
 	private Class<T> classTypeDef;
@@ -48,11 +48,11 @@ public abstract class EvolutionCandidate<T, PS> implements Comparable<EvolutionC
 
 	public abstract int fitness(PS problemSet);
 	public abstract Object cloneWithMutation();
-	public abstract boolean stressTest(PS problemSet);
+	public abstract boolean checkValidity(R reference);
 	
 	
 	@Override
-	public int compareTo(EvolutionCandidate<T, PS> o) {
+	public int compareTo(EvolutionCandidate<T, PS, R> o) {
 		// TODO Auto-generated method stub
 		return o.getFitness()-this.getFitness();
 	}

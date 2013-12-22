@@ -1,6 +1,6 @@
 package ch.zhaw.regularLanguages.evolution.candidates;
 
-public abstract class EvolutionCandidateWithProblemSet<T, PS> extends EvolutionCandidate<T, PS>{
+public abstract class EvolutionCandidateWithProblemSet<T, PS, R> extends EvolutionCandidate<T, PS, R>{
 	private PS problemSet;
 	
 	public EvolutionCandidateWithProblemSet(T obj, PS problemSet){

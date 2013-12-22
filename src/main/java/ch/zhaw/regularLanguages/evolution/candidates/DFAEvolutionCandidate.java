@@ -4,11 +4,13 @@ import java.lang.reflect.InvocationTargetException;
 
 import ch.zhaw.regularLanguages.dfa.DeterministicFiniteAutomaton;
 import ch.zhaw.regularLanguages.dfa.State;
+import ch.zhaw.regularLanguages.dfa.transformation.TransformDFAToBricsAutomaton;
 import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
 import ch.zhaw.regularLanguages.languages.CharArrayWrapper;
+import dk.brics.automaton.Automaton;
 
 
-public class DFAEvolutionCandidate<AUTOMATON extends DeterministicFiniteAutomaton & Mutable> extends EvolutionCandidate<AUTOMATON, ProblemSet<CharArrayWrapper, Boolean>>{
+public class DFAEvolutionCandidate<AUTOMATON extends DeterministicFiniteAutomaton & Mutable> extends EvolutionCandidate<AUTOMATON, ProblemSet<CharArrayWrapper, Boolean>, dk.brics.automaton.Automaton>{
 	private char[] alphabet;
 	
 	public DFAEvolutionCandidate(Class<AUTOMATON> classTypeDef, char[] alphabet){
@@ -77,18 +79,10 @@ public class DFAEvolutionCandidate<AUTOMATON extends DeterministicFiniteAutomato
 		newClone.mutate(1);
 		return new DFAEvolutionCandidate(getClassTypeDef(), alphabet, newClone);
 	}
-	
-	public boolean stressTest(ProblemSet<CharArrayWrapper, Boolean> stressTestProblems){
-		AUTOMATON obj = getObj();
-		
-		for(CharArrayWrapper problem : stressTestProblems.getProblemSet()){
-			State state = null;
-			state = obj.process(problem.getData());
-			boolean isAccepting = obj.isAcceptingState(state);
-			if(!stressTestProblems.checkSolution(problem, isAccepting)){
-				return false;
-			}
-		}
-		return true;
+
+	@Override
+	public boolean checkValidity(Automaton reference) {
+		return reference.equals(new TransformDFAToBricsAutomaton().transform(getObj()));
 	}
+	
 }
