@@ -29,7 +29,7 @@ public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutom
 		int noAcceptingStates = (noStates < 5 ? 1 : rnd.nextInt(noStates / 5));
 		noAcceptingStates = noAcceptingStates < 1 ? 1 : noAcceptingStates; //ensure it is at least 1
 		
-		System.out.println("Number of Accepting States: " + noAcceptingStates);
+		//System.out.println("Number of Accepting States: " + noAcceptingStates);
 		
 		Set<State> states = new TreeSet<State>();
 		Set<State> acceptingStates = new TreeSet<State>();
@@ -65,15 +65,13 @@ public class RandomDeterministicFiniteAutomaton extends DeterministicFiniteAutom
 			do{
 				rndI = (noStates == 1 ? 0 : rnd.nextInt(noStates));
 				state = stateArr[rndI];
-				System.out.println("Accepting State: " + state);
+				//System.out.println("Accepting State: " + state);
 			}while(acceptingStates.contains(state));
 			
 			acceptingStates.add(state);
 		}
 		
 		setAcceptingStates(acceptingStates);
-		
-		
 	}
 
 	

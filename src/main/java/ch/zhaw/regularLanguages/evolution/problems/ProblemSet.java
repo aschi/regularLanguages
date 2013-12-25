@@ -41,6 +41,8 @@ public class ProblemSet<P,S> {
 		for(int i = 0; i < problems.size();i++){
 			map.put(problems.get(i), solutions.get(i));
 		}
+		
+		this.solvedCounter = new long[problems.size()];
 	}
 	
 	public Set<P> getProblemSet(){

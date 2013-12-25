@@ -48,17 +48,18 @@ public class EAWithConsistentGlobalProblemSet<E extends EvolutionCandidate, PSI,
 		return problemSet.getProblemSet().size();
 	}
 
-	/*public void startEvolution() {
+	@Override
+	public long startEvolution(long cycleLimit) {
 		int cycle = 0;
 		boolean finalForm = false;
 		List <E>newList = null;
 		
-		A : while(cycle < CYCLE_LIMIT && finalForm == false){
+		A : while(cycle < cycleLimit && finalForm == false){
 			System.out.println("Cycle: "+cycle);
 			
 			//calculate fitness values
 			for(E c : candidates){
-				c.setFitness(c.fitness(problemSet, counter));
+				c.setFitness(c.fitness(problemSet));
 			}
 			System.out.println("fitness values calculated..");
 			
@@ -75,8 +76,8 @@ public class EAWithConsistentGlobalProblemSet<E extends EvolutionCandidate, PSI,
 			}
 			for(int i = 0;i < (candidates.size())/2;i++){
 				if(candidates.get(i).getFitness() == maxFitness){
-					System.out.println("Winner candidate found..stresstesting it");
-					if(candidates.get(i).stressTest(stressTestProblems)){
+					System.out.println("Winner candidate found..checking it");
+					if(candidates.get(i).checkValidity(reference)){
 						winner = candidates.get(i);
 						finalForm = true;
 						break A;
@@ -101,8 +102,9 @@ public class EAWithConsistentGlobalProblemSet<E extends EvolutionCandidate, PSI,
 
 			cycle++;
 		}
-	}*/
-	
+		return cycle;
+	}
+	/*
 	@Override
 	public long startEvolution(long cycleLimit) {
 		long cycle = 0;
@@ -195,4 +197,5 @@ public class EAWithConsistentGlobalProblemSet<E extends EvolutionCandidate, PSI,
 		
 		return cycle;
 	}
+	*/
 }

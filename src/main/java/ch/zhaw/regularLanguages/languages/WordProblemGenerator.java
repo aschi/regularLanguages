@@ -43,8 +43,13 @@ public class WordProblemGenerator implements ProblemGenerator<CharArrayWrapper, 
 			expectedResultList.add(new String("").matches(regexp));
 		}
 		
-		for(int i = 0; i < noProblems;i++){
-			Tuple<CharArrayWrapper, Boolean> p = this.generateProblem();
+		for(int i = 0; i < (includeEmptyString ? noProblems-1 : noProblems);i++){
+			Tuple<CharArrayWrapper, Boolean> p = null;
+			//avoid duplicates
+			do{
+				p = this.generateProblem();
+			}while(inputList.contains(p.getFirst()));
+			
 			inputList.add(p.getFirst());
 			expectedResultList.add(p.getSecond());
 		}

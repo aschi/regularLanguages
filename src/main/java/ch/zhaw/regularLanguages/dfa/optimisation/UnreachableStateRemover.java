@@ -28,7 +28,7 @@ public class UnreachableStateRemover implements Otpimiser<DeterministicFiniteAut
 			for (char c : alphabet) {
 				next = current.process(c);
 				nextList.add(next);
-				System.out.println("Found a link: " + current.toString() + " -- (" + c + ") -->" + next.toString());
+				//System.out.println("Found a link: " + current.toString() + " -- (" + c + ") -->" + next.toString());
 			}
 			
 			processed.add(current);

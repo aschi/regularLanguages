@@ -49,11 +49,16 @@ public abstract class EvolutionCandidate<T, PS, R> implements Comparable<Evoluti
 	public abstract int fitness(PS problemSet);
 	public abstract Object cloneWithMutation();
 	public abstract boolean checkValidity(R reference);
-	
+	public abstract void checkViabilityAndResetIfNeeded();
 	
 	@Override
 	public int compareTo(EvolutionCandidate<T, PS, R> o) {
 		// TODO Auto-generated method stub
 		return o.getFitness()-this.getFitness();
+	}
+	
+	@Override
+	public String toString(){
+		return String.valueOf(getFitness());
 	}
 }

@@ -143,10 +143,10 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 	
 	
 	public void minimizeAutomaton(){
-		System.out.println("Minimize Automaton:");
-		System.out.println("No States before: " + getStates().size());
+		//System.out.println("Minimize Automaton:");
+		//System.out.println("No States before: " + getStates().size());
 		removeUnreachableStates.optimise(this);
-		System.out.println("No States after: " + getStates().size());
+		//System.out.println("No States after: " + getStates().size());
 	}
 	
 

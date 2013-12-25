@@ -101,5 +101,15 @@ public class DFAEvolutionCandidateWithProblemSet<AUTOMATON extends Deterministic
 		return null;
 	}
 
+	@Override
+	public void checkViabilityAndResetIfNeeded() {
+		//remove unreachable states
+		//getObj().minimizeAutomaton();
+		
+		if(getObj().getAcceptingStates().isEmpty()){
+			//initialise a new random automaton
+			initObj();
+		}
+	}
 
 }
