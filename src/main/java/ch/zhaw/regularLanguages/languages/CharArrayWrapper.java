@@ -2,7 +2,9 @@ package ch.zhaw.regularLanguages.languages;
 
 import java.util.Arrays;
 
-public class CharArrayWrapper{
+import ch.zhaw.regularLanguages.helpers.PublicCloneable;
+
+public class CharArrayWrapper implements PublicCloneable{
 	private char[] data;
 
 	public CharArrayWrapper(char[] data) {
@@ -36,5 +38,10 @@ public class CharArrayWrapper{
 	@Override
 	public int hashCode() {
 		return Arrays.hashCode(data);
+	}
+	
+	@Override
+	public Object clone(){
+		return new CharArrayWrapper(Arrays.copyOf(getData(), getData().length));
 	}
 }

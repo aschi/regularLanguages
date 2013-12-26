@@ -3,12 +3,12 @@ package ch.zhaw.regularLanguages.evolution.runners;
 import java.util.LinkedList;
 import java.util.List;
 
-import ch.zhaw.regularLanguages.evolution.starters.EvolvingGlobalProblemSetStarter;
+import ch.zhaw.regularLanguages.evolution.starters.EvolvingLocalProblemSetStarter;
 
-public class EvolvingGlobalABABLanguage {
+public class EvolvingLocalABABLanguage {
 
 	public static void main(String[] args) {
-		EvolvingGlobalProblemSetStarter starter = new EvolvingGlobalProblemSetStarter();
+		EvolvingLocalProblemSetStarter starter = new EvolvingLocalProblemSetStarter();
 		starter.initLanguage(new char[]{'a','b'}, 10, "[ab]*abab");
 		
 		int solutionFoundCounter = 0;
@@ -21,8 +21,8 @@ public class EvolvingGlobalABABLanguage {
 			timeStamp = System.currentTimeMillis();
 			
 			starter.initProblems(100);
-			starter.initCandidates(100);
-			tmpCycle = starter.startEvolution(500);
+			starter.initCandidates(500);
+			tmpCycle = starter.startEvolution(200);
 			
 			System.out.println(i+": finished ("+ (System.currentTimeMillis()-timeStamp) + "ms, " + tmpCycle + "cycles)");
 			

@@ -5,10 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 import ch.zhaw.regularLanguages.helpers.ObjectWithCounter;
+import ch.zhaw.regularLanguages.helpers.PublicCloneable;
 import ch.zhaw.regularLanguages.helpers.Tuple;
-import ch.zhaw.regularLanguages.languages.CharArrayWrapper;
 
-public class EvolvingProblemSet<P, S> extends ProblemSet<P, S>{
+public class EvolvingProblemSet<P extends PublicCloneable, S extends PublicCloneable> extends ProblemSet<P, S>{
 	private ProblemGenerator<P, S> problemGenerator;
 		
 	public EvolvingProblemSet(List<P> problems, List<S> solutions, ProblemGenerator<P, S> problemGenerator) {
@@ -63,5 +63,11 @@ public class EvolvingProblemSet<P, S> extends ProblemSet<P, S>{
 		setProblems(newProblems);
 		setSolutions(newSolutions);
 		updateMap();
+	}
+	
+	@Override
+	public Object clone(){
+		ProblemSet<P, S> ps = (ProblemSet<P, S>)super.clone();
+		return new EvolvingProblemSet<P, S>(ps, problemGenerator);
 	}
 }

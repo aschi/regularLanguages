@@ -9,7 +9,7 @@ import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
 import ch.zhaw.regularLanguages.helpers.Tuple;
 
 
-public class WordProblemGenerator implements ProblemGenerator<CharArrayWrapper, Boolean> {
+public class WordProblemGenerator implements ProblemGenerator<CharArrayWrapper, BooleanWrapper> {
 	private char[] alphabet;
 	private int maxWordLength;
 	private String regexp;
@@ -22,7 +22,7 @@ public class WordProblemGenerator implements ProblemGenerator<CharArrayWrapper, 
 	}
 	
 	@Override
-	public Tuple<CharArrayWrapper, Boolean> generateProblem() {
+	public Tuple<CharArrayWrapper, BooleanWrapper> generateProblem() {
 		int length = rnd.nextInt(maxWordLength);
 		
 		char[] rv = new char[length];
@@ -31,20 +31,20 @@ public class WordProblemGenerator implements ProblemGenerator<CharArrayWrapper, 
 			rv[i] = alphabet[rnd.nextInt(alphabet.length)];
 		}
 		
-		return new Tuple<CharArrayWrapper, Boolean>(new CharArrayWrapper(rv), new String(rv).matches(regexp));
+		return new Tuple<CharArrayWrapper, BooleanWrapper>(new CharArrayWrapper(rv), new BooleanWrapper(new String(rv).matches(regexp)));
 	}
 	
-	public ProblemSet<CharArrayWrapper, Boolean> generateProblemSet(int noProblems, boolean includeEmptyString){
-		List<Boolean> expectedResultList = new LinkedList<Boolean>();
+	public ProblemSet<CharArrayWrapper, BooleanWrapper> generateProblemSet(int noProblems, boolean includeEmptyString){
+		List<BooleanWrapper> expectedResultList = new LinkedList<BooleanWrapper>();
 		List<CharArrayWrapper> inputList = new LinkedList<CharArrayWrapper>();
 		
 		if(includeEmptyString){
 			inputList.add(new CharArrayWrapper(new char[0]));
-			expectedResultList.add(new String("").matches(regexp));
+			expectedResultList.add(new BooleanWrapper(new String("").matches(regexp)));
 		}
 		
 		for(int i = 0; i < (includeEmptyString ? noProblems-1 : noProblems);i++){
-			Tuple<CharArrayWrapper, Boolean> p = null;
+			Tuple<CharArrayWrapper, BooleanWrapper> p = null;
 			//avoid duplicates
 			do{
 				p = this.generateProblem();
@@ -54,6 +54,6 @@ public class WordProblemGenerator implements ProblemGenerator<CharArrayWrapper, 
 			expectedResultList.add(p.getSecond());
 		}
 		
-		return new ProblemSet<CharArrayWrapper, Boolean>(inputList, expectedResultList);
+		return new ProblemSet<CharArrayWrapper, BooleanWrapper>(inputList, expectedResultList);
 	}
 }

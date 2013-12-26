@@ -1,11 +1,14 @@
 package ch.zhaw.regularLanguages.evolution.problems;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class ProblemSet<P,S> {
+import ch.zhaw.regularLanguages.helpers.PublicCloneable;
+
+public class ProblemSet<P extends PublicCloneable,S extends PublicCloneable> {
 	private Map<P, S> map;
 	private long solvedCounter[];
 	private List<P> problems;
@@ -79,5 +82,19 @@ public class ProblemSet<P,S> {
 		}
 		
 		return output;
+	}
+	
+	
+	@Override
+	public Object clone(){
+		List<P> newProblems = new LinkedList<P>();
+		for(P p : problems){
+			newProblems.add((P)p.clone());
+		}
+		List<S> newSolutions = new LinkedList<S>();
+		for(S s : solutions){
+			newSolutions.add((S)s.clone());
+		}
+		return new ProblemSet<P, S>(newProblems, newSolutions);
 	}
 }

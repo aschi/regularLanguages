@@ -5,51 +5,28 @@ import java.lang.reflect.InvocationTargetException;
 import ch.zhaw.regularLanguages.dfa.DeterministicFiniteAutomaton;
 import ch.zhaw.regularLanguages.dfa.State;
 import ch.zhaw.regularLanguages.dfa.transformation.TransformDFAToBricsAutomaton;
+import ch.zhaw.regularLanguages.evolution.problems.EvolvingProblemSet;
 import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
+import ch.zhaw.regularLanguages.languages.BooleanWrapper;
 import ch.zhaw.regularLanguages.languages.CharArrayWrapper;
 import dk.brics.automaton.Automaton;
 
 //TODO: Implement :)
 
-public class DFAEvolutionCandidateWithProblemSet<AUTOMATON extends DeterministicFiniteAutomaton & Mutable> extends EvolutionCandidateWithProblemSet<AUTOMATON, ProblemSet<CharArrayWrapper, Boolean>, dk.brics.automaton.Automaton>{
+public class DFAEvolutionCandidateWithProblemSet<AUTOMATON extends DeterministicFiniteAutomaton & Mutable> extends EvolutionCandidateWithProblemSet<AUTOMATON, dk.brics.automaton.Automaton, CharArrayWrapper, BooleanWrapper>{
+	private char[] alphabet;
 	
 	public DFAEvolutionCandidateWithProblemSet(AUTOMATON obj,
-			ProblemSet<CharArrayWrapper, Boolean> problemSet) {
+			EvolvingProblemSet<CharArrayWrapper, BooleanWrapper> problemSet) {
 		super(obj, problemSet);
 		// TODO Auto-generated constructor stub
 	}
-
-	private char[] alphabet;
-	/*
-	public DFAEvolutionCandidateWithProblemSet(Class<AUTOMATON> classTypeDef, char[] alphabet){
-		super();
-		this.alphabet = alphabet;
-		setClassTypeDef(classTypeDef);
-		setObj(initObj());
-	}
 	
-	public DFAEvolutionCandidateWithProblemSet(Class<AUTOMATON> classTypeDef, char[] alphabet, AUTOMATON obj){
-		setClassTypeDef(classTypeDef);
+	
+	public DFAEvolutionCandidateWithProblemSet(Class<AUTOMATON> classTypeDef, char[] alphabet, AUTOMATON obj, EvolvingProblemSet<CharArrayWrapper, BooleanWrapper> problemSet){
+		super(classTypeDef, problemSet);
 		setObj(obj);
 		this.alphabet = alphabet;
-	}
-	*/
-	@Override
-	public int fitness(ProblemSet<CharArrayWrapper, Boolean> problemSet) {
-		AUTOMATON obj = getObj();
-		
-		int c = 0;
-		int i = 0;
-		for(CharArrayWrapper problem : problemSet.getProblemSet()){
-			State state = null;
-			state = obj.process(problem.getData());
-			boolean isAccepting = obj.isAcceptingState(state);
-			if(problemSet.checkSolution(problem, isAccepting)){
-				c++;
-			}
-			i++;
-		}
-		return c;
 	}
 
 	@Override
@@ -81,35 +58,38 @@ public class DFAEvolutionCandidateWithProblemSet<AUTOMATON extends Deterministic
 		}
 		return null;
 	}
-	
-	/*
-	public Object cloneWithMutation(){
+		
+	@Override
+	public Object cloneWithMutation() {
 		AUTOMATON newClone = (AUTOMATON)this.getObj().clone();
+		EvolvingProblemSet<CharArrayWrapper, BooleanWrapper> clonedPS = (EvolvingProblemSet<CharArrayWrapper, BooleanWrapper>)this.getProblemSet().clone();
+		clonedPS.evolve(0.5);
 		newClone.mutate(1);
-		return new DFAEvolutionCandidateWithProblemSet(getClassTypeDef(), alphabet, newClone);
+		return new DFAEvolutionCandidateWithProblemSet(getClassTypeDef(), alphabet, newClone, clonedPS);
 	}
-	*/
-	
+
+
+	@Override
+	public int fitness(EvolvingProblemSet<CharArrayWrapper, BooleanWrapper> problemSet) {
+		AUTOMATON obj = getObj();
+		
+		int c = 0;
+		int i = 0;
+		for(CharArrayWrapper problem : problemSet.getProblemSet()){
+			State state = null;
+			state = obj.process(problem.getData());
+			boolean isAccepting = obj.isAcceptingState(state);
+			if(problemSet.checkSolution(problem, new BooleanWrapper(isAccepting))){
+				c++;
+			}
+			i++;
+		}
+		return c;
+	}
+
+
 	@Override
 	public boolean checkValidity(Automaton reference) {
 		return reference.equals(new TransformDFAToBricsAutomaton().transform(getObj()));
 	}
-	
-	@Override
-	public Object cloneWithMutation() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void checkViabilityAndResetIfNeeded() {
-		//remove unreachable states
-		//getObj().minimizeAutomaton();
-		
-		if(getObj().getAcceptingStates().isEmpty()){
-			//initialise a new random automaton
-			initObj();
-		}
-	}
-
 }

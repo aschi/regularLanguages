@@ -6,11 +6,12 @@ import ch.zhaw.regularLanguages.dfa.DeterministicFiniteAutomaton;
 import ch.zhaw.regularLanguages.dfa.State;
 import ch.zhaw.regularLanguages.dfa.transformation.TransformDFAToBricsAutomaton;
 import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
+import ch.zhaw.regularLanguages.languages.BooleanWrapper;
 import ch.zhaw.regularLanguages.languages.CharArrayWrapper;
 import dk.brics.automaton.Automaton;
 
 
-public class DFAEvolutionCandidate<AUTOMATON extends DeterministicFiniteAutomaton & Mutable> extends EvolutionCandidate<AUTOMATON, ProblemSet<CharArrayWrapper, Boolean>, dk.brics.automaton.Automaton>{
+public class DFAEvolutionCandidate<AUTOMATON extends DeterministicFiniteAutomaton & Mutable> extends EvolutionCandidate<AUTOMATON, ProblemSet<CharArrayWrapper, BooleanWrapper>, dk.brics.automaton.Automaton>{
 	private char[] alphabet;
 	
 	public DFAEvolutionCandidate(Class<AUTOMATON> classTypeDef, char[] alphabet){
@@ -27,7 +28,7 @@ public class DFAEvolutionCandidate<AUTOMATON extends DeterministicFiniteAutomato
 	}
 	
 	@Override
-	public int fitness(ProblemSet<CharArrayWrapper, Boolean> problemSet) {
+	public int fitness(ProblemSet<CharArrayWrapper, BooleanWrapper> problemSet) {
 		AUTOMATON obj = getObj();
 		
 		int c = 0;
@@ -36,7 +37,7 @@ public class DFAEvolutionCandidate<AUTOMATON extends DeterministicFiniteAutomato
 			State state = null;
 			state = obj.process(problem.getData());
 			boolean isAccepting = obj.isAcceptingState(state);
-			if(problemSet.checkSolution(problem, isAccepting)){
+			if(problemSet.checkSolution(problem, new BooleanWrapper(isAccepting))){
 				c++;
 			}
 			i++;
@@ -83,18 +84,6 @@ public class DFAEvolutionCandidate<AUTOMATON extends DeterministicFiniteAutomato
 	@Override
 	public boolean checkValidity(Automaton reference) {
 		return reference.equals(new TransformDFAToBricsAutomaton().transform(getObj()));
-	}
-
-	@Override
-	public void checkViabilityAndResetIfNeeded() {
-		//remove unreachable states
-		getObj().minimizeAutomaton();
-		
-		
-		if(getObj().getAcceptingStates().isEmpty()){
-			//initialise a new random automaton
-			initObj();
-		}
 	}
 	
 }

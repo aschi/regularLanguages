@@ -5,9 +5,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 import ch.zhaw.regularLanguages.evolution.candidates.EvolutionCandidate;
+import ch.zhaw.regularLanguages.evolution.candidates.EvolutionCandidateWithProblemSet;
 import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
+import ch.zhaw.regularLanguages.helpers.PublicCloneable;
 
-public class EAWithEvolvingLocalProblemSets<E extends EvolutionCandidate, PSI, PSO, R> implements EvolutionaryAlgorithm<E>{
+public class EAWithEvolvingLocalProblemSets<E extends EvolutionCandidateWithProblemSet, R> implements EvolutionaryAlgorithm<E>{
 	private List<E> candidates;
 	
 	private E winner;
@@ -18,15 +20,10 @@ public class EAWithEvolvingLocalProblemSets<E extends EvolutionCandidate, PSI, P
 	private int maxC;
 	
 	
-	private ProblemSet<PSI, PSO> problemSet;
-	
-	public EAWithEvolvingLocalProblemSets(ProblemSet<PSI, PSO> problemSet, List<E> candidates, R reference) {
-		this.problemSet = problemSet;	
+	public EAWithEvolvingLocalProblemSets(List<E> candidates, R reference, int noProblems) {
 		this.candidates = candidates;
-		this.maxFitness = problemSet.getProblemSet().size();
 		this.reference = reference;
-		
-		System.out.println("Max Fitness: " + maxFitness);
+		this.maxFitness = noProblems;
 	}
 	
 	public E getWinner(){
@@ -36,17 +33,9 @@ public class EAWithEvolvingLocalProblemSets<E extends EvolutionCandidate, PSI, P
 	public int getMaxC(){
 		return maxC;
 	}
-	
-	public ProblemSet<PSI, PSO> getProblemSet(){
-		return problemSet;
-	}
 		
 	public List<E> getCandidates(){
 		return candidates;
-	}
-	
-	public int getProblemSetSize(){
-		return problemSet.getProblemSet().size();
 	}
 
 	@Override
@@ -60,8 +49,6 @@ public class EAWithEvolvingLocalProblemSets<E extends EvolutionCandidate, PSI, P
 		long countIbig = 0;
 		
 		A : while(cycle < cycleLimit && finalForm == false){
-			System.out.println("Cycle: "+cycle);
-			
 			if(newList == null){
 				newList = new LinkedList<E>();
 			}else{
@@ -71,11 +58,10 @@ public class EAWithEvolvingLocalProblemSets<E extends EvolutionCandidate, PSI, P
 			for(int i = 0;i < candidates.size();i+=2){
 				int n = (i <= 0 ? candidates.size()-1 : i-1);
 				
-				int fitnessI = candidates.get(i).fitness(problemSet);
-				int fitnessN = candidates.get(n).fitness(problemSet);
+				int fitnessI = candidates.get(i).fitness(candidates.get(n).getProblemSet());
+				int fitnessN = candidates.get(n).fitness(candidates.get(i).getProblemSet());
 				
 				if(fitnessI == maxFitness){
-					System.out.println("Winner candidate found..stresstesting it");
 					if(candidates.get(i).checkValidity(reference)){
 						winner = candidates.get(i);
 						finalForm = true;
@@ -83,7 +69,6 @@ public class EAWithEvolvingLocalProblemSets<E extends EvolutionCandidate, PSI, P
 					}
 				}
 				if(fitnessN == maxFitness){
-					System.out.println("Winner candidate found..stresstesting it");
 					if(candidates.get(n).checkValidity(reference)){
 						winner = candidates.get(n);
 						finalForm = true;
@@ -93,12 +78,10 @@ public class EAWithEvolvingLocalProblemSets<E extends EvolutionCandidate, PSI, P
 				
 				if(fitnessI > maxC){
 					maxC = fitnessI;
-					System.out.println("new maxC: " + maxC);
 				}
 				
 				if(fitnessN > maxC){
 					maxC = fitnessN;
-					System.out.println("new maxC: " + maxC);
 				}
 				
 				
@@ -126,7 +109,6 @@ public class EAWithEvolvingLocalProblemSets<E extends EvolutionCandidate, PSI, P
 				}
 			}
 			
-			System.out.println("clear list & set newlist");
 			candidates.clear();
 			candidates.addAll(newList);
 			
@@ -134,10 +116,6 @@ public class EAWithEvolvingLocalProblemSets<E extends EvolutionCandidate, PSI, P
 			
 			cycle++;
 		}
-		
-		System.out.println("EQ:"+ countEq);
-		System.out.println("NBiger:"+ countNbig);
-		System.out.println("IBiger:"+ countIbig);
 		
 		return cycle;
 	}

@@ -6,8 +6,9 @@ import java.util.List;
 
 import ch.zhaw.regularLanguages.evolution.candidates.EvolutionCandidate;
 import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
+import ch.zhaw.regularLanguages.helpers.PublicCloneable;
 
-public class EAWithConsistentGlobalProblemSet<E extends EvolutionCandidate, PSI, PSO, R> implements EvolutionaryAlgorithm<E>{
+public class EAWithConsistentGlobalProblemSet<E extends EvolutionCandidate, PSI extends PublicCloneable, PSO extends PublicCloneable, R> implements EvolutionaryAlgorithm<E>{
 	private List<E> candidates;
 	
 	private E winner;

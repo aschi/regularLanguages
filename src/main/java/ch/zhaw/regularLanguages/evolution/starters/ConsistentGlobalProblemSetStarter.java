@@ -7,18 +7,19 @@ import ch.zhaw.regularLanguages.dfa.RandomDeterministicFiniteAutomaton;
 import ch.zhaw.regularLanguages.evolution.EAWithConsistentGlobalProblemSet;
 import ch.zhaw.regularLanguages.evolution.candidates.DFAEvolutionCandidate;
 import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
+import ch.zhaw.regularLanguages.languages.BooleanWrapper;
 import ch.zhaw.regularLanguages.languages.CharArrayWrapper;
 import ch.zhaw.regularLanguages.languages.WordProblemGenerator;
 import dk.brics.automaton.RegExp;
 
-public class ConsistentGlobalProblemSetStarter implements DFAEvolutionaryAlgorithmStarter<EAWithConsistentGlobalProblemSet<DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>, CharArrayWrapper, Boolean, dk.brics.automaton.Automaton>, DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>> {	
+public class ConsistentGlobalProblemSetStarter implements DFAEvolutionaryAlgorithmStarter<EAWithConsistentGlobalProblemSet<DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>, CharArrayWrapper, BooleanWrapper, dk.brics.automaton.Automaton>, DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>> {	
 	private List<DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>> candidates;
-	private ProblemSet<CharArrayWrapper, Boolean> problemSet;
+	private ProblemSet<CharArrayWrapper, BooleanWrapper> problemSet;
 	private char[] alphabet;
 	private String regexp;
 	private dk.brics.automaton.Automaton refrence;
 	private WordProblemGenerator wpg;
-	private EAWithConsistentGlobalProblemSet<DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>, CharArrayWrapper, Boolean, dk.brics.automaton.Automaton> ea;
+	private EAWithConsistentGlobalProblemSet<DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>, CharArrayWrapper, BooleanWrapper, dk.brics.automaton.Automaton> ea;
 	
 	@Override
 	public void initLanguage(char[] alphabet, int maxWordLength, String regexp) {
@@ -59,7 +60,7 @@ public class ConsistentGlobalProblemSetStarter implements DFAEvolutionaryAlgorit
 			throw new IllegalAccessError("ProblemSet not yet initialised!");
 		}
 		
-		ea = new EAWithConsistentGlobalProblemSet<DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>, CharArrayWrapper, Boolean, dk.brics.automaton.Automaton>(problemSet, candidates, refrence);
+		ea = new EAWithConsistentGlobalProblemSet<DFAEvolutionCandidate<RandomDeterministicFiniteAutomaton>, CharArrayWrapper, BooleanWrapper, dk.brics.automaton.Automaton>(problemSet, candidates, refrence);
 		return ea.startEvolution(cycleLimit);
 	}
 

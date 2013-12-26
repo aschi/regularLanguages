@@ -13,15 +13,15 @@ public class LanguageHelper {
 	}
 	
 	
-	public static ProblemSet<CharArrayWrapper, Boolean> generateLanguageProblemSet(String regexp, Set<CharArrayWrapper> words){
-		List<Boolean> expectedResultList = new LinkedList<Boolean>();
+	public static ProblemSet<CharArrayWrapper, BooleanWrapper> generateLanguageProblemSet(String regexp, Set<CharArrayWrapper> words){
+		List<BooleanWrapper> expectedResultList = new LinkedList<BooleanWrapper>();
 		List<CharArrayWrapper> inputList = new LinkedList<CharArrayWrapper>();
 		
 		for(CharArrayWrapper cw : words){
 			inputList.add(cw);
-			expectedResultList.add(new String(cw.getData()).matches(regexp));
+			expectedResultList.add(new BooleanWrapper(new String(cw.getData()).matches(regexp)));
 		}
-		return new ProblemSet<CharArrayWrapper, Boolean>(inputList, expectedResultList);
+		return new ProblemSet<CharArrayWrapper, BooleanWrapper>(inputList, expectedResultList);
 	}
 	
 	public static Set<CharArrayWrapper> generateAllWords(char[] alphabet, int maxLength){

@@ -8,8 +8,9 @@ import ch.zhaw.regularLanguages.evolution.candidates.EvolutionCandidate;
 import ch.zhaw.regularLanguages.evolution.problems.EvolvingProblemSet;
 import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
 import ch.zhaw.regularLanguages.helpers.ListExporter;
+import ch.zhaw.regularLanguages.helpers.PublicCloneable;
 
-public class EAWithEvolvingGlobalProblemSet<E extends EvolutionCandidate, PSI, PSO, R> implements EvolutionaryAlgorithm<E>{
+public class EAWithEvolvingGlobalProblemSet<E extends EvolutionCandidate, PSI extends PublicCloneable, PSO extends PublicCloneable, R> implements EvolutionaryAlgorithm<E>{
 	private List<E> candidates;
 	
 	private E winner;
