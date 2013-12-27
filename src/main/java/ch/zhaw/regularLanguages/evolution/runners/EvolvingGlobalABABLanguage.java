@@ -51,18 +51,23 @@ public class EvolvingGlobalABABLanguage {
 			
 			pc = problemCount[n%5];
 			cc = candidatesCount[(int)Math.floor(n/5)];
-			nc = noCycles[(pc*cc > 22500 ? 0 : 1)];
+			nc = noCycles[1];
 			
 			l.log("Problem Count: " + pc);
 			l.log("CandidatesCount: " + cc);
 			l.log("Max Cycles: " + nc);
 			
+			
+			solutionFoundCounter = 0;
+			noSolutionFound = 0;
+			cycleCount = new LinkedList<Long>();
+			
 			for(int i = 0;i < 100;i++){
 				timeStamp = System.currentTimeMillis();
 				
-				starter.initProblems(100);
-				starter.initCandidates(100);
-				tmpCycle = starter.startEvolution(500);
+				starter.initProblems(pc);
+				starter.initCandidates(cc);
+				tmpCycle = starter.startEvolution(nc);
 				
 				l.log(i+": finished ("+ (System.currentTimeMillis()-timeStamp) + "ms, " + tmpCycle + "cycles)");
 				

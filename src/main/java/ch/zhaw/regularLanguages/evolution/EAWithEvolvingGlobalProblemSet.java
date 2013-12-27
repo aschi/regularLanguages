@@ -68,7 +68,7 @@ public class EAWithEvolvingGlobalProblemSet<E extends EvolutionCandidate, PSI ex
 			
 			Collections.sort(candidates);
 			
-			new ListExporter<E>().exportList(candidates, cycle+".txt");
+			//new ListExporter<E>().exportList(candidates, cycle+".txt");
 			
 			//System.out.println("fitness values sorted..");
 			
