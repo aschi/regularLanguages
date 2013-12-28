@@ -80,9 +80,7 @@ public class EAWithConsistentGlobalProblemSet<E extends EvolutionCandidate, PSI 
 				}
 				
 				newList.add(candidates.get(i)); //add old object
-				//System.out.println("candidate added");
 				newList.add((E)candidates.get(i).cloneWithMutation()); //add mutated clone
-				//System.out.println("clone added");
 			}
 			//continue with new list
 			candidates.clear();

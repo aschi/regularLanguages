@@ -90,13 +90,10 @@ public class EAWithEvolvingGlobalProblemSet<E extends EvolutionCandidate, PSI ex
 				}
 				if(candidates.get(i).getFitness() > maxC){
 					maxC = candidates.get(i).getFitness();
-					//System.out.println("new maxC: " + maxC);
 				}
 				
 				newList.add(candidates.get(i)); //add old object
-				//System.out.println("candidate added");
 				newList.add((E)candidates.get(i).cloneWithMutation()); //add mutated clone
-				//System.out.println("clone added");
 			}
 			
 			//continue with new list
@@ -105,7 +102,6 @@ public class EAWithEvolvingGlobalProblemSet<E extends EvolutionCandidate, PSI ex
 			
 			//evolve problem set
 			problemSet.evolve(0.5);
-			//System.out.println("evolve problem set");
 						
 			cycle++;
 		}

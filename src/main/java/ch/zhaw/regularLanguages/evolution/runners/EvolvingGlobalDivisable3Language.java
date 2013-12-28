@@ -6,14 +6,14 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import ch.zhaw.regularLanguages.evolution.starters.ConsistentGlobalProblemSetStarter;
+import ch.zhaw.regularLanguages.evolution.starters.EvolvingGlobalProblemSetStarter;
 import ch.zhaw.regularLanguages.helpers.Logger;
 
-public class ConsitentGlobalABABLanguage {
+public class EvolvingGlobalDivisable3Language {
 
 	public static void main(String[] args) {
-		ConsistentGlobalProblemSetStarter starter = new ConsistentGlobalProblemSetStarter();
-		starter.initLanguage(new char[]{'a','b'}, 10, "[ab]*abab");
+		EvolvingGlobalProblemSetStarter starter = new EvolvingGlobalProblemSetStarter();
+		starter.initLanguage(new char[]{'0','1'}, 10, "(1(01*0)*1|0)*");
 		
 		int solutionFoundCounter = 0;
 		int noSolutionFound = 0;
@@ -47,7 +47,7 @@ public class ConsitentGlobalABABLanguage {
 		for(int n = 0;n < 25;n++){
 			DateFormat df = new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");
 			
-			Logger l = new Logger("C_G_"+df.format(new Date()) +".log", true);
+			Logger l = new Logger("E_G_"+df.format(new Date()) +".log", true);
 			
 			pc = problemCount[n%5];
 			cc = candidatesCount[(int)Math.floor(n/5)];
@@ -75,6 +75,7 @@ public class ConsitentGlobalABABLanguage {
 					solutionFoundCounter++;
 					cycleCount.add(tmpCycle);
 					l.log(i + ": Solution found.");
+					//GraphvizRenderer.renderGraph(starter.getWinner().getObj(), "winner.svg");
 				}else{
 					noSolutionFound++;
 					l.log(i + ": No solution found.");
