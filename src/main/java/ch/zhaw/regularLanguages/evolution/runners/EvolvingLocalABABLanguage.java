@@ -46,7 +46,7 @@ public class EvolvingLocalABABLanguage {
 		int cc = 0;
 		int nc = 0;
 		
-		for(int n = 0;n < 25;n++){
+		for(int n = 24;n < 25;n++){
 			DateFormat df = new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");
 			
 			Logger l = new Logger("E_L_"+df.format(new Date()) +".log", true);
@@ -101,7 +101,8 @@ public class EvolvingLocalABABLanguage {
 				min = (lo < min ? lo : min);
 			}
 			
-			l.log("Solution Found: " +solutionFoundCounter +" (Avg: " + sum/cycleCount.size() + ")");
+			l.log("Solution Found: " +solutionFoundCounter);
+			l.log("Avg cycles: " + (cycleCount.size() > 0 ? sum/cycleCount.size() : '0'));
 			l.log("Max cycles: " + max);
 			l.log("Min cycles: " + min);
 			l.log("No solution found: "+noSolutionFound);
