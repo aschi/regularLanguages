@@ -7,18 +7,26 @@ import ch.zhaw.regularLanguages.dfa.optimisation.Otpimiser;
 import ch.zhaw.regularLanguages.dfa.optimisation.UnreachableStateRemover;
 import ch.zhaw.regularLanguages.graphicalOutput.GraphvizRenderable;
 
+/**
+ * Class DeterministicFiniteAutomaton
+ * Represents Det
+ * 
+ * @author adrian
+ *
+ */
 public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 	private Set<State> states;
 	private State startState;
 	private Set<State> acceptingStates;
 	private char[] alphabet;
 	
-	private Otpimiser<DeterministicFiniteAutomaton> removeUnreachableStates = new UnreachableStateRemover();
+	private Otpimiser<DeterministicFiniteAutomaton> removeUnreachableStates;
 	
 	public DeterministicFiniteAutomaton(){
-		initSimpleAutomaton();
-	}	
-
+		super();
+		removeUnreachableStates = new UnreachableStateRemover();
+	}
+	
 	public DeterministicFiniteAutomaton(Set<State> states, State startState,
 			Set<State> acceptingStates, char[] alphabet) {
 		super();
@@ -32,6 +40,8 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 		if(startState == null){
 			throw new IllegalArgumentException("Start state can not be null!");				
 		}
+		
+		removeUnreachableStates = new UnreachableStateRemover();
 		
 		this.states = states;
 		this.startState = startState;
@@ -72,37 +82,6 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 		this.alphabet = alphabet;
 	}
 
-	/**
-	 * 
-	 */
-	public void initSimpleAutomaton(){
-		char[] alphabet = {'a', 'b'};
-		setAlphabet(alphabet);
-		
-		states = new TreeSet<State>();
-		acceptingStates = new TreeSet<State>();
-		
-		State q0 = new State("q0");
-		State q1 = new State("q1");
-		
-		TransitionTable ttq0 = new TransitionTable();
-		ttq0.addTransition('a', q0);
-		ttq0.addTransition('b', q1);
-		
-		TransitionTable ttq1 = new TransitionTable();
-		ttq1.addTransition('a', q0);
-		ttq1.addTransition('b', q1);
-		
-		q0.setTransitionTable(ttq0);
-		q1.setTransitionTable(ttq1);
-		
-		states.add(q0);
-		states.add(q1);
-		
-		acceptingStates.add(q1);
-		startState = q0;
-	}
-	
 	
 	public boolean isStateIdAvailable(String stateId){
 		for(State s : states){

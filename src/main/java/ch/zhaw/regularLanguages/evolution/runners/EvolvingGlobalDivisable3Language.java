@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import ch.zhaw.regularLanguages.evolution.starters.EvolvingGlobalProblemSetStarter;
+import ch.zhaw.regularLanguages.graphicalOutput.GraphvizRenderer;
 import ch.zhaw.regularLanguages.helpers.Logger;
 
 public class EvolvingGlobalDivisable3Language {

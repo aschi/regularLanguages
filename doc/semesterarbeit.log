@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.12.23)  23 DEC 2013 03:36
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.12.23)  28 DEC 2013 22:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**semesterarbeit.tex
+**semesterarbeit
 (./semesterarbeit.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ng
@@ -592,7 +592,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip53
 )
-(./semesterarbeit.aux)
+(./semesterarbeit.aux
+
+LaTeX Warning: Label `fig:endlicher_automat' multiply defined.
+
+)
 \openout1 = `semesterarbeit.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 241.
@@ -609,8 +613,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 241.
 LaTeX Font Info:    ... okay on input line 241.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 241.
 LaTeX Font Info:    ... okay on input line 241.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count111
 \scratchdimen=\dimen119
@@ -691,91 +694,127 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
  [1
 
 ]
-(./content/einleitung/einleitung.tex) (./content/planung/planung.tex)
-(./content/umsetzung/umsetzung.tex (./content/umsetzung/1_automaten.tex)
-(./content/umsetzung/2_globale_feste_problemmenge.tex)
-(./content/umsetzung/3_globale_mutierende_problemmenge.tex
-(./content/umsetzung/3_1probleme_mutierende_problemmenge.tex [2
+(./content/01_einleitung/einleitung.tex) (./content/02_projekt/projekt.tex)
+(./content/03_grundlagen/grundlagen.tex [2
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 14.
+(./content/03_grundlagen/01_grundlagen_automaten.tex [3
+
+]
+<images/endlicher_automat.pdf, id=105, 198.7425pt x 142.5325pt>
+File: images/endlicher_automat.pdf Graphic file (type pdf)
+
+<use images/endlicher_automat.pdf>
+Package pdftex.def Info: images/endlicher_automat.pdf used on input line 27.
+(pdftex.def)             Requested size: 198.742pt x 142.53214pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 58.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 14.
-
-<./images/before_mutation.pdf, id=95, 578.16pt x 433.62pt>
-File: ./images/before_mutation.pdf Graphic file (type pdf)
-
-<use ./images/before_mutation.pdf>
-Package pdftex.def Info: ./images/before_mutation.pdf used on input line 23.
-(pdftex.def)             Requested size: 358.50612pt x 268.8747pt.
-
-<./images/one_iteration.pdf, id=96, 578.16pt x 433.62pt>
-File: ./images/one_iteration.pdf Graphic file (type pdf)
-
-<use ./images/one_iteration.pdf>
-Package pdftex.def Info: ./images/one_iteration.pdf used on input line 31.
-(pdftex.def)             Requested size: 358.50612pt x 268.8747pt.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 58.
+ [4 <./images/endlicher_automat.pdf>]) (./content/03_grundlagen/02_grundlagen_e
+a.tex
+Overfull \hbox (0.30954pt too wide) in paragraph at lines 2--4
+\T1/cmr/m/n/12 Such-pro-ble-me nä-he-rungs-wei-se durch ver-ein-fa-chen-de al-g
+o-rith-mi-sche Um-set-zung von Prin-
+ []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \hbox (badness 10000) in paragraph at lines 2--4
 
-<./images/fife_iterations.pdf, id=97, 578.16pt x 433.62pt>
-File: ./images/fife_iterations.pdf Graphic file (type pdf)
+ []
 
-<use ./images/fife_iterations.pdf>
-Package pdftex.def Info: ./images/fife_iterations.pdf used on input line 39.
-(pdftex.def)             Requested size: 358.50612pt x 268.8747pt.
- [3 <./images/before_mutation.pdf>]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
-))) [4 <./images/one_iteration.pdf>] [5 <./images/fife_iterations.pdf>]
-(./semesterarbeit.lof)
+ []
+
+[5] <images/evolutionaerer_algorithmus.pdf, id=132, 216.81pt x 224.84pt>
+File: images/evolutionaerer_algorithmus.pdf Graphic file (type pdf)
+
+<use images/evolutionaerer_algorithmus.pdf>
+Package pdftex.def Info: images/evolutionaerer_algorithmus.pdf used on input li
+ne 11.
+(pdftex.def)             Requested size: 216.80946pt x 224.83945pt.
+))
+(./content/04_umsetzung/umsetzung.tex (./content/04_umsetzung/01_automaten.tex)
+(./content/04_umsetzung/02_ea.tex)
+
+! LaTeX Error: File `content/04_umsetzung/02_globale_feste_problemmenge.tex' no
+t found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
+
+Enter file name: 
+
+! LaTeX Error: File `content/04_umsetzung/03_globale_mutierende_problemmenge.te
+x' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
+
+Enter file name: 
+
+! LaTeX Error: File `content/04_umsetzung/04_lokale_mutierende_problemmenge.tex
+' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
+
+Enter file name: 
+) [6 <./images/evolutionaerer_algorithmus.pdf>] (./semesterarbeit.lof)
 \tf@lof=\write5
 \openout5 = `semesterarbeit.lof'.
 
- (./semesterarbeit.lot)
+
+(./semesterarbeit.lot)
 \tf@lot=\write6
 \openout6 = `semesterarbeit.lot'.
 
-
-No file semesterarbeit.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 299.
-[6
+ (./semesterarbeit.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 300.
+ [7
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 299.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 300.
  (./semesterarbeit.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 299.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 299.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 300.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 300.
 Package rerunfilecheck Info: File `semesterarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: DF7F703E0BCDCE06F825D8915919CD33;849.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 299.
+(rerunfilecheck)             Checksum: 4BA80B4C62E26140A51B0B90917FFE08;756.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 300.
  ) 
 Here is how much of TeX's memory you used:
- 8166 strings out of 495007
- 119877 string characters out of 3179689
- 223197 words of memory out of 3000000
- 11176 multiletter control sequences out of 15000+200000
- 17992 words of font info for 50 fonts, out of 3000000 for 9000
+ 8195 strings out of 495008
+ 120366 string characters out of 3179712
+ 226343 words of memory out of 3000000
+ 11183 multiletter control sequences out of 15000+200000
+ 18676 words of font info for 51 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,11n,47p,599b,353s stack positions out of 5000i,500n,10000p,200000b,50000s
- </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1440.600pk> </home/
-adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1200.600pk> </home/adrian/.te
-xmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1728.600pk> </home/adrian/.texmf-var/fo
-nts/pk/ljfour/jknappen/ec/ecsl1200.600pk> </home/adrian/.texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecrm1200.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknapp
-en/ec/ecrm1728.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx
-2488.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on semesterarbeit.pdf (7 pages, 704479 bytes).
+ 38i,11n,47p,1112b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
+ </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/
+adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1440.600pk> </home/adrian/.te
+xmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1200.600pk> </home/adrian/.texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ecsx1728.600pk> </home/adrian/.texmf-var/fonts/pk/ljf
+our/jknappen/ec/ecsl1200.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/ecrm1200.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm
+1728.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx2488.600pk
+> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on semesterarbeit.pdf (8 pages, 145641 bytes).
 PDF statistics:
- 4602 PDF objects out of 5155 (max. 8388607)
- 2555 compressed objects within 26 object streams
- 31 named destinations out of 1000 (max. 500000)
- 120 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 491 PDF objects out of 1000 (max. 8388607)
+ 192 compressed objects within 2 object streams
+ 44 named destinations out of 1000 (max. 500000)
+ 107 words of extra memory for PDF output out of 10000 (max. 10000000)
 

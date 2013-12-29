@@ -51,12 +51,13 @@ public class UnreachableStateRemover implements Otpimiser<DeterministicFiniteAut
 		Set<State> newAcceptingStates = new HashSet<State>();
 		
 		//remove unreachable accepting states
-		for(State s : obj.getAcceptingStates()){
-			if(processed.contains(s)){
-				newAcceptingStates.add(s);
+		if(obj.getAcceptingStates() != null){
+			for(State s : obj.getAcceptingStates()){
+				if(processed.contains(s)){
+					newAcceptingStates.add(s);
+				}
 			}
 		}
-		
 		
 		//set new (optimised) states
 		obj.setAcceptingStates(newAcceptingStates);
