@@ -113,5 +113,3 @@ def statistics_compare(x, y):
 		return -1
 
 analyse_data('abab', 'E_G_')
-analyse_data('abab', 'E_L_')
-analyse_data('abab', 'C_G_')
