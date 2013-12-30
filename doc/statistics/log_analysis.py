@@ -41,8 +41,8 @@ def analyse_data(subfolder, prefix):
 	
 	#compress data
 	last=None
-	percSum=0
-	count=0
+	percSum=0.0
+	count=0.0
 
 	statisticsList.sort(statistics_compare)
 
@@ -51,7 +51,7 @@ def analyse_data(subfolder, prefix):
 		if not last is None:
 			if int(e.noCandidates) == int(last.noCandidates) and int(e.noProblems) == int(last.noProblems):
 				percSum+=e.foundPercentage
-				count+=1
+				count+=1.0
 				last=e
 			else:
 				newObj = EAStatistics()
@@ -61,18 +61,18 @@ def analyse_data(subfolder, prefix):
 				compressedList.append(newObj)
 
 				percSum=e.foundPercentage
-				count=1
+				count=1.0
 
 				last=e
 		else:
 			percSum=e.foundPercentage
-			count=1
+			count=1.0
 			last=e
 	#append the last object
 	newObj = EAStatistics()
 	newObj.noCandidates=last.noCandidates
 	newObj.noProblems=last.noProblems
-	newObj.foundPercentage=percSum/count
+	newObj.foundPercentage=float(percSum)/float(count)
 	compressedList.append(newObj)
 
 	compressedList.sort(statistics_compare)

@@ -78,13 +78,13 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 %%% PDF
 %%%
 
-\newif\ifpdf
-  \ifx\pdfoutput\undefined
-     \pdffalse
-  \else
-     \pdfoutput=1
-     \pdftrue
-  \fi
+%%%\newif\ifpdf
+%%%  \ifx\pdfoutput\undefined
+%%%     \pdffalse
+%%%  \else
+%%%     \pdfoutput=1
+%%%     \pdftrue
+%%%  \fi
 
 %%% Should be LAST usepackage-call!
 %%% For docu on that, see reference on package ``hyperref''
@@ -238,6 +238,9 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 %%% begin document
 %%%
 
+\setcounter{tocdepth}{2}
+
+
 \begin{document}
 
  \pagenumbering{roman} %% small roman page numbers
@@ -245,6 +248,9 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 %%% include the title
 % \thispagestyle{empty}  %% no header/footer (only) on this page
  \maketitle
+
+\input{content/00_preface/dank.tex}
+\input{content/00_preface/abstract.tex}
 
 \clearpage
 %%% start a new page and display the table of contents
@@ -265,9 +271,10 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 
 \clearpage
 \input{content/01_einleitung/einleitung.tex}
-\input{content/02_projekt/projekt.tex}
-\input{content/03_grundlagen/grundlagen.tex}
-\input{content/04_umsetzung/umsetzung.tex}
+\input{content/02_grundlagen/grundlagen.tex}
+\input{content/03_umsetzung/umsetzung.tex}
+\section{Supi5}
+
 \clearpage
 
 %%%
@@ -276,6 +283,7 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  \appendix  %% include it, if something (bibliography, index, ...) follows below
+\input{content/99_anhang/anhang.tex}
 
 %%% start a new page and display the list of figures
 % \newpage

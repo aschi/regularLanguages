@@ -46,7 +46,7 @@ public class EvolvingLocalABABLanguage {
 		int cc = 0;
 		int nc = 0;
 		
-		for(int n = 24;n < 25;n++){
+		for(int n = 0;n < 25;n++){
 			DateFormat df = new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");
 			
 			Logger l = new Logger("E_L_"+df.format(new Date()) +".log", true);

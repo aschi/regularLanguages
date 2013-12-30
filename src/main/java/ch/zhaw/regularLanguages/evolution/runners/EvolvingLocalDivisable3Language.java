@@ -6,13 +6,13 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import ch.zhaw.regularLanguages.evolution.starters.EvolvingGlobalProblemSetStarter;
+import ch.zhaw.regularLanguages.evolution.starters.EvolvingLocalProblemSetStarter;
 import ch.zhaw.regularLanguages.helpers.Logger;
 
-public class EvolvingGlobalDivisable3Language {
+public class EvolvingLocalDivisable3Language {
 
 	public static void main(String[] args) {
-		EvolvingGlobalProblemSetStarter starter = new EvolvingGlobalProblemSetStarter();
+		EvolvingLocalProblemSetStarter starter = new EvolvingLocalProblemSetStarter();
 		starter.initLanguage(new char[]{'0','1'}, 10, "(1(01*0)*1|0)*");
 		
 		int solutionFoundCounter = 0;
@@ -23,7 +23,7 @@ public class EvolvingGlobalDivisable3Language {
 		
 		int[] problemCount = new int[5];
 		int[] candidatesCount = new int[5];
-		int[] noCycles = new int[2];
+		int[] noCycles = new int[4];
 		
 		problemCount[0] = 50;
 		problemCount[1] = 100;
@@ -39,6 +39,8 @@ public class EvolvingGlobalDivisable3Language {
 		
 		noCycles[0] = 250;
 		noCycles[1] = 500;
+		noCycles[2] = 1000;
+		noCycles[3] = 2000;
 		
 		int pc = 0;
 		int cc = 0;
@@ -47,11 +49,19 @@ public class EvolvingGlobalDivisable3Language {
 		for(int n = 0;n < 25;n++){
 			DateFormat df = new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");
 			
-			Logger l = new Logger("E_G_"+df.format(new Date()) +".log", true);
+			Logger l = new Logger("E_L_"+df.format(new Date()) +".log", true);
 			
 			pc = problemCount[n%5];
 			cc = candidatesCount[(int)Math.floor(n/5)];
-			nc = noCycles[1];
+			if(pc*cc <= 5000){
+				nc = noCycles[3];
+			}else if(pc*cc <= 10000){
+				nc = noCycles[2];
+			}else if(pc*cc <= 22500){
+				nc = noCycles[1];
+			}else{
+				nc = noCycles[0];
+			}
 			
 			l.log("Problem Count: " + pc);
 			l.log("CandidatesCount: " + cc);
@@ -61,7 +71,7 @@ public class EvolvingGlobalDivisable3Language {
 			solutionFoundCounter = 0;
 			noSolutionFound = 0;
 			cycleCount = new LinkedList<Long>();
-			
+		
 			for(int i = 0;i < 100;i++){
 				timeStamp = System.currentTimeMillis();
 				
@@ -85,10 +95,10 @@ public class EvolvingGlobalDivisable3Language {
 			long max=0;
 			long min=10000;
 			long sum=0;
-			for(long no : cycleCount){
-				sum+=no;
-				max = (no > max ? no : max);
-				min = (no < min ? no : min);
+			for(long lo : cycleCount){
+				sum+=lo;
+				max = (lo > max ? lo : max);
+				min = (lo < min ? lo : min);
 			}
 			
 			l.log("Solution Found: " +solutionFoundCounter);

@@ -1,7 +1,13 @@
 \BOOKMARK [1][-]{section.1}{Einleitung}{}% 1
-\BOOKMARK [1][-]{section.2}{Projekt}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Aufgabenstellung}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Ausgangslage}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Projektplanung}{section.2}% 5
-\BOOKMARK [1][-]{section.3}{Grundlagen}{}% 6
-\BOOKMARK [2][-]{subsection.3.1}{Endliche Automaten und regul\344re Sprachen}{section.3}% 7
+\BOOKMARK [2][-]{subsection.1.1}{Ausgangslage}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Ziel der Arbeit}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Aufgabenstellung}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{Erwartete Resultate}{section.1}% 5
+\BOOKMARK [1][-]{section.2}{Grundlagen}{}% 6
+\BOOKMARK [2][-]{subsection.2.1}{Endliche Automaten und regul\344re Sprachen}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.2}{Evolution\344re Algorithmen}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{Umsetzung}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Automaten}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Evolution\344re Algorithmen}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Lokale mutierende Problemengen}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Supi5}{}% 13
