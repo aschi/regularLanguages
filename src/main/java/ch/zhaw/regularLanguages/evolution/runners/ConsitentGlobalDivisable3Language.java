@@ -13,7 +13,7 @@ public class ConsitentGlobalDivisable3Language {
 
 	public static void main(String[] args) {
 		ConsistentGlobalProblemSetStarter starter = new ConsistentGlobalProblemSetStarter();
-		starter.initLanguage(new char[]{'0','1'}, 10, "(1(01*0)*1|0)*");
+		starter.initLanguage(new char[]{'0','1'}, 10, "(1(01*0)*1|0)*i");
 		
 		int solutionFoundCounter = 0;
 		int noSolutionFound = 0;
