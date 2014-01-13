@@ -41,3 +41,47 @@ def process(word):
     state = state.process(char)
   return state
 \end{lstlisting}
+
+\subsubsection{RandomDeterministicFiniteAutomaton}
+Der $RandomDeterministicFiniteAutomaton$ ist ein erweiterter DFA welcher den normalen endlichen Automaten um einen zufälligen Konstruktor und eine $mutate$ Methode zum zufälligen mutieren des Automaten erweitert.
+
+\paragraph{Der Konstruktor} erzeugt mithilfe eines gegebenen Alphabets und einem Faktor für die Komplexität des Problems - wie folgt beschrieben - zufällige Automaten.
+\begin{enumerate}
+  \item Es wird eine Menge von Zuständen erzeugt (Anzahl Zustände: $1$ - $(2 \cdot AnzahlZeichen \cdot Komplexitaet)$ wobei $AnzahlZeichen$ die Anzahl der Zeichen des Alphabets und die $Komplexität$ ein Faktor ist welcher als Parameter an den Konstruktor übergeben wird).
+  \item Jedem Zustand werden für jedes Zeichen des Alphabets zufällig Verbindungen auf andere Zuständen zugeordnet.
+  \item Der erste Zustand (q0) wird zum Startzustand.
+  \item Um sicherzustellen dass jeder Automat erreichbare akzeptierende Zustände hat, werden alle nicht erreichbaren Zustände entfernt.
+  \item Eine zufällige Menge von Zuständen ($1$ - $\frac{AnzahlZustaende}{5}$) wird zu akzeptierenden Zuständen.
+\end{enumerate}
+
+
+\paragraph{Die $mutate$ Methode} greift auf ein Mutationsregister zurück in welchem die Methoden zum Verändern von Automaten registriert sind. Dabei wählt es zufällig eine Methode aus und führt diese durch. Wenn die Mutation erfoglreich war sind wir fertig. Wenn nicht wird erneut eine Zufällige Methode ausgesucht. Dies wird solange wiederholt bis der Automat erfolgreich verändert wurde.
+
+\begin{center}
+  \begin{tabular}{| l | p{7cm} | p{4cm} |}
+    \hline
+    \textbf{Aktion} &  \textbf{Beschreibung} & \textbf{Bedingungen}\\
+    \hline
+    Zustand hinzufügen 
+    & Es wird ein Zustand zum automaten hinzugefügt. Für jedes Zeichen im Alphabet wird ein Übergang auf einen zufälligen Zustand des Automaten gelegt. Danach wird berechnet wieviele Verbindungen in diesem Automaten durchschnittlich zu einem Zustand führen ($avg$). Mit diesem Resultat werden zwischen $\frac{avg}{2}$ und $avg \cdot 2$ zufällig ausgewählte Verbindungen von zufällig ausgewählten Zuständen zum neuen gelegt.
+    & - \\
+    \hline
+    Zustand entfernen
+    & Es wird zufällig ein Zustand ausgewählt und entfernt. Alle Übergänge die auf diesen Zustand zeigen werden zufällig auf andere Zustände umgeleitet.
+    & Nicht der letzte Zustand; Nicht der letzte akz. Zustand \\
+    \hline
+    Akz. Zustand hinzufügen
+    & Es wird ein zufälliger nicht akzeptierender Zustand ausgewählt. Dieser wird zum akzeptierenden Zustand gemacht.
+    & Nicht akzeptierende Zustände vorhanden \\
+    \hline
+    Akz. Zustand entfernen
+    & Es wird ein zufälliger akzeptierender Zustand ausgewählt. Dieser wird zu einem regulären nicht-akzeptierenden Zustand umgewandelt.
+    & Nicht der letzte akz. Zustand \\
+    \hline
+    Übergang ändern
+    & Es wird ein zufälliger Zustand und ein zufälliges Zeichen ausgewählt. Der abgehende Übergang für das gewählte Zeichen wird zufällig auf einen anderen Zustand gelegt.
+    & - \\
+    \hline 
+  \end{tabular}
+  \captionof{table}{Mutationen}
+\end{center}
