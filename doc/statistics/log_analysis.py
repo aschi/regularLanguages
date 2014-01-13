@@ -42,6 +42,7 @@ def analyse_data(subfolder, prefix):
 	#compress data
 	last=None
 	percSum=0.0
+	avgSum=0.0
 	count=0.0
 
 	statisticsList.sort(statistics_compare)
@@ -51,6 +52,7 @@ def analyse_data(subfolder, prefix):
 		if not last is None:
 			if int(e.noCandidates) == int(last.noCandidates) and int(e.noProblems) == int(last.noProblems):
 				percSum+=e.foundPercentage
+				avgSum+=e.avgCycles
 				count+=1.0
 				last=e
 			else:
@@ -58,21 +60,25 @@ def analyse_data(subfolder, prefix):
 				newObj.noCandidates=last.noCandidates
 				newObj.noProblems=last.noProblems
 				newObj.foundPercentage=percSum/count
+				newObj.avgCycles=avgSum/count
 				compressedList.append(newObj)
 
 				percSum=e.foundPercentage
+				avgSum =e.avgCycles
 				count=1.0
 
 				last=e
 		else:
 			percSum=e.foundPercentage
+			avgSum =e.avgCycles
 			count=1.0
 			last=e
 	#append the last object
 	newObj = EAStatistics()
 	newObj.noCandidates=last.noCandidates
 	newObj.noProblems=last.noProblems
-	newObj.foundPercentage=float(percSum)/float(count)
+	newObj.foundPercentage=percSum/count
+	newObj.avgCycles=avgSum/count
 	compressedList.append(newObj)
 
 	compressedList.sort(statistics_compare)
@@ -80,6 +86,10 @@ def analyse_data(subfolder, prefix):
 	xaxis = range(len(compressedList))
 	
 	bars = [x.foundPercentage for x in compressedList]
+	barsAvg = [x.avgCycles for x in compressedList]
+
+	print barsAvg
+
 	labels = ["C:"+str(x.noCandidates)+"/P:"+str(x.noProblems) for x in compressedList]
 
 	plt.figure(figsize=(12,10))
@@ -87,7 +97,16 @@ def analyse_data(subfolder, prefix):
 	plt.ylim([0,100])
 	plt.xticks(xaxis, labels, rotation='vertical', size='small', ha='center')
 	plt.bar(xaxis, bars, 0.5, alpha=0.4, color='b', align="center")
-	plt.savefig(prefix+subfolder+".svg")
+	plt.savefig(prefix+subfolder+"_solved.svg")
+
+	plt.clf()
+
+	plt.figure(figsize=(12,10))
+	plt.ylim([0,100])
+	plt.xticks(xaxis, labels, rotation='vertical', size='small', ha='center')
+	plt.bar(xaxis, barsAvg, 0.5, alpha=0.4, color='b', align="center")
+	plt.savefig(prefix+subfolder+"_cycles.svg")
+
 
 class EAStatistics:
  	noCandidates=0
@@ -115,3 +134,6 @@ def statistics_compare(x, y):
 analyse_data('abab', 'E_G_')
 analyse_data('abab', 'E_L_')
 analyse_data('abab', 'C_G_')
+analyse_data('div3', 'E_G_')
+analyse_data('div3', 'E_L_')
+analyse_data('div3', 'C_G_')
