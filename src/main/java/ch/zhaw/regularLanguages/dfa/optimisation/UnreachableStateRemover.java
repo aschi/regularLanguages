@@ -12,7 +12,6 @@ public class UnreachableStateRemover implements Otpimiser<DeterministicFiniteAut
 
 	@Override
 	public void optimise(DeterministicFiniteAutomaton obj) {
-		// TODO Auto-generated method stub
 		Set<State> processed = new HashSet<State>();
 		List<State> nextList = new LinkedList<State>();
 		List<State> queue = new LinkedList<State>();
