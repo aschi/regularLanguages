@@ -199,7 +199,7 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 	}
 	
 	public String generateDotString(){
-		minimizeAutomaton();
+		//minimizeAutomaton();
 		
 		String output = "digraph G {" + System.getProperty("line.separator");
 		for(State s : states){
