@@ -5,10 +5,27 @@ Stefan Droste.
 \newblock {\em Zu Analyse und Entwurf evolutionarer Algorithmen}.
 \newblock Universität Dortmund, Fachbereich Informatik, 2000.
 
+\bibitem{graphvizdotref}
+Emden Gansner, Eleftherios Koutsofios, and Stephen North.
+\newblock Drawing graphs with dot.
+\newblock \url{http://www.graphviz.org/pdf/dotguide.pdf}, 2010.
+
 \bibitem{hopcroft}
 John~E. Hopcroft, Rajeev Motwani, and Jeffrey~D. Ullman.
 \newblock {\em Einführung in die Automatentheorie, Formale Sprachen und
   Komplexitätstheorie}.
 \newblock Pearson Education, 2002.
+
+\bibitem{graphviz}
+AT\&T~Labs Research and Contributors.
+\newblock Graphviz - graph visualization software.
+\newblock \url{http://www.graphviz.org/}, before 2000.
+
+\bibitem{graphvizjava}
+Laszlo Szathmary.
+\newblock Graphviz java api.
+\newblock
+  \url{http://www.loria.fr/~szathmar/off/projects/java/GraphVizAPI/index.php},
+  2003.
 
 \end{thebibliography}
