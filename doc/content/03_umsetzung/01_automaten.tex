@@ -42,8 +42,87 @@ def process(word):
   return state
 \end{lstlisting}
 
+\paragraph{Visualisierung}
+Zur Visualisierung der Automaten wurde Graphviz \cite{graphviz} mit dem Graphviz Java API \cite{graphvizjava} verwendet. Konkret wurde ein Interface \lstinline$GraphvizRenderable$ entwickelt welches Klassen vorschreibt die \lstinline$generateDotString()$ Methode zu implementieren.
+
+In der statischen Klasse \lstinline$GraphvizRenderer$ wurde eine Methode \lstinline$renderGraph(GraphvizRenderable, FileName)$ implementiert welche das API ansteuert und das gegebene \lstinline$GraphvizRenderable$ Objekt als SVG Vektorgraphik abspeichert.
+
+Damit das generieren der Grafiken funktioniert, muss die \lstinline$generateDotString()$ Methode eine gültige Graphviz DOT Graphbeschreibung als String zurückgeben. Automaten sind eine Form von Digraphen und können in der DOT Sprache wie folgt beschrieben werden:
+
+\begin{lstlisting}[language=Java, caption={Automat in DOT Sprache}, label={lst:dot_language}]
+digraph G {
+  q0 -> q1 [label="0"]
+  q0 -> q2 [label="1"]
+  q1 -> q2 [label="0"]
+  q1 -> q0 [label="1"]
+  q2 -> q0 [label="0"]
+  q2 -> q1 [label="1"]
+  q2 [peripheries=2]
+  q0 [color=darkred]
+}
+\end{lstlisting}
+
+\begin{itemize}
+  \item \lstinline$digraph G$ definiert den Graphentypen
+  \item \lstinline$q0 -> q1$ definiert den vom Knoten \lstinline$q0$ auf den Knoten \lstinline$q1$
+  \item \lstinline$[label="0"]$ fügt die Beschriftung \flqq 0\frqq dem Übergang hinzu
+  \item \lstinline$[peripheries=2]$ umrandet den entsprechenden Knoten doppelt
+  \item \lstinline$[color=darkred]$ färbt den entsprechenden Knoten dunkelrot ein
+\end{itemize}
+
+Eine Anleitung zur DOT Sprache ist in den Quellen verlinkt. \cite{graphvizdotref}
+
+\paragraph{Überprüfen von Automaten}
+Um beim zufälligen mutieren und rekombinieren der Automaten prüfen zu können ob ein Automat die selbe Sprache akzeptiert wie der gegebene reguläre Ausdruck wurde das Java Package \lstinline$dk.brics.automaton$ von der dänischen Aarhus Universität verwendet.\cite{bricsautomaton}
+
+In diesem Package sind verschiedene Algorithmen rund um endliche Automaten implementiert. Unter anderem kann es einen Automaten aus einem regulären Ausdruck erzeugen und verschiedene Automaten darauf überprüfen ob sie die selbe Sprache akzeptieren. Die Umwandlung von einem Automaten unserer Implementation in einen \lstinline$dk.brics.automaton$ wurde im Package \lstinline$ch.zhaw.regularLanguages.dfa.transformation$ implementiert. Es enthält ein Interface \lstinline$Transformer<S, T>$ welches die Methode \lstinline$T transform(S input)$ vorschreibt und die konkrete Implementation \lstinline$TransformDFAToBricsAutomaton$ welches die Transformation von unserem DFA in einen \lstinline$dk.brics.automaton.Automaton$ beherrscht. Die Umwandlung läuft wie folgt ab:
+\begin{enumerate}
+  \item Leerer \flqq BRICS Automat\frqq wird erzeugt
+  \item Für jeden unserer Zustände wird dem Automaten einen Zustand hinzugefügt
+  \item Die Übergangstabelle wird übertragen
+  \item Akzeptierende Zustände werden entsprechend markiert
+  \item Startzustand wird gesetzt
+\end{enumerate}
+
+\paragraph{Vereinfachung}
+Um die konsistent der Automaten zu erhöhen, wurde eine Methode zum entfernen aller nicht erreichbarer Zustände implementiert. Insbesondere verhindert dies eine \flqq Aufsplittung\frqq wie sie in Abbildung \ref{fig:split_dfa} zu sehen ist. In diesem Beispiel gibt es keine Verbindung vom Startzustand $q0$ zum einzig akzeptierenden Zustand $q4$.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/split_automaton.pdf}
+  \caption[Aufgesplitteter Automat]{Aufgesplitteter Automat}
+  \label{fig:split_dfa}
+\end{figure}
+
+In der Methode zum entfernen der nicht erreichbaren Zustände werden vom Startzustand aus alle möglichen Verbindungen getestet. Jene Zustände die so nicht erreicht werden können werden nicht beibehalten. Zum besseren Verständnis ist folgend die Methode als in Python-Pseudocode dokumentiert.  
+
+\begin{lstlisting}[language=Python, caption={Algorithmus zum entfernen von nicht erreichbaren Zuständen}, label={lst:remove_unreachable_states}]
+def removeUnreachableStates(dfa):
+  processed = []
+  current = dfa.getStartState()
+  queue = [current]
+  
+  while queue.size > 0:
+    nextList = []
+    for char in dfa.getAlphabet():
+      nextList.append(current.process(char))
+
+    processed.append(current)
+    queue.remove(current)
+
+    for nextState in nextList:
+      if !processed.contains(nextState):
+        queue.append(nextState)
+
+    current = queue[0]
+
+  newStates = processed
+  dfa.setStates(newStates)
+\end{lstlisting}
+
 \subsubsection{RandomDeterministicFiniteAutomaton}
-Der $RandomDeterministicFiniteAutomaton$ ist ein erweiterter DFA welcher den normalen endlichen Automaten um einen zufälligen Konstruktor und eine $mutate$ Methode zum zufälligen mutieren des Automaten erweitert.
+\label{subsec:RandomDeterministicFiniteAutomaton}
+Der \lstinline$RandomDeterministicFiniteAutomaton$ ist ein erweiterter DFA welcher den normalen endlichen Automaten um einen zufälligen Konstruktor und eine \lstinline$mutate$ Methode zum zufälligen mutieren des Automaten erweitert.
 
 \paragraph{Der Konstruktor} erzeugt mithilfe eines gegebenen Alphabets und einem Faktor für die Komplexität des Problems - wie folgt beschrieben - zufällige Automaten.
 \begin{enumerate}
@@ -55,7 +134,7 @@ Der $RandomDeterministicFiniteAutomaton$ ist ein erweiterter DFA welcher den nor
 \end{enumerate}
 
 
-\paragraph{Die $mutate$ Methode} greift auf ein Mutationsregister zurück in welchem die Methoden zum Verändern von Automaten registriert sind. Dabei wählt es zufällig eine Methode aus und führt diese durch. Wenn die Mutation erfoglreich war sind wir fertig. Wenn nicht wird erneut eine Zufällige Methode ausgesucht. Dies wird solange wiederholt bis der Automat erfolgreich verändert wurde.
+\paragraph{Die \lstinline$mutate$ Methode} greift auf ein Mutationsregister zurück in welchem die Methoden zum Verändern von Automaten registriert sind. Dabei wählt es zufällig eine Methode aus und führt diese durch. Wenn die Mutation erfoglreich war sind wir fertig. Wenn nicht wird erneut eine Zufällige Methode ausgesucht. Dies wird solange wiederholt bis der Automat erfolgreich verändert wurde.
 
 \begin{center}
   \begin{tabular}{| l | p{7cm} | p{4cm} |}
@@ -68,7 +147,7 @@ Der $RandomDeterministicFiniteAutomaton$ ist ein erweiterter DFA welcher den nor
     \hline
     Zustand entfernen
     & Es wird zufällig ein Zustand ausgewählt und entfernt. Alle Übergänge die auf diesen Zustand zeigen werden zufällig auf andere Zustände umgeleitet.
-    & Nicht der letzte Zustand; Nicht der einzige akz. Zustand \\
+    & Nicht der letzte Zustand; Nicht der letzte akz. Zustand \\
     \hline
     Akz. Zustand hinzufügen
     & Es wird ein zufälliger nicht akzeptierender Zustand ausgewählt. Dieser wird zum akzeptierenden Zustand gemacht.
@@ -76,7 +155,7 @@ Der $RandomDeterministicFiniteAutomaton$ ist ein erweiterter DFA welcher den nor
     \hline
     Akz. Zustand entfernen
     & Es wird ein zufälliger akzeptierender Zustand ausgewählt. Dieser wird zu einem regulären nicht-akzeptierenden Zustand umgewandelt.
-    & Nicht der einzige akz. Zustand \\
+    & Nicht der letzte akz. Zustand \\
     \hline
     Übergang ändern
     & Es wird ein zufälliger Zustand und ein zufälliges Zeichen ausgewählt. Der abgehende Übergang für das gewählte Zeichen wird zufällig auf einen anderen Zustand gelegt.
@@ -86,60 +165,3 @@ Der $RandomDeterministicFiniteAutomaton$ ist ein erweiterter DFA welcher den nor
   \captionof{table}{Mutationen}
 \end{center}
 
-\subsubsection{Ausgabe}
-Die grafische Ausgabe der Automaten wurde mithilfe von Graphviz \cite{graphviz} umgesetzt. Um eine Grafik mit Graphviz zu erzeugen geht man normalerweise in zwei Schritten vor. Zuerst schreibt man das Beschreibungsfile welches festlegt wie die Grafik aussehen soll. Danach ruft man einen Kommandozeilenbefehl auf welchem man das Beschreibungsfile und das Ausgabeformat mitgibt. Dieser Befehl erzeugt dann die Grafik.
-
-Laszlo Szathmary hat eine kleine aber feine Java Klasse implementiert, welche das Ausgabeformat, den Zielpfad und die Grafikbeschreibung als String entgegennimmt und daraus direkt die Grafik am angegebenen Pfad erstellt. Diese Klasse wurde in diesem Projekt als API verwendet um einfach Grafiken erstellen zu können.
-
-In unserer Applikation wurde ein Interface $GraphvizRenderable$ definiert, welches die Methode $generateDotString()$ vorschreibt. Zudem gibt es eine einfache Klasse $GraphvizRenderer$ welche eine statische Methode $renderGraph(GraphvizRenderable, FileName)$ besitzt. Diese Methode ruft $generateDotString()$ auf dem mitgegebenen Objekt auf und generiert damit und mithilfe der Klasse von Laszlo Szathmary eine Vektor-Grafik (svg) am angegebenen Ort ($FileName$).
-
-\subsubsection{Überprüfung}
-Um ein Resultat unserer evolutionären Algorithmen auf seine korrektheit zu prüfen, wird eine Methode zum Vergleichen von Automaten und regulären Ausdrücken benötigt, welche prüft ob sowohl der Automat als auch der reguläre Ausdruck die selbe Sprache akzeptieren.
-
-Die Komplexität und die Menge der Algorithmen die benötigt würde um dies zu erreichen sprengt den Rahmen dieser Arbeit. Um dieses Problem zu Überbrücken wird auf die Library von BRICS zurückgegriffen. Diese Library beherrscht neben anderen Dingen unter anderem:
-\begin{itemize}
-  \item das Erzeugen von Automaten aus Regulären Ausdrücken
-  \item einen Vergleich von Automaten welcher überprüft ob beide die selbe Sprache akzeptieren 
-\end{itemize}
-
-Um dies verwenden zu können, wurde ein $Transformer<Source, Target>$ Typ definiert, welcher ein Objekt vom Typ $Source$ in ein Objekt des Typen $Target$ umwandelt. Die konkrete Implementation um unsere Automaten in Brics Automaten zu verwandeln heisst $TransformDFAToBricsAutomaton$. Sie erstellt einen leeren BRICS Automaten und fügt dann in einem ersten Schritt erstmal alle Zustände aus dem $Source$ Automaten in diesen ein. In einem zweiten Schritt werden dann alle Zustandsübergänge übertragen.
-
-Um nun einen Automatne zu prüfen wird einfach ein Referenzautomat aus dem entsprechenden regulären Ausdruck generiert. Dieser (BRICS) Automat wird dann mit dem Umgewandelten Lösungskandidaten verglichen (Vergleich auf akzeptierende Sprache) um herauszufinden ob wir eine gültige Lösung gefunden haben.
-
-\subsubsection{Entfernen nicht erreichbarer Zustände}
-Vor der Ausgabe und nach dem Erzeugen werden nicht erreichbare Zustände entfernt um a) die Ausgabe einfacher zu halten und b) zu verhindern, dass wir Automaten erzeugen mit nicht erreichbaren akzeptierenden Zuständen. Um nicht erreichbare Zustände zu entfernen werden alle erreichbaren Zustände systematisch eruriert (Man startet beim Startzustand, schaut welche Zustände von diesem aus erreichbar sind, geht zu einem der erreichbaren Zustände, tut das Selbe und wiederholt dies bis keine neuen Zustände mehr dazukommen.)
-
-\begin{lstlisting}[language=Python, caption={Nicht erreichbare Zustände entfernen}]
-def removeUnreachableStates(Automaton obj):
-  #1. Initialisieren
-  queue = Set([])
-  nextList = Set([])
-  processed = Set([])
-
-  current = obj.startState
-  queue.add(current)
-  
-  #2. Erreichbare Zustände finden
-  while len(queue) > 0:
-    nextList.clear()
-    for c in obj.alphabet:
-      next = current.process(c) #Zustand finden, welcher vom aktuellen aus mit dem Buchstaben c erreicht wird
-      nextList.add(next)
-
-    processed.add(current)
-    queue.remove(current)
-
-    if len(queue) > 0:
-      current = queue.get(0)
-
-  newStates = processed
-  newAcceptingStates = Set([])
-
-  #3. Set der akzeptierenden Zustände auf die Erreichbaren limitieren
-  for s in obj.acceptingStates:
-    if(newStates.contains(s)):
-      newAcceptingStates.add(s)
-
-  obj.setStates(newStates)
-  obj.setAccepctingStates(newAcceptingStates)
-\end{lstlisting}

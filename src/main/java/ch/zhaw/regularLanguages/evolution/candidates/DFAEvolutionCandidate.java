@@ -6,8 +6,8 @@ import ch.zhaw.regularLanguages.dfa.DeterministicFiniteAutomaton;
 import ch.zhaw.regularLanguages.dfa.State;
 import ch.zhaw.regularLanguages.dfa.transformation.TransformDFAToBricsAutomaton;
 import ch.zhaw.regularLanguages.evolution.problems.ProblemSet;
-import ch.zhaw.regularLanguages.languages.BooleanWrapper;
-import ch.zhaw.regularLanguages.languages.CharArrayWrapper;
+import ch.zhaw.regularLanguages.language.BooleanWrapper;
+import ch.zhaw.regularLanguages.language.CharArrayWrapper;
 import dk.brics.automaton.Automaton;
 
 

@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import ch.zhaw.regularLanguages.language.CharArrayWrapper;
+
 public class CharArrayWrapperTest {
 	char[] testDataEmpty1 = {};
 	char[] testDataEmpty2 = {};

@@ -6,13 +6,13 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import ch.zhaw.regularLanguages.evolution.starters.EvolvingLocalProblemSetStarter;
+import ch.zhaw.regularLanguages.evolution.initialisation.EvolvingLocalProblemSetInitialisation;
 import ch.zhaw.regularLanguages.helpers.Logger;
 
 public class EvolvingLocalABABLanguage {
 
 	public static void main(String[] args) {
-		EvolvingLocalProblemSetStarter starter = new EvolvingLocalProblemSetStarter();
+		EvolvingLocalProblemSetInitialisation starter = new EvolvingLocalProblemSetInitialisation();
 		starter.initLanguage(new char[]{'a','b'}, 10, "[ab]*abab");
 		
 		int solutionFoundCounter = 0;

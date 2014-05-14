@@ -1,9 +1,9 @@
-package ch.zhaw.regularLanguages.evolution.starters;
+package ch.zhaw.regularLanguages.evolution.initialisation;
 
 import java.util.List;
 
 
-public interface EvolutionaryAlgorithmStarter <EAType, CandidateType>{
+public interface EvolutionaryAlgorithmInitialisation <EAType, CandidateType>{
 	
 	/**
 	 * Starts the evolutions
@@ -13,7 +13,6 @@ public interface EvolutionaryAlgorithmStarter <EAType, CandidateType>{
 	 * @return returns the number of cycles it took to find a valid solution
 	 */
 	public long startEvolution(long cycleLimit);
-	
 	public List<CandidateType> getCandidates();
 	public CandidateType getWinner();
 }

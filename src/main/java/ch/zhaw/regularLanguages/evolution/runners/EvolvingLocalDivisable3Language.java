@@ -6,13 +6,13 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import ch.zhaw.regularLanguages.evolution.starters.EvolvingLocalProblemSetStarter;
+import ch.zhaw.regularLanguages.evolution.initialisation.EvolvingLocalProblemSetInitialisation;
 import ch.zhaw.regularLanguages.helpers.Logger;
 
 public class EvolvingLocalDivisable3Language {
 
 	public static void main(String[] args) {
-		EvolvingLocalProblemSetStarter starter = new EvolvingLocalProblemSetStarter();
+		EvolvingLocalProblemSetInitialisation starter = new EvolvingLocalProblemSetInitialisation();
 		starter.initLanguage(new char[] { '0', '1' }, 10, "(1(01*0)*1|0)*");
 
 		int solutionFoundCounter = 0;

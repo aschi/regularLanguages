@@ -1,4 +1,4 @@
-package ch.zhaw.regularLanguages.languages;
+package ch.zhaw.regularLanguages.language;
 
 import ch.zhaw.regularLanguages.helpers.PublicCloneable;
 

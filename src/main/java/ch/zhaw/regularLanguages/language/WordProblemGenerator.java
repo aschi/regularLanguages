@@ -1,4 +1,4 @@
-package ch.zhaw.regularLanguages.languages;
+package ch.zhaw.regularLanguages.language;
 
 import java.util.LinkedList;
 import java.util.List;

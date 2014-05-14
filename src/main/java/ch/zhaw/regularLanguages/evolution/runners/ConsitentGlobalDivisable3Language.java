@@ -6,13 +6,13 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import ch.zhaw.regularLanguages.evolution.starters.ConsistentGlobalProblemSetStarter;
+import ch.zhaw.regularLanguages.evolution.initialisation.ConsistentGlobalProblemSetInitialisation;
 import ch.zhaw.regularLanguages.helpers.Logger;
 
 public class ConsitentGlobalDivisable3Language {
 
 	public static void main(String[] args) {
-		ConsistentGlobalProblemSetStarter starter = new ConsistentGlobalProblemSetStarter();
+		ConsistentGlobalProblemSetInitialisation starter = new ConsistentGlobalProblemSetInitialisation();
 		starter.initLanguage(new char[] { '0', '1' }, 10, "(1(01*0)*1|0)*");
 
 		int solutionFoundCounter = 0;
