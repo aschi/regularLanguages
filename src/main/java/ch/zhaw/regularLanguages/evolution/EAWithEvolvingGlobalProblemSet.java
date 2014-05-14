@@ -54,25 +54,14 @@ public class EAWithEvolvingGlobalProblemSet<E extends EvolutionCandidate, PSI ex
 		List <E>newList = null;
 		
 		A : while(cycle < cycleLimit && finalForm == false){
-			//System.out.println("Cycle: "+cycle);
-			
 			int maxFitness = problemSet.getProblems().size();
-			//System.out.println("Max Fitness: " + maxFitness);
 			
 			//calculate fitness values
 			for(E c : candidates){
 				//c.checkViabilityAndResetIfNeeded();
 				c.setFitness(c.fitness(problemSet));
 			}
-			//System.out.println("fitness values calculated..");
-			
 			Collections.sort(candidates);
-			
-			//new ListExporter<E>().exportList(candidates, cycle+".txt");
-			
-			//System.out.println("fitness values sorted..");
-			
-			//take the fitter half and clone & mutate all elements and put them into a new list
 			
 			if(newList == null){
 				newList = new LinkedList<E>();

@@ -7,14 +7,19 @@ Stefan Droste.
 
 \bibitem{graphvizdotref}
 Emden Gansner, Eleftherios Koutsofios, and Stephen North.
-\newblock Drawing graphs with dot.
-\newblock \url{http://www.graphviz.org/pdf/dotguide.pdf}, 2010.
+\newblock {\em Drawing graphs with dot}.
+\newblock 2010.
 
 \bibitem{hopcroft}
 John~E. Hopcroft, Rajeev Motwani, and Jeffrey~D. Ullman.
 \newblock {\em Einführung in die Automatentheorie, Formale Sprachen und
   Komplexitätstheorie}.
 \newblock Pearson Education, 2002.
+
+\bibitem{bricsautomaton}
+Anders M\o{}ller.
+\newblock dk.brics.automaton.
+\newblock \url{http://www.brics.dk/automaton/}, 2011.
 
 \bibitem{graphviz}
 AT\&T~Labs Research and Contributors.

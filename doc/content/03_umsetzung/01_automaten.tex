@@ -65,25 +65,34 @@ digraph G {
 \begin{itemize}
   \item \lstinline$digraph G$ definiert den Graphentypen
   \item \lstinline$q0 -> q1$ definiert den vom Knoten \lstinline$q0$ auf den Knoten \lstinline$q1$
-  \item \lstinline$[label="0"]$ fügt die Beschriftung \lstinline$0$ dem Übergang hinzu
+  \item \lstinline$[label="0"]$ fügt die Beschriftung \flqq 0\frqq dem Übergang hinzu
   \item \lstinline$[peripheries=2]$ umrandet den entsprechenden Knoten doppelt
   \item \lstinline$[color=darkred]$ färbt den entsprechenden Knoten dunkelrot ein
 \end{itemize}
 
 Eine Anleitung zur DOT Sprache ist in den Quellen verlinkt. \cite{graphvizdotref}
 
+\paragraph{Überprüfen von Automaten}
+Um beim zufälligen mutieren und rekombinieren der Automaten prüfen zu können ob ein Automat die selbe Sprache akzeptiert wie der gegebene reguläre Ausdruck wurde das Java Package \lstinline$dk.brics.automaton$ von der dänischen Aarhus Universität verwendet.\cite{bricsautomaton}
+
+In diesem Package sind verschiedene Algorithmen rund um endliche Automaten implementiert. Unter anderem kann es einen Automaten aus einem regulären Ausdruck erzeugen und verschiedene Automaten darauf überprüfen ob sie die selbe Sprache akzeptieren. Die Umwandlung von einem Automaten unserer Implementation in einen \lstinline$dk.brics.automaton$ wurde im Package \lstinline$ch.zhaw.regularLanguages.dfa.transformation$ implementiert. Es enthält ein Interface \lstinline$Transformer<S, T>$ welches die Methode \lstinline$T transform(S input)$ vorschreibt und die konkrete Implementation \lstinline$TransformDFAToBricsAutomaton$ welches die Transformation von unserem DFA in einen \lstinline$dk.brics.automaton.Automaton$ beherrscht. Die Umwandlung läuft wie folgt ab:
+\begin{enumerate}
+  \item Leerer \flqq BRICS Automat\frqq wird erzeugt
+  \item Für jeden unserer Zustände wird dem Automaten einen Zustand hinzugefügt
+  \item Die Übergangstabelle wird übertragen
+  \item Akzeptierende Zustände werden entsprechend markiert
+  \item Startzustand wird gesetzt
+\end{enumerate}
 
 \paragraph{Vereinfachung}
-Um die konsistent der Automaten zu erhöhen und um eine Aufsplittung zu verhindern, wurde eine Methode zum entfernen aller nicht erreichbarer Zustände implementiert. Was mit Aufsplittung gemeint ist lässt sich am einfachsten am folgenden Beispiel erklären:
+Um die konsistent der Automaten zu erhöhen, wurde eine Methode zum entfernen aller nicht erreichbarer Zustände implementiert. Insbesondere verhindert dies eine \flqq Aufsplittung\frqq wie sie in Abbildung \ref{fig:split_dfa} zu sehen ist. In diesem Beispiel gibt es keine Verbindung vom Startzustand $q0$ zum einzig akzeptierenden Zustand $q4$.
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{images/split_automaton.pdf}
   \caption[Aufgesplitteter Automat]{Aufgesplitteter Automat}
   \label{fig:split_dfa}
 \end{figure}
-
-In der Abbilundg \ref{fig:split_dfa} sehen wir einen Automaten mit 5 Zuständen bei welchem es keine Verbindung zwischen dem Block $q0$, $q1$, $q2$ und $q3$, $q4$ gibt. Damit ist es auch nicht möglich vom Startzustand aus ($q0$) den einzigen akzeptierenden Zustand ($q4$) zu erreichen.
 
 In der Methode zum entfernen der nicht erreichbaren Zustände werden vom Startzustand aus alle möglichen Verbindungen getestet. Jene Zustände die so nicht erreicht werden können werden nicht beibehalten. Zum besseren Verständnis ist folgend die Methode als in Python-Pseudocode dokumentiert.  
 
@@ -112,6 +121,7 @@ def removeUnreachableStates(dfa):
 \end{lstlisting}
 
 \subsubsection{RandomDeterministicFiniteAutomaton}
+\label{subsec:RandomDeterministicFiniteAutomaton}
 Der \lstinline$RandomDeterministicFiniteAutomaton$ ist ein erweiterter DFA welcher den normalen endlichen Automaten um einen zufälligen Konstruktor und eine \lstinline$mutate$ Methode zum zufälligen mutieren des Automaten erweitert.
 
 \paragraph{Der Konstruktor} erzeugt mithilfe eines gegebenen Alphabets und einem Faktor für die Komplexität des Problems - wie folgt beschrieben - zufällige Automaten.

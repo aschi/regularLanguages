@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import ch.zhaw.regularLanguages.languages.BooleanWrapper;
+import ch.zhaw.regularLanguages.language.BooleanWrapper;
 
 public class BooleanWrapperTest {
 

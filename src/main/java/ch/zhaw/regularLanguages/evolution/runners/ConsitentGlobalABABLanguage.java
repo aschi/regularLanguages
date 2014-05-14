@@ -6,13 +6,13 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import ch.zhaw.regularLanguages.evolution.starters.ConsistentGlobalProblemSetStarter;
+import ch.zhaw.regularLanguages.evolution.initialisation.ConsistentGlobalProblemSetInitialisation;
 import ch.zhaw.regularLanguages.helpers.Logger;
 
 public class ConsitentGlobalABABLanguage {
 
 	public static void main(String[] args) {
-		ConsistentGlobalProblemSetStarter starter = new ConsistentGlobalProblemSetStarter();
+		ConsistentGlobalProblemSetInitialisation starter = new ConsistentGlobalProblemSetInitialisation();
 		starter.initLanguage(new char[]{'a','b'}, 10, "[ab]*abab");
 		
 		int solutionFoundCounter = 0;

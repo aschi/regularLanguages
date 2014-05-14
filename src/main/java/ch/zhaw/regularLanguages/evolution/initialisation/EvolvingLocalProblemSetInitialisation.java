@@ -1,4 +1,4 @@
-package ch.zhaw.regularLanguages.evolution.starters;
+package ch.zhaw.regularLanguages.evolution.initialisation;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -7,12 +7,12 @@ import ch.zhaw.regularLanguages.dfa.RandomDeterministicFiniteAutomaton;
 import ch.zhaw.regularLanguages.evolution.EAWithEvolvingLocalProblemSets;
 import ch.zhaw.regularLanguages.evolution.candidates.DFAEvolutionCandidateWithProblemSet;
 import ch.zhaw.regularLanguages.evolution.problems.EvolvingProblemSet;
-import ch.zhaw.regularLanguages.languages.BooleanWrapper;
-import ch.zhaw.regularLanguages.languages.CharArrayWrapper;
-import ch.zhaw.regularLanguages.languages.WordProblemGenerator;
+import ch.zhaw.regularLanguages.language.BooleanWrapper;
+import ch.zhaw.regularLanguages.language.CharArrayWrapper;
+import ch.zhaw.regularLanguages.language.WordProblemGenerator;
 import dk.brics.automaton.RegExp;
 
-public class EvolvingLocalProblemSetStarter implements DFAEvolutionaryAlgorithmStarter<EAWithEvolvingLocalProblemSets<DFAEvolutionCandidateWithProblemSet<RandomDeterministicFiniteAutomaton>, dk.brics.automaton.Automaton>, DFAEvolutionCandidateWithProblemSet<RandomDeterministicFiniteAutomaton>> {	
+public class EvolvingLocalProblemSetInitialisation implements DFAEvolutionaryAlgorithmInitialisation<EAWithEvolvingLocalProblemSets<DFAEvolutionCandidateWithProblemSet<RandomDeterministicFiniteAutomaton>, dk.brics.automaton.Automaton>, DFAEvolutionCandidateWithProblemSet<RandomDeterministicFiniteAutomaton>> {	
 	private List<DFAEvolutionCandidateWithProblemSet<RandomDeterministicFiniteAutomaton>> candidates;
 	private char[] alphabet;
 	private String regexp;
@@ -29,10 +29,12 @@ public class EvolvingLocalProblemSetStarter implements DFAEvolutionaryAlgorithmS
 		wpg = new WordProblemGenerator(alphabet, maxWordLength, regexp);
 	}
 
+	@Override
 	public void initProblems(int noProblems){
 		this.noProblems = noProblems; 
 	}
 	
+	@Override
 	public void initCandidates(int noCandidates) {
 		if(alphabet != null && noProblems != 0){
 			candidates = new LinkedList<DFAEvolutionCandidateWithProblemSet<RandomDeterministicFiniteAutomaton>>();
