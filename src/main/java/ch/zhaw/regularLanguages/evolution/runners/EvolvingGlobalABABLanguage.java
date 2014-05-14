@@ -44,7 +44,7 @@ public class EvolvingGlobalABABLanguage {
 		int cc = 0;
 		int nc = 0;
 		
-		for(int n = 0;n < 25;n++){
+		for(int n = 0;n < 1000;n++){
 			DateFormat df = new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");
 			
 			Logger l = new Logger("E_G_"+df.format(new Date()) +".log", true);
