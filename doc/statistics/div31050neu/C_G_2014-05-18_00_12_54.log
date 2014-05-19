@@ -1,0 +1,209 @@
+Sun May 18 00:12:54 CEST 2014: Problem Count: 10
+Sun May 18 00:12:54 CEST 2014: CandidatesCount: 50
+Sun May 18 00:12:54 CEST 2014: Max Cycles: 500
+Sun May 18 00:12:54 CEST 2014: 0: finished (5ms, 25cycles)
+Sun May 18 00:12:54 CEST 2014: 0: Solution found.
+Sun May 18 00:12:54 CEST 2014: 1: finished (382ms, 500cycles)
+Sun May 18 00:12:54 CEST 2014: 1: No solution found.
+Sun May 18 00:12:54 CEST 2014: 2: finished (128ms, 189cycles)
+Sun May 18 00:12:54 CEST 2014: 2: Solution found.
+Sun May 18 00:12:54 CEST 2014: 3: finished (172ms, 173cycles)
+Sun May 18 00:12:54 CEST 2014: 3: Solution found.
+Sun May 18 00:12:54 CEST 2014: 4: finished (6ms, 26cycles)
+Sun May 18 00:12:54 CEST 2014: 4: Solution found.
+Sun May 18 00:12:55 CEST 2014: 5: finished (167ms, 500cycles)
+Sun May 18 00:12:55 CEST 2014: 5: No solution found.
+Sun May 18 00:12:55 CEST 2014: 6: finished (175ms, 500cycles)
+Sun May 18 00:12:55 CEST 2014: 6: No solution found.
+Sun May 18 00:12:55 CEST 2014: 7: finished (91ms, 416cycles)
+Sun May 18 00:12:55 CEST 2014: 7: Solution found.
+Sun May 18 00:12:55 CEST 2014: 8: finished (259ms, 500cycles)
+Sun May 18 00:12:55 CEST 2014: 8: No solution found.
+Sun May 18 00:12:55 CEST 2014: 9: finished (51ms, 500cycles)
+Sun May 18 00:12:55 CEST 2014: 9: No solution found.
+Sun May 18 00:12:55 CEST 2014: 10: finished (3ms, 13cycles)
+Sun May 18 00:12:55 CEST 2014: 10: Solution found.
+Sun May 18 00:12:55 CEST 2014: 11: finished (212ms, 500cycles)
+Sun May 18 00:12:55 CEST 2014: 11: No solution found.
+Sun May 18 00:12:55 CEST 2014: 12: finished (9ms, 25cycles)
+Sun May 18 00:12:55 CEST 2014: 12: Solution found.
+Sun May 18 00:12:55 CEST 2014: 13: finished (52ms, 500cycles)
+Sun May 18 00:12:55 CEST 2014: 13: No solution found.
+Sun May 18 00:12:56 CEST 2014: 14: finished (10ms, 77cycles)
+Sun May 18 00:12:56 CEST 2014: 14: Solution found.
+Sun May 18 00:12:56 CEST 2014: 15: finished (21ms, 38cycles)
+Sun May 18 00:12:56 CEST 2014: 15: Solution found.
+Sun May 18 00:12:56 CEST 2014: 16: finished (2ms, 7cycles)
+Sun May 18 00:12:56 CEST 2014: 16: Solution found.
+Sun May 18 00:12:56 CEST 2014: 17: finished (291ms, 500cycles)
+Sun May 18 00:12:56 CEST 2014: 17: No solution found.
+Sun May 18 00:12:56 CEST 2014: 18: finished (47ms, 500cycles)
+Sun May 18 00:12:56 CEST 2014: 18: No solution found.
+Sun May 18 00:12:56 CEST 2014: 19: finished (567ms, 500cycles)
+Sun May 18 00:12:56 CEST 2014: 19: No solution found.
+Sun May 18 00:12:57 CEST 2014: 20: finished (362ms, 500cycles)
+Sun May 18 00:12:57 CEST 2014: 20: No solution found.
+Sun May 18 00:12:57 CEST 2014: 21: finished (165ms, 500cycles)
+Sun May 18 00:12:57 CEST 2014: 21: No solution found.
+Sun May 18 00:12:57 CEST 2014: 22: finished (352ms, 500cycles)
+Sun May 18 00:12:57 CEST 2014: 22: No solution found.
+Sun May 18 00:12:58 CEST 2014: 23: finished (214ms, 500cycles)
+Sun May 18 00:12:58 CEST 2014: 23: No solution found.
+Sun May 18 00:12:58 CEST 2014: 24: finished (1ms, 7cycles)
+Sun May 18 00:12:58 CEST 2014: 24: Solution found.
+Sun May 18 00:12:58 CEST 2014: 25: finished (346ms, 500cycles)
+Sun May 18 00:12:58 CEST 2014: 25: No solution found.
+Sun May 18 00:12:58 CEST 2014: 26: finished (353ms, 500cycles)
+Sun May 18 00:12:58 CEST 2014: 26: No solution found.
+Sun May 18 00:12:58 CEST 2014: 27: finished (46ms, 500cycles)
+Sun May 18 00:12:58 CEST 2014: 27: No solution found.
+Sun May 18 00:12:59 CEST 2014: 28: finished (220ms, 500cycles)
+Sun May 18 00:12:59 CEST 2014: 28: No solution found.
+Sun May 18 00:12:59 CEST 2014: 29: finished (390ms, 500cycles)
+Sun May 18 00:12:59 CEST 2014: 29: No solution found.
+Sun May 18 00:12:59 CEST 2014: 30: finished (295ms, 500cycles)
+Sun May 18 00:12:59 CEST 2014: 30: No solution found.
+Sun May 18 00:12:59 CEST 2014: 31: finished (241ms, 500cycles)
+Sun May 18 00:12:59 CEST 2014: 31: No solution found.
+Sun May 18 00:13:00 CEST 2014: 32: finished (261ms, 500cycles)
+Sun May 18 00:13:00 CEST 2014: 32: No solution found.
+Sun May 18 00:13:00 CEST 2014: 33: finished (5ms, 19cycles)
+Sun May 18 00:13:00 CEST 2014: 33: Solution found.
+Sun May 18 00:13:00 CEST 2014: 34: finished (415ms, 500cycles)
+Sun May 18 00:13:00 CEST 2014: 34: No solution found.
+Sun May 18 00:13:00 CEST 2014: 35: finished (288ms, 500cycles)
+Sun May 18 00:13:00 CEST 2014: 35: No solution found.
+Sun May 18 00:13:00 CEST 2014: 36: finished (21ms, 33cycles)
+Sun May 18 00:13:00 CEST 2014: 36: Solution found.
+Sun May 18 00:13:01 CEST 2014: 37: finished (151ms, 225cycles)
+Sun May 18 00:13:01 CEST 2014: 37: Solution found.
+Sun May 18 00:13:01 CEST 2014: 38: finished (220ms, 500cycles)
+Sun May 18 00:13:01 CEST 2014: 38: No solution found.
+Sun May 18 00:13:01 CEST 2014: 39: finished (434ms, 500cycles)
+Sun May 18 00:13:01 CEST 2014: 39: No solution found.
+Sun May 18 00:13:02 CEST 2014: 40: finished (390ms, 500cycles)
+Sun May 18 00:13:02 CEST 2014: 40: No solution found.
+Sun May 18 00:13:02 CEST 2014: 41: finished (315ms, 500cycles)
+Sun May 18 00:13:02 CEST 2014: 41: No solution found.
+Sun May 18 00:13:02 CEST 2014: 42: finished (46ms, 500cycles)
+Sun May 18 00:13:02 CEST 2014: 42: No solution found.
+Sun May 18 00:13:02 CEST 2014: 43: finished (18ms, 37cycles)
+Sun May 18 00:13:02 CEST 2014: 43: Solution found.
+Sun May 18 00:13:02 CEST 2014: 44: finished (103ms, 500cycles)
+Sun May 18 00:13:02 CEST 2014: 44: No solution found.
+Sun May 18 00:13:02 CEST 2014: 45: finished (47ms, 500cycles)
+Sun May 18 00:13:02 CEST 2014: 45: No solution found.
+Sun May 18 00:13:02 CEST 2014: 46: finished (98ms, 153cycles)
+Sun May 18 00:13:02 CEST 2014: 46: Solution found.
+Sun May 18 00:13:03 CEST 2014: 47: finished (295ms, 500cycles)
+Sun May 18 00:13:03 CEST 2014: 47: No solution found.
+Sun May 18 00:13:03 CEST 2014: 48: finished (13ms, 32cycles)
+Sun May 18 00:13:03 CEST 2014: 48: Solution found.
+Sun May 18 00:13:03 CEST 2014: 49: finished (250ms, 500cycles)
+Sun May 18 00:13:03 CEST 2014: 49: No solution found.
+Sun May 18 00:13:03 CEST 2014: 50: finished (42ms, 79cycles)
+Sun May 18 00:13:03 CEST 2014: 50: Solution found.
+Sun May 18 00:13:03 CEST 2014: 51: finished (275ms, 500cycles)
+Sun May 18 00:13:03 CEST 2014: 51: No solution found.
+Sun May 18 00:13:04 CEST 2014: 52: finished (531ms, 500cycles)
+Sun May 18 00:13:04 CEST 2014: 52: No solution found.
+Sun May 18 00:13:04 CEST 2014: 53: finished (373ms, 500cycles)
+Sun May 18 00:13:04 CEST 2014: 53: No solution found.
+Sun May 18 00:13:04 CEST 2014: 54: finished (4ms, 10cycles)
+Sun May 18 00:13:04 CEST 2014: 54: Solution found.
+Sun May 18 00:13:04 CEST 2014: 55: finished (1ms, 3cycles)
+Sun May 18 00:13:04 CEST 2014: 55: Solution found.
+Sun May 18 00:13:04 CEST 2014: 56: finished (82ms, 500cycles)
+Sun May 18 00:13:04 CEST 2014: 56: No solution found.
+Sun May 18 00:13:04 CEST 2014: 57: finished (6ms, 14cycles)
+Sun May 18 00:13:04 CEST 2014: 57: Solution found.
+Sun May 18 00:13:04 CEST 2014: 58: finished (52ms, 500cycles)
+Sun May 18 00:13:04 CEST 2014: 58: No solution found.
+Sun May 18 00:13:04 CEST 2014: 59: finished (315ms, 500cycles)
+Sun May 18 00:13:04 CEST 2014: 59: No solution found.
+Sun May 18 00:13:05 CEST 2014: 60: finished (275ms, 500cycles)
+Sun May 18 00:13:05 CEST 2014: 60: No solution found.
+Sun May 18 00:13:05 CEST 2014: 61: finished (328ms, 500cycles)
+Sun May 18 00:13:05 CEST 2014: 61: No solution found.
+Sun May 18 00:13:05 CEST 2014: 62: finished (231ms, 500cycles)
+Sun May 18 00:13:05 CEST 2014: 62: No solution found.
+Sun May 18 00:13:05 CEST 2014: 63: finished (53ms, 500cycles)
+Sun May 18 00:13:05 CEST 2014: 63: No solution found.
+Sun May 18 00:13:06 CEST 2014: 64: finished (370ms, 500cycles)
+Sun May 18 00:13:06 CEST 2014: 64: No solution found.
+Sun May 18 00:13:06 CEST 2014: 65: finished (215ms, 500cycles)
+Sun May 18 00:13:06 CEST 2014: 65: No solution found.
+Sun May 18 00:13:06 CEST 2014: 66: finished (1ms, 6cycles)
+Sun May 18 00:13:06 CEST 2014: 66: Solution found.
+Sun May 18 00:13:06 CEST 2014: 67: finished (1ms, 5cycles)
+Sun May 18 00:13:06 CEST 2014: 67: Solution found.
+Sun May 18 00:13:06 CEST 2014: 68: finished (456ms, 500cycles)
+Sun May 18 00:13:06 CEST 2014: 68: No solution found.
+Sun May 18 00:13:07 CEST 2014: 69: finished (229ms, 500cycles)
+Sun May 18 00:13:07 CEST 2014: 69: No solution found.
+Sun May 18 00:13:07 CEST 2014: 70: finished (434ms, 500cycles)
+Sun May 18 00:13:07 CEST 2014: 70: No solution found.
+Sun May 18 00:13:07 CEST 2014: 71: finished (1ms, 6cycles)
+Sun May 18 00:13:07 CEST 2014: 71: Solution found.
+Sun May 18 00:13:07 CEST 2014: 72: finished (207ms, 500cycles)
+Sun May 18 00:13:07 CEST 2014: 72: No solution found.
+Sun May 18 00:13:07 CEST 2014: 73: finished (182ms, 500cycles)
+Sun May 18 00:13:07 CEST 2014: 73: No solution found.
+Sun May 18 00:13:07 CEST 2014: 74: finished (5ms, 25cycles)
+Sun May 18 00:13:07 CEST 2014: 74: Solution found.
+Sun May 18 00:13:07 CEST 2014: 75: finished (2ms, 9cycles)
+Sun May 18 00:13:07 CEST 2014: 75: Solution found.
+Sun May 18 00:13:07 CEST 2014: 76: finished (6ms, 29cycles)
+Sun May 18 00:13:07 CEST 2014: 76: Solution found.
+Sun May 18 00:13:08 CEST 2014: 77: finished (363ms, 500cycles)
+Sun May 18 00:13:08 CEST 2014: 77: No solution found.
+Sun May 18 00:13:08 CEST 2014: 78: finished (3ms, 15cycles)
+Sun May 18 00:13:08 CEST 2014: 78: Solution found.
+Sun May 18 00:13:08 CEST 2014: 79: finished (321ms, 500cycles)
+Sun May 18 00:13:08 CEST 2014: 79: No solution found.
+Sun May 18 00:13:08 CEST 2014: 80: finished (2ms, 9cycles)
+Sun May 18 00:13:08 CEST 2014: 80: Solution found.
+Sun May 18 00:13:08 CEST 2014: 81: finished (217ms, 500cycles)
+Sun May 18 00:13:08 CEST 2014: 81: No solution found.
+Sun May 18 00:13:09 CEST 2014: 82: finished (361ms, 500cycles)
+Sun May 18 00:13:09 CEST 2014: 82: No solution found.
+Sun May 18 00:13:09 CEST 2014: 83: finished (379ms, 500cycles)
+Sun May 18 00:13:09 CEST 2014: 83: No solution found.
+Sun May 18 00:13:09 CEST 2014: 84: finished (141ms, 500cycles)
+Sun May 18 00:13:09 CEST 2014: 84: No solution found.
+Sun May 18 00:13:09 CEST 2014: 85: finished (8ms, 23cycles)
+Sun May 18 00:13:09 CEST 2014: 85: Solution found.
+Sun May 18 00:13:10 CEST 2014: 86: finished (316ms, 500cycles)
+Sun May 18 00:13:10 CEST 2014: 86: No solution found.
+Sun May 18 00:13:10 CEST 2014: 87: finished (148ms, 189cycles)
+Sun May 18 00:13:10 CEST 2014: 87: Solution found.
+Sun May 18 00:13:10 CEST 2014: 88: finished (56ms, 500cycles)
+Sun May 18 00:13:10 CEST 2014: 88: No solution found.
+Sun May 18 00:13:10 CEST 2014: 89: finished (431ms, 500cycles)
+Sun May 18 00:13:10 CEST 2014: 89: No solution found.
+Sun May 18 00:13:10 CEST 2014: 90: finished (3ms, 16cycles)
+Sun May 18 00:13:10 CEST 2014: 90: Solution found.
+Sun May 18 00:13:10 CEST 2014: 91: finished (73ms, 500cycles)
+Sun May 18 00:13:10 CEST 2014: 91: No solution found.
+Sun May 18 00:13:10 CEST 2014: 92: finished (11ms, 37cycles)
+Sun May 18 00:13:10 CEST 2014: 92: Solution found.
+Sun May 18 00:13:10 CEST 2014: 93: finished (2ms, 12cycles)
+Sun May 18 00:13:10 CEST 2014: 93: Solution found.
+Sun May 18 00:13:10 CEST 2014: 94: finished (52ms, 500cycles)
+Sun May 18 00:13:10 CEST 2014: 94: No solution found.
+Sun May 18 00:13:11 CEST 2014: 95: finished (411ms, 500cycles)
+Sun May 18 00:13:11 CEST 2014: 95: No solution found.
+Sun May 18 00:13:11 CEST 2014: 96: finished (209ms, 500cycles)
+Sun May 18 00:13:11 CEST 2014: 96: No solution found.
+Sun May 18 00:13:11 CEST 2014: 97: finished (7ms, 27cycles)
+Sun May 18 00:13:11 CEST 2014: 97: Solution found.
+Sun May 18 00:13:11 CEST 2014: 98: finished (209ms, 500cycles)
+Sun May 18 00:13:11 CEST 2014: 98: No solution found.
+Sun May 18 00:13:12 CEST 2014: 99: finished (287ms, 500cycles)
+Sun May 18 00:13:12 CEST 2014: 99: No solution found.
+Sun May 18 00:13:12 CEST 2014: Solution Found: 35
+Sun May 18 00:13:12 CEST 2014: Avg cycles: 57
+Sun May 18 00:13:12 CEST 2014: Max cycles: 416
+Sun May 18 00:13:12 CEST 2014: Min cycles: 3
+Sun May 18 00:13:12 CEST 2014: No solution found: 65
+Sun May 18 00:13:12 CEST 2014: logging finished. (runtime: 17718ms)

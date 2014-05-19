@@ -12,15 +12,15 @@ def analyse_data(subfolder, prefix):
 	print indir
 	for root, dirs, filenames in os.walk(indir):
 	    for f in filenames:
-	    	print f
+	    	#print f
 	    	if string.find(f, prefix) != -1:
 				log = open(os.path.join(root, f),'r')
 				statObj = EAStatistics()
 				data = log.read()
 				data = data.split('\n')
 
-				#remove timestamp #Fri Dec 27 00:46:40 CET 2013: Problem Count: 50
-				data = [re.sub(r'^\w{3} \w{3} \d{2} \d{2}:\d{2}:\d{2} \w{3} \d{4}:', '', d) for d in data]
+				#remove timestamp #Fri Dec 27 00:46:40 CEST 2013: Problem Count: 50
+				data = [re.sub(r'^\w{3} \w{3} \d{2} \d{2}:\d{2}:\d{2} \w{4} \d{4}:', '', d) for d in data]
 				for d in data:
 					dl = d.split(':')
 					dl = [n.strip() for n in dl]
@@ -33,8 +33,12 @@ def analyse_data(subfolder, prefix):
 						statObj.foundPercentage=int(dl[1])
 					elif dl[0] == 'Avg cycles':
 						statObj.avgCycles=int(dl[1])
-				statisticsList.append(statObj)
-				print str(statObj)
+				if(statObj.foundPercentage == 0):
+					print f
+					print "Error: percentage == 0! Skipping"
+				else:
+					statisticsList.append(statObj)
+					#print str(statObj)
 
 
 	#plot data
@@ -49,6 +53,7 @@ def analyse_data(subfolder, prefix):
 
 	compressedList = []
 	for e in statisticsList:
+		print e
 		if not last is None:
 			if int(e.noCandidates) == int(last.noCandidates) and int(e.noProblems) == int(last.noProblems):
 				percSum+=e.foundPercentage
@@ -131,11 +136,13 @@ def statistics_compare(x, y):
 	else:
 		return -1
 
-analyse_data('abab', 'E_G_')
-analyse_data('abab', 'E_L_')
-analyse_data('abab', 'C_G_')
-analyse_data('div3', 'E_G_')
-analyse_data('div3', 'E_L_')
-analyse_data('div3', 'C_G_')
-analyse_data('div31050', 'E_G_')
-analyse_data('div31050', 'C_G_')
+#analyse_data('abab', 'E_G_')
+#analyse_data('abab', 'E_L_')
+#analyse_data('abab', 'C_G_')
+#analyse_data('div3', 'E_G_')
+#analyse_data('div3', 'E_L_')
+#analyse_data('div3', 'C_G_')
+#analyse_data('div31050', 'E_G_')
+#analyse_data('div31050', 'C_G_')
+analyse_data('div31050neu', 'E_G_')
+analyse_data('div31050neu', 'C_G_')

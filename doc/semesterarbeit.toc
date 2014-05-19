@@ -27,9 +27,9 @@
 \contentsline {paragraph}{Die \lstinline $mutate$ Methode}{13}{section*.18}
 \contentsline {subsection}{\numberline {3.2}Evolution\IeC {\"a}re Algorithmen}{14}{subsection.3.2}
 \contentsline {subsubsection}{\numberline {3.2.1}Initialisierung}{15}{subsubsection.3.2.1}
-\contentsline {paragraph}{Generieren von Problemen}{16}{section*.19}
-\contentsline {paragraph}{Generieren von L\IeC {\"o}sungskandidaten}{17}{section*.20}
+\contentsline {paragraph}{Initialisierung der Sprache}{16}{section*.19}
+\contentsline {paragraph}{Generieren von Problemen}{16}{section*.20}
+\contentsline {paragraph}{Generieren von L\IeC {\"o}sungskandidaten}{16}{section*.21}
 \contentsline {subsubsection}{\numberline {3.2.2}Feste globale Problemmenge}{17}{subsubsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.3}Mutierende globale Problemmenge}{17}{subsubsection.3.2.3}
-\contentsline {subsection}{\numberline {3.3}Lokale mutierende Problemengen}{17}{subsection.3.3}
-\contentsline {section}{\numberline {4}Supi5}{17}{section.4}
+\contentsline {subsubsection}{\numberline {3.2.3}Mutierende globale Problemmenge}{18}{subsubsection.3.2.3}
+\contentsline {subsection}{\numberline {3.3}Lokale mutierende Problemengen}{18}{subsection.3.3}

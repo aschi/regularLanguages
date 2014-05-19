@@ -1,1 +1,17 @@
 \subsubsection{Mutierende globale Problemmenge}
+Die Implementation des Algorithmus mit der mutierenden globalen Problemmenge ist nahezu identisch mit der zuvor beschriebenen.
+
+Sie unterscheidet sich lediglich darin, dass nach dem mutieren der Lösungskandidaten auch die Problemmenge verändert wird.
+
+\begin{enumerate}
+\item Initialisierung (Sprache, Problemmenge, Lösungskandidaten, Referenzautomat)
+\item Berechnen der Fitness aller Lösungskandidaten
+\item Sortieren der Lösungskandidaten nach Fitness
+\item Hat ein Lösungskandidat alle Probleme korrekt gelöst? Falls ja, wird er mit dem Referenzautomaten verglichen. Wenn er einer korrekten Lösung entspricht wird der Algorithmus angehalten und die Anzahl gebrauchter Zyklen wird zurückgegeben.
+\item Von den besten 50\% der Lösungskandidaten wird eine \textit{Deep Copy} erstellt
+\item Die kopien werden zufällig mutiert
+\item Die besten 50\% und deren mutierte kopien bilden die neue Menge der Lösungskandidaten.
+\item \textbf{Die 50\% einfachsten Probleme aus der Problemmenge werden gelöscht und durch zufällige, neue ersetzt.}
+\item Die Variable zum zählen der Zyklen wird um 1 erhöht.
+\item Wenn das Zykluslimit noch nicht überschritten ist, weiter mit 2. ansonsten war der Algorithmus nicht erfolgreich und bricht ab.
+\end{enumerate}
