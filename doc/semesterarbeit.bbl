@@ -16,6 +16,11 @@ John~E. Hopcroft, Rajeev Motwani, and Jeffrey~D. Ullman.
   Komplexitätstheorie}.
 \newblock Pearson Education, 2002.
 
+\bibitem{matplotlib}
+John Hunter.
+\newblock Matplotlib.
+\newblock \url{http://matplotlib.org/}.
+
 \bibitem{bricsautomaton}
 Anders M\o{}ller.
 \newblock dk.brics.automaton.

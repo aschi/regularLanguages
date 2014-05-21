@@ -1,21 +1,12 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.11.7)  14 MAY 2014 17:55
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.3.4)  21 MAY 2014 16:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **semesterarbeit.tex
 (./semesterarbeit.tex
 LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, et
-hiopic, farsi, arabic, pinyin, croatian, bulgarian, ukrainian, russian, slovak,
- czech, danish, dutch, usenglishmax, ukenglish, finnish, french, basque, ngerma
-n, german, swissgerman, ngerman-x-2012-05-30, german-x-2012-05-30, monogreek, g
-reek, ibycus, ancientgreek, hungarian, bengali, tamil, hindi, telugu, gujarati,
- sanskrit, malayalam, kannada, assamese, marathi, oriya, panjabi, italian, lati
-n, latvian, lithuanian, mongolian, mongolianlmc, nynorsk, bokmal, indonesian, e
-speranto, coptic, welsh, irish, interlingua, serbian, serbianc, slovenian, friu
-lan, romansh, estonian, romanian, armenian, uppersorbian, turkish, afrikaans, i
-celandic, kurmanji, polish, portuguese, galician, catalan, spanish, swedish, th
-ai, loaded.
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ng
+erman, german, swissgerman, ngerman-x-2012-05-30, german-x-2012-05-30, loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2012/05/15 v3.11 KOMA-Script document class (article)
 (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -340,7 +331,8 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 (/usr/share/texlive/texmf-dist/tex/generic/german/ngerman.sty v2.5e 1998-07-08
 Package: ngerman 1998/07/08 v2.5e Support for writing german texts (br)
 \grmnU@D=\dimen104
-ngerman -- \language number for naustrian undefined, default 20 used.
+ngerman -- \language number for naustrian undefined, default 3 used.
+ngerman -- \language number for French undefined, default 255 used.
 ) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count88
@@ -417,13 +409,13 @@ Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/units/units.sty
+(/usr/share/texmf/tex/latex/units/units.sty
 Package: units 1998/08/04 v0.9b Typesetting units
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/units/nicefrac.sty
+(/usr/share/texmf/tex/latex/units/nicefrac.sty
 Package: nicefrac 1998/08/04 v0.9b Nice fractions
 \L@UnitsRaiseDisplaystyle=\skip50
 \L@UnitsRaiseTextstyle=\skip51
@@ -636,6 +628,9 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 
 LaTeX Warning: Label `fig:endlicher_automat' multiply defined.
 
+
+LaTeX Warning: Label `fig:div3_automat' multiply defined.
+
 )
 \openout1 = `semesterarbeit.aux'.
 
@@ -721,22 +716,19 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 289.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-(./content/00_preface/dank.tex [1
+(./content/00_preface/abstract.tex [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./content/00_preface/abs
-tract.tex [2
-
-]) [3
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) [2
 
 ] (./semesterarbeit.toc)
 \tf@toc=\write4
 \openout4 = `semesterarbeit.toc'.
 
+ [1
 
-[1
-
-] (./content/01_einleitung/einleitung.tex
+]
+(./content/01_einleitung/einleitung.tex
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 11.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
@@ -746,12 +738,12 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
  [2
 
-])
-(./content/02_grundlagen/grundlagen.tex [3]
-(./content/02_grundlagen/01_grundlagen_automaten.tex [4
+]
+(./content/01_einleitung/glossar.tex)) (./content/02_grundlagen/grundlagen.tex
+[3] (./content/02_grundlagen/01_grundlagen_automaten.tex [4
 
 ]
-<images/endlicher_automat.pdf, id=121, 198.7425pt x 142.5325pt>
+<images/endlicher_automat.pdf, id=198, 198.7425pt x 142.5325pt>
 File: images/endlicher_automat.pdf Graphic file (type pdf)
 
 <use images/endlicher_automat.pdf>
@@ -764,17 +756,21 @@ Overfull \hbox (0.30954pt too wide) in paragraph at lines 2--4
 o-rith-mi-sche Um-set-zung von Prin-
  []
 
-<images/evolutionaerer_algorithmus.pdf, id=142, 398.3386pt x 369.88583pt>
+<images/evolutionaerer_algorithmus.pdf, id=220, 398.3386pt x 369.88583pt>
 File: images/evolutionaerer_algorithmus.pdf Graphic file (type pdf)
 
 <use images/evolutionaerer_algorithmus.pdf>
 Package pdftex.def Info: images/evolutionaerer_algorithmus.pdf used on input li
 ne 11.
 (pdftex.def)             Requested size: 224.06548pt x 208.06026pt.
- [6] [7 <./images/evolutionaerer_algorithmus.pdf>])) (./content/03_umsetzung/um
-setzung.tex [8]
+ [6] [7 <./images/evolutionaerer_algorithmus.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 31--37
+
+ []
+
+[8])) (./content/03_umsetzung/umsetzung.tex [9]
 (./content/03_umsetzung/01_automaten.tex
-<images/dfa_classdiag_simple.pdf, id=179, 419.969pt x 228.052pt>
+<images/dfa_classdiag_simple.pdf, id=267, 419.969pt x 228.052pt>
 File: images/dfa_classdiag_simple.pdf Graphic file (type pdf)
 
 <use images/dfa_classdiag_simple.pdf>
@@ -783,7 +779,7 @@ Package pdftex.def Info: images/dfa_classdiag_simple.pdf used on input line 5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
-) [9
+) [10
 
  <./images/dfa_classdiag_simple.pdf>]
 Overfull \hbox (8.31183pt too wide) in paragraph at lines 48--49
@@ -793,25 +789,18 @@ Overfull \hbox (8.31183pt too wide) in paragraph at lines 48--49
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
-) [10]
-<images/split_automaton.pdf, id=227, 273.02pt x 232.87pt>
+) [11]
+<images/split_automaton.pdf, id=316, 273.02pt x 232.87pt>
 File: images/split_automaton.pdf Graphic file (type pdf)
 
 <use images/split_automaton.pdf>
 Package pdftex.def Info: images/split_automaton.pdf used on input line 92.
 (pdftex.def)             Requested size: 224.06548pt x 191.11452pt.
- [11] [12 <./images/split_automaton.pdf>]
+ [12] [13 <./images/split_automaton.pdf>]
 
 LaTeX Warning: Command \" invalid in math mode on input line 129.
 
 Missing character: There is no ä in font cmr12!
-
-Overfull \hbox (7.4685pt too wide) in paragraph at lines 129--130
-[]\T1/cmr/m/n/12 Es wird ei-ne Men-ge von Zu-stän-den er-zeugt (An-zahl Zu-stän
--de: $\OT1/cmr/m/n/12 1$ \T1/cmr/m/n/12 - $\OT1/cmr/m/n/12 (2 \OMS/cmsy/m/n/12 
-^^A \OML/cmm/m/it/12 AnzahlZeichen \OMS/cmsy/m/n/12 ^^A
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 154--155
 []\T1/cmr/m/n/12 Nicht ak-zep-tie-ren-de
@@ -822,8 +811,8 @@ Overfull \hbox (29.8025pt too wide) in paragraph at lines 140--165
  [] 
  []
 
-[13]) (./content/03_umsetzung/02_ea.tex
-<images/simple_uml_evolution.pdf, id=291, 592.61403pt x 350.10799pt>
+[14]) (./content/03_umsetzung/02_ea.tex
+<images/simple_uml_evolution.pdf, id=377, 592.61403pt x 350.10799pt>
 File: images/simple_uml_evolution.pdf Graphic file (type pdf)
 
 <use images/simple_uml_evolution.pdf>
@@ -839,8 +828,8 @@ Overfull \hbox (36.60638pt too wide) in paragraph at lines 11--12
 en-den ei-ne Men-ge von []
  []
 
-[14] [15 <./images/simple_uml_evolution.pdf>]
-<images/simple_uml_evolution_initialisation.pdf, id=322, 631.96097pt x 281.8529
+[15] [16 <./images/simple_uml_evolution.pdf>]
+<images/simple_uml_evolution_initialisation.pdf, id=407, 631.96097pt x 281.8529
 8pt>
 File: images/simple_uml_evolution_initialisation.pdf Graphic file (type pdf)
  <use images/simple_uml_evolution_initialisation.pdf>
@@ -853,7 +842,7 @@ Overfull \hbox (43.73244pt too wide) in paragraph at lines 38--39
  hier-für be-nö-tigt der []
  []
 
-<images/simple_uml_pg.pdf, id=323, 367.77399pt x 208.78pt>
+<images/simple_uml_pg.pdf, id=408, 367.77399pt x 208.78pt>
 File: images/simple_uml_pg.pdf Graphic file (type pdf)
 
 <use images/simple_uml_pg.pdf>
@@ -869,11 +858,150 @@ Overfull \hbox (5.47508pt too wide) in paragraph at lines 49--1
 []
  []
 
-[16 <./images/simple_uml_evolution_initialisation.pdf>])
-(./content/03_umsetzung/04_globale_mutierende_problemmenge.tex [17 <./images/si
+[17 <./images/simple_uml_evolution_initialisation.pdf>])
+(./content/03_umsetzung/04_globale_mutierende_problemmenge.tex [18 <./images/si
 mple_uml_pg.pdf>])
-(./content/03_umsetzung/05_lokale_mutierende_problemmenge.tex)) [18]
-(./content/99_anhang/anhang.tex (./content/99_anhang/kick_off.tex
+(./content/03_umsetzung/05_lokale_mutierende_problemmenge.tex [19])
+(./content/03_umsetzung/06_auswertung.tex [20]
+Overfull \hbox (8.29788pt too wide) in paragraph at lines 6--7
+[]\T1/cmr/m/n/12 Dies ge-schieht in zwei Schrit-ten. In ei-nem ers-ten Schritt 
+lau-fen Java-Konsolenanwendungen
+ []
+
+)) (./content/04_analyse/analyse.tex [21] (./content/04_analyse/01_probleme.tex
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3.
+) (./content/04_analyse/02_C_G.tex
+<images/C_G_div5_solved.pdf, id=508, 867.24pt x 722.7pt>
+File: images/C_G_div5_solved.pdf Graphic file (type pdf)
+
+<use images/C_G_div5_solved.pdf>
+Package pdftex.def Info: images/C_G_div5_solved.pdf used on input line 6.
+(pdftex.def)             Requested size: 358.50612pt x 298.75702pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[22
+
+] <images/C_G_PS_div5PS_solved.pdf, id=515, 786.94pt x 642.4pt>
+File: images/C_G_PS_div5PS_solved.pdf Graphic file (type pdf)
+
+<use images/C_G_PS_div5PS_solved.pdf>
+Package pdftex.def Info: images/C_G_PS_div5PS_solved.pdf used on input line 21.
+
+(pdftex.def)             Requested size: 349.54158pt x 285.33289pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/C_G_CS_div5CS_solved.pdf, id=518, 786.94pt x 642.4pt>
+File: images/C_G_CS_div5CS_solved.pdf Graphic file (type pdf)
+
+<use images/C_G_CS_div5CS_solved.pdf>
+Package pdftex.def Info: images/C_G_CS_div5CS_solved.pdf used on input line 36.
+
+(pdftex.def)             Requested size: 349.54158pt x 285.33289pt.
+ [23 <./images/C_G_div5_solved.pdf>]
+Overfull \vbox (37.86584pt too high) has occurred while \output is active []
+
+
+[24 <./images/C_G_PS_div5PS_solved.pdf> <./images/C_G_CS_div5CS_solved.pdf
+
+pdfTeX warning: pdflatex (file ./images/C_G_CS_div5CS_solved.pdf): PDF inclusio
+n: multiple pdfs with page group included in a single page
+>]) (./content/04_analyse/03_E_G.tex
+<images/E_G_abab_solved.pdf, id=1068, 786.94pt x 658.46pt>
+File: images/E_G_abab_solved.pdf Graphic file (type pdf)
+
+<use images/E_G_abab_solved.pdf>
+Package pdftex.def Info: images/E_G_abab_solved.pdf used on input line 4.
+(pdftex.def)             Requested size: 358.50612pt x 299.97153pt.
+ [25 <./images/E_G_abab_solved.pdf>]
+<images/E_G_PS_div5PS_solved.pdf, id=1254, 786.94pt x 642.4pt>
+File: images/E_G_PS_div5PS_solved.pdf Graphic file (type pdf)
+
+<use images/E_G_PS_div5PS_solved.pdf>
+Package pdftex.def Info: images/E_G_PS_div5PS_solved.pdf used on input line 19.
+
+(pdftex.def)             Requested size: 349.54158pt x 285.33289pt.
+ [26 <./images/E_G_PS_div5PS_solved.pdf>]
+<images/E_G_CS_div5CS_solved.pdf, id=1440, 786.94pt x 642.4pt>
+File: images/E_G_CS_div5CS_solved.pdf Graphic file (type pdf)
+
+<use images/E_G_CS_div5CS_solved.pdf>
+Package pdftex.def Info: images/E_G_CS_div5CS_solved.pdf used on input line 37.
+
+(pdftex.def)             Requested size: 349.54158pt x 285.33289pt.
+ [27 <./images/E_G_CS_div5CS_solved.pdf>]) (./content/04_analyse/04_E_L.tex
+<images/E_L_abab_solved.pdf, id=1618, 786.94pt x 658.46pt>
+File: images/E_L_abab_solved.pdf Graphic file (type pdf)
+
+<use images/E_L_abab_solved.pdf>
+Package pdftex.def Info: images/E_L_abab_solved.pdf used on input line 6.
+(pdftex.def)             Requested size: 340.57706pt x 284.97093pt.
+ [28 <./images/E_L_abab_solved.pdf>])
+(./content/04_analyse/05_random.tex
+<images/RAND_ABAB_RAND_solved.pdf, id=1805, 578.16pt x 256.96pt>
+File: images/RAND_ABAB_RAND_solved.pdf Graphic file (type pdf)
+
+<use images/RAND_ABAB_RAND_solved.pdf>
+Package pdftex.def Info: images/RAND_ABAB_RAND_solved.pdf used on input line 6.
+
+(pdftex.def)             Requested size: 358.50612pt x 159.33315pt.
+) (./content/04_analyse/06_fazit.tex
+[29 <./images/RAND_ABAB_RAND_solved.pdf>]
+<images/problemmengen.pdf, id=1849, 369.38pt x 377.41pt>
+File: images/problemmengen.pdf Graphic file (type pdf)
+
+<use images/problemmengen.pdf>
+Package pdftex.def Info: images/problemmengen.pdf used on input line 14.
+(pdftex.def)             Requested size: 179.24963pt x 183.14728pt.
+ [30 <./images/problemmengen.pdf>]
+<images/bars_fitness.pdf, id=1864, 578.16pt x 361.35pt>
+File: images/bars_fitness.pdf Graphic file (type pdf)
+
+<use images/bars_fitness.pdf>
+Package pdftex.def Info: images/bars_fitness.pdf used on input line 33.
+(pdftex.def)             Requested size: 313.69029pt x 196.0524pt.
+ [31 <./images/bars_fitness.pdf>]
+<images/evolutionsverhalten_lokal_vs_global.pdf, id=2049, 1156.32pt x 433.62pt>
+File: images/evolutionsverhalten_lokal_vs_global.pdf Graphic file (type pdf)
+<use images/evolutionsverhalten_lokal_vs_global.pdf>
+Package pdftex.def Info: images/evolutionsverhalten_lokal_vs_global.pdf used on
+ input line 53.
+(pdftex.def)             Requested size: 358.50612pt x 134.43404pt.
+)) [32 <./images/evolutionsverhalten_lokal_vs_global.pdf>] (./content/99_anhang
+/anhang.tex
+(./content/99_anhang/automaten.tex
+<images/abab_automat.pdf, id=2206, 176.66pt x 413.545pt>
+File: images/abab_automat.pdf Graphic file (type pdf)
+
+<use images/abab_automat.pdf>
+Package pdftex.def Info: images/abab_automat.pdf used on input line 6.
+(pdftex.def)             Requested size: 176.65956pt x 413.54398pt.
+ [33
+
+ <./images/abab_automat.pdf>]
+<images/div3_automat.pdf, id=2220, 198.7425pt x 142.5325pt>
+File: images/div3_automat.pdf Graphic file (type pdf)
+
+<use images/div3_automat.pdf>
+Package pdftex.def Info: images/div3_automat.pdf used on input line 17.
+(pdftex.def)             Requested size: 198.742pt x 142.53214pt.
+ [34
+
+ <./images/div3_automat.pdf>]
+<images/div5_automat.pdf, id=2235, 199.74625pt x 323.2075pt>
+File: images/div5_automat.pdf Graphic file (type pdf)
+
+<use images/div5_automat.pdf>
+Package pdftex.def Info: images/div5_automat.pdf used on input line 28.
+(pdftex.def)             Requested size: 199.74576pt x 323.20671pt.
+) [35
+
+ <./images/div5_automat.pdf>]
+(./content/99_anhang/kick_off.tex
 Underfull \hbox (badness 10000) in paragraph at lines 20--22
 
  []
@@ -883,9 +1011,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--31
 
  []
 
-)) (./semesterarbeit.lof [19
+) [36
 
-])
+] (./content/99_anhang/design_review.tex
+Underfull \hbox (badness 10000) in paragraph at lines 26--28
+
+ []
+
+) [37
+
+]) (./semesterarbeit.lof)
 \tf@lof=\write5
 \openout5 = `semesterarbeit.lof'.
 
@@ -893,56 +1028,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--31
 \tf@lot=\write6
 \openout6 = `semesterarbeit.lot'.
 
- (./semesterarbeit.bbl
+
+
+Class scrartcl Warning: Usage of deprecated \float@listhead!
+(scrartcl)              You should use the features of package `tocbasic'
+(scrartcl)              instead of \float@listhead.
+(scrartcl)              Definition of \float@listhead my be removed from
+(scrartcl)              `scrartcl' soon, so it should not be used  on input lin
+e 334.
+
+(./semesterarbeit.lol)
+\tf@lol=\write7
+\openout7 = `semesterarbeit.lol'.
+
+ (./semesterarbeit.bbl [38
+
+]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 22.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 345.
- [20]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 345.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 348.
+ [39]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 348.
 
 (./semesterarbeit.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 345.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 345.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 348.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 348.
 Package rerunfilecheck Info: File `semesterarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: D69D647886FA21FD1396853602191F6A;776.
+(rerunfilecheck)             Checksum: F72BDAD93C56AC15925E0E2E0B846614;2007.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 345.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 348.
  ) 
 Here is how much of TeX's memory you used:
- 10847 strings out of 493485
- 155868 string characters out of 3143526
- 406037 words of memory out of 3000000
- 13766 multiletter control sequences out of 15000+200000
- 22568 words of font info for 61 fonts, out of 3000000 for 9000
- 957 hyphenation exceptions out of 8191
+ 11131 strings out of 495007
+ 161721 string characters out of 3179691
+ 484760 words of memory out of 3000000
+ 13810 multiletter control sequences out of 15000+200000
+ 23332 words of font info for 62 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
  38i,11n,47p,1114b,1609s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb>
-</usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fo
-nts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-
-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb><
-/usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fon
-ts/type1/public/cm-super/sfsl1200.pfb></usr/share/texmf/fonts/type1/public/cm-s
-uper/sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1200.pfb></
-usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf/font
-s/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/cm-su
-per/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></u
-sr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on semesterarbeit.pdf (23 pages, 430426 bytes).
+ </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk> </home/
+adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1000.600pk> </home/adrian/.te
+xmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/adrian/.texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/adrian/.texmf-var/fonts/pk/ljf
+our/jknappen/ec/ecti1200.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/ecbx1200.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx
+1440.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1200.600pk
+> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1728.600pk> </home/a
+drian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1200.600pk> </home/adrian/.tex
+mf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/adrian/.texmf-var/fon
+ts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </home/adrian/.texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/ecsx2488.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecbx1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on semesterarbeit.pdf (41 pages, 954489 bytes).
 PDF statistics:
- 510 PDF objects out of 1000 (max. 8388607)
- 437 compressed objects within 5 object streams
- 168 named destinations out of 1000 (max. 500000)
- 132 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2945 PDF objects out of 2984 (max. 8388607)
+ 1642 compressed objects within 17 object streams
+ 251 named destinations out of 1000 (max. 500000)
+ 330 words of extra memory for PDF output out of 10000 (max. 10000000)
 

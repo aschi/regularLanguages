@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import ch.zhaw.regularLanguages.evolution.initialisation.EvolvingGlobalProblemSetInitialisation;
+import ch.zhaw.regularLanguages.graphicalOutput.GraphvizRenderer;
 import ch.zhaw.regularLanguages.helpers.Logger;
 
 public class EvolvingGlobalABABLanguage {
@@ -44,7 +45,7 @@ public class EvolvingGlobalABABLanguage {
 		int cc = 0;
 		int nc = 0;
 
-		for (int x = 0; x < 10; x++) {
+		for (int x = 0; x < 1; x++) {
 			for (int n = 0; n < 25; n++) {
 				DateFormat df = new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");
 
@@ -75,6 +76,8 @@ public class EvolvingGlobalABABLanguage {
 							+ tmpCycle + "cycles)");
 
 					if (starter.getWinner() != null) {
+						//starter.getWinner().getObj().minimizeAutomaton();
+						//GraphvizRenderer.renderGraph(starter.getWinner().getObj(), "eg_div3_winner"+String.valueOf(solutionFoundCounter)+".svg");
 						solutionFoundCounter++;
 						cycleCount.add(tmpCycle);
 						l.log(i + ": Solution found.");

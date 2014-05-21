@@ -20,7 +20,7 @@ def analyse_data(subfolder, prefix):
 				data = data.split('\n')
 
 				#remove timestamp #Fri Dec 27 00:46:40 CEST 2013: Problem Count: 50
-				data = [re.sub(r'^\w{3} \w{3} \d{2} \d{2}:\d{2}:\d{2} \w{4} \d{4}:', '', d) for d in data]
+				data = [re.sub(r'^\w{3} \w{3} \d{2} \d{2}:\d{2}:\d{2} \w{3,4} \d{4}:', '', d) for d in data]
 				for d in data:
 					dl = d.split(':')
 					dl = [n.strip() for n in dl]
@@ -33,10 +33,10 @@ def analyse_data(subfolder, prefix):
 						statObj.foundPercentage=int(dl[1])
 					elif dl[0] == 'Avg cycles':
 						statObj.avgCycles=int(dl[1])
-				if(statObj.foundPercentage == 0):
-					print f
-					print "Error: percentage == 0! Skipping"
-				else:
+				#if(statObj.foundPercentage == 0):
+				#	print f
+				#	print "Error: percentage == 0! Skipping"
+				#else:
 					statisticsList.append(statObj)
 					#print str(statObj)
 
@@ -102,15 +102,16 @@ def analyse_data(subfolder, prefix):
 	plt.ylim([0,100])
 	plt.xticks(xaxis, labels, rotation='vertical', size='small', ha='center')
 	plt.bar(xaxis, bars, 0.5, alpha=0.4, color='b', align="center")
+	#plt.plot(xaxis, bars, 'r')
 	plt.savefig(prefix+subfolder+"_solved.svg")
 
 	plt.clf()
 
-	plt.figure(figsize=(12,10))
-	plt.ylim([0,100])
-	plt.xticks(xaxis, labels, rotation='vertical', size='small', ha='center')
-	plt.bar(xaxis, barsAvg, 0.5, alpha=0.4, color='b', align="center")
-	plt.savefig(prefix+subfolder+"_cycles.svg")
+	#plt.figure(figsize=(12,10))
+	#plt.ylim([0,100])
+	#plt.xticks(xaxis, labels, rotation='vertical', size='small', ha='center')
+	#plt.bar(xaxis, barsAvg, 0.5, alpha=0.4, color='b', align="center")
+	#plt.savefig(prefix+subfolder+"_cycles.svg")
 
 
 class EAStatistics:
@@ -136,13 +137,20 @@ def statistics_compare(x, y):
 	else:
 		return -1
 
-#analyse_data('abab', 'E_G_')
+#analyse_data('ababNeu', 'E_G_')
 #analyse_data('abab', 'E_L_')
 #analyse_data('abab', 'C_G_')
 #analyse_data('div3', 'E_G_')
+#analyse_data('div3PS', 'E_G_PS_')
 #analyse_data('div3', 'E_L_')
 #analyse_data('div3', 'C_G_')
-#analyse_data('div31050', 'E_G_')
-#analyse_data('div31050', 'C_G_')
-analyse_data('div31050neu', 'E_G_')
-analyse_data('div31050neu', 'C_G_')
+#analyse_data('div5PS', 'C_G_PS_')
+#analyse_data('div5CS', 'C_G_CS_')
+#analyse_data('div5CS', 'E_G_CS_')
+#analyse_data('div5PS', 'C_G_PS_')
+#analyse_data('div5PS', 'E_G_PS_')
+#analyse_data('div5', 'C_G_')
+#analyse_data('div5', 'E_L_')
+analyse_data('RAND', 'RAND_ABAB_')
+analyse_data('RAND', 'RAND_DIV3_')
+analyse_data('RAND', 'RAND_DIV5_')

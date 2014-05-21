@@ -7,13 +7,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 import ch.zhaw.regularLanguages.evolution.initialisation.ConsistentGlobalProblemSetInitialisation;
+import ch.zhaw.regularLanguages.graphicalOutput.GraphvizRenderer;
 import ch.zhaw.regularLanguages.helpers.Logger;
 
 public class ConsitentGlobalDivisable5Language {
 
 	public static void main(String[] args) {
 		ConsistentGlobalProblemSetInitialisation starter = new ConsistentGlobalProblemSetInitialisation();
-		starter.initLanguage(new char[] { '0', '1' }, 10, "(0+101+11(01)*(1+00)1+(100+11(01)*(1+00)0)(1+0(01)*(1+00)0)*0(01)*(1+00)1)*");
+		starter.initLanguage(new char[] { '0', '1' }, 10, "(0|101|11(01)*(1|00)1|(100|11(01)*(1|00)0)(1|0(01)*(1|00)0)*0(01)*(1|00)1)*");
 
 		int solutionFoundCounter = 0;
 		int noSolutionFound = 0;
@@ -25,11 +26,11 @@ public class ConsitentGlobalDivisable5Language {
 		int[] candidatesCount = new int[5];
 		int[] noCycles = new int[2];
 
-		problemCount[0] = 50;
-		problemCount[1] = 100;
-		problemCount[2] = 150;
-		problemCount[3] = 200;
-		problemCount[4] = 250;
+		problemCount[0] = 10;
+		problemCount[1] = 20;
+		problemCount[2] = 30;
+		problemCount[3] = 40;
+		problemCount[4] = 50;
 
 		candidatesCount[0] = 50;
 		candidatesCount[1] = 100;
@@ -43,7 +44,7 @@ public class ConsitentGlobalDivisable5Language {
 		int pc = 0;
 		int cc = 0;
 		int nc = 0;
-		for (int x = 0; x < 100; x++) {
+		for (int x = 0; x < 10; x++) {
 			System.out.println("x:"+x);
 			for (int n = 0; n < 25; n++) {
 				DateFormat df = new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");
@@ -74,6 +75,7 @@ public class ConsitentGlobalDivisable5Language {
 							+ tmpCycle + "cycles)");
 
 					if (starter.getWinner() != null) {
+						GraphvizRenderer.renderGraph(starter.getWinner().getObj(), "winner.svg");
 						solutionFoundCounter++;
 						cycleCount.add(tmpCycle);
 						l.log(i + ": Solution found.");

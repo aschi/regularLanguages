@@ -85,7 +85,7 @@ public class DeterministicFiniteAutomaton implements GraphvizRenderable{
 	
 	public boolean isStateIdAvailable(String stateId){
 		for(State s : states){
-			if(s.equals(stateId)){
+			if(s.getId().equals(stateId)){
 				return false;
 			}
 		}

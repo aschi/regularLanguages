@@ -1,0 +1,31 @@
+\section{Automaten zu den gegebenen Problemen}
+\subsection{Das abab Problem}
+\textbf{RegExp:} \lstinline$[ab]*abab$
+\begin{figure}[H]
+  \centering
+  \includegraphics{images/abab_automat.pdf}
+  \caption[\flqq abab\frqq Automat]{\flqq abab\frqq Automat}
+  \label{fig:abab_automat}
+\end{figure}
+
+\clearpage
+
+\subsection{Das durch drei teilbar Problem}
+\textbf{RegExp:} \lstinline$(1(01*0)*1|0)*$
+\begin{figure}[H]
+  \centering
+  \includegraphics{images/div3_automat.pdf}
+  \caption[\flqq Durch drei teilbar\frqq Automat]{\flqq Durch drei teilbar\frqq Automat}
+  \label{fig:div3_automat}
+\end{figure}
+
+\clearpage 
+
+\subsection{Das durch fünf teilbar Problem}
+\textbf{RegExp:} \lstinline$(0|101|11(01)*(1|00)1|(100|11(01)*(1|00)0)(1|0(01)*(1|00)0)*0(01)*(1|00)1)*$
+\begin{figure}[H]
+  \centering
+  \includegraphics{images/div5_automat.pdf}
+  \caption[\flqq Durch fünf teilbar\frqq Automat]{\flqq Durch fünf teilbar\frqq Automat}
+  \label{fig:div3_automat}
+\end{figure}

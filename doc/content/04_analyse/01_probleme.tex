@@ -1,0 +1,16 @@
+Um überhaupt etwas analysieren zu können mussten zuerst passende Probleme gefunden werden. Am Kickoff Meeting wurden folgende, zu untersuchende Probleme definiert:
+\begin{itemize}
+\item $\Sigma=\{'a','b'\}$, RE:\lstinline$[ab]*abab$; Die Sprache aller Wörter die aus $a$ und $b$ bestehen und auf $abab$ enden. Folgend kurz \flqq Das abab Problem\frqq genannt
+\item $\Sigma=\{'0','1'\}$, RE:\lstinline$(1(01*0)*1|0)*$; Die Sprache aller durch drei teilbaren Binärzahlen. Folgend kurz \flqq Das durch drei teilbar Problem\frqq
+\item $\Sigma=\{'0','1'\}$, RE:\lstinline$(0|101|11(01)*(1|00)1|(100|11(01)*(1|00)0)(1|0(01)*(1|00)0)*0(01)*(1|00)1)*$; Die Sprache aller durch fünf teilbaren Binärzahlen. Folgend kurz \flqq Das durch fünf teilbar Problem \frqq
+\end{itemize}
+
+Um sich einen ersten Überblick zu verschaffen wurden bei jeder Sprache als erstes folgende Eingabeparameter ausprobiert:
+\begin{itemize}
+	\item Problemmengen Grösse: 50, 100, 150, 200, 250
+	\item Lösungskandidaten Anzahl: 50, 100, 150, 200, 250
+\end{itemize}
+
+Nach diesem ersten Screening wurde klar, dass nicht alle Probleme im gleichen Bereich interessant sind. So konvergiert das durch drei teilbar Problem zum Beispiel bereits bei Problemmengen Grössen von 50 fast zu gut. Entsprechend wurden für weitere Analysen problemspezifische Eingabeparameter verwendet.
+
+Die Untersuchung der verschiedenen Algorithmen mit den verschiedenen Problemstellungen hat, unabhängig vom jeweiligen Problem, durchgängig vergleichbare Resultate hervorgebracht. Bei der folgenden Analyse der Algorithmen werden jeweils exemplarische Untersuchungsresultate gezeigt, welche aufgrund Ihres aussagekräftigen Charakters ausgewählt wurden. Die Logfiles und die entsprechenden Auswertungen aller herbeigezogenen Untersuchungen finden Sie im Dateianhang im Ordner \lstinline$doc/statistics$.

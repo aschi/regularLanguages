@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import ch.zhaw.regularLanguages.evolution.initialisation.EvolvingGlobalProblemSetInitialisation;
+import ch.zhaw.regularLanguages.graphicalOutput.GraphvizRenderer;
 import ch.zhaw.regularLanguages.helpers.Logger;
 
 public class EvolvingGlobalDivisable3Language {
@@ -44,7 +45,7 @@ public class EvolvingGlobalDivisable3Language {
 		int cc = 0;
 		int nc = 0;
 
-		for (int x = 0; x < 100; x++) {
+		for (int x = 0; x < 1; x++) {
 			System.out.println("x:" + x);
 			for (int n = 0; n < 25; n++) {
 				DateFormat df = new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");

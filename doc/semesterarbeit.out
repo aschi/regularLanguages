@@ -3,10 +3,26 @@
 \BOOKMARK [2][-]{subsection.1.2}{Ziel der Arbeit}{section.1}% 3
 \BOOKMARK [2][-]{subsection.1.3}{Aufgabenstellung}{section.1}% 4
 \BOOKMARK [2][-]{subsection.1.4}{Erwartete Resultate}{section.1}% 5
-\BOOKMARK [1][-]{section.2}{Grundlagen}{}% 6
-\BOOKMARK [2][-]{subsection.2.1}{Endliche Automaten und regul\344re Sprachen}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.2}{Evolution\344re Algorithmen}{section.2}% 8
-\BOOKMARK [1][-]{section.3}{Umsetzung}{}% 9
-\BOOKMARK [2][-]{subsection.3.1}{Automaten}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.2}{Evolution\344re Algorithmen}{section.3}% 11
-\BOOKMARK [2][-]{subsection.3.3}{Lokale mutierende Problemengen}{section.3}% 12
+\BOOKMARK [2][-]{subsection.1.5}{Glossar}{section.1}% 6
+\BOOKMARK [1][-]{section.2}{Grundlagen}{}% 7
+\BOOKMARK [2][-]{subsection.2.1}{Endliche Automaten und regul\344re Sprachen}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.2}{Evolution\344re Algorithmen}{section.2}% 9
+\BOOKMARK [1][-]{section.3}{Umsetzung}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{Automaten}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Evolution\344re Algorithmen}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.3}{Messen und Auswerten}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{Ergebnisse \046 Analyse}{}% 14
+\BOOKMARK [2][-]{subsection.4.1}{Konstante globale Problemmenge}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.2}{Mutierende globale Problemmenge}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.3}{Mutierende lokale Problemmengen}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.4}{Zuf\344lliges generieren von Automaten}{section.4}% 18
+\BOOKMARK [1][-]{section.5}{Schlussfolgerungen}{}% 19
+\BOOKMARK [2][-]{subsection.5.1}{Skalierung mit der Problemmengengr\366sse}{section.5}% 20
+\BOOKMARK [2][-]{subsection.5.2}{Skalierung mit der Anzahl L\366sungskandidaten}{section.5}% 21
+\BOOKMARK [2][-]{subsection.5.3}{Lokale vs. globale Selektionsverfahren}{section.5}% 22
+\BOOKMARK [1][-]{appendix.A}{Automaten zu den gegebenen Problemen}{}% 23
+\BOOKMARK [2][-]{subsection.A.1}{Das abab Problem}{appendix.A}% 24
+\BOOKMARK [2][-]{subsection.A.2}{Das durch drei teilbar Problem}{appendix.A}% 25
+\BOOKMARK [2][-]{subsection.A.3}{Das durch f\374nf teilbar Problem}{appendix.A}% 26
+\BOOKMARK [1][-]{appendix.B}{Protokoll Kick-Off Meeting vom 27.12.2014}{}% 27
+\BOOKMARK [1][-]{appendix.C}{Protokoll Design Review Meeting vom 14.05.2014}{}% 28

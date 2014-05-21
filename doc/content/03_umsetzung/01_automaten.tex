@@ -126,11 +126,11 @@ Der \lstinline$RandomDeterministicFiniteAutomaton$ ist ein erweiterter DFA welch
 
 \paragraph{Der Konstruktor} erzeugt mithilfe eines gegebenen Alphabets und einem Faktor für die Komplexität des Problems - wie folgt beschrieben - zufällige Automaten.
 \begin{enumerate}
-  \item Es wird eine Menge von Zuständen erzeugt (Anzahl Zustände: $1$ - $(2 \cdot AnzahlZeichen \cdot Komplexitaet)$ wobei $AnzahlZeichen$ die Anzahl der Zeichen des Alphabets und die $Komplexität$ ein Faktor ist welcher als Parameter an den Konstruktor übergeben wird).
+  \item Es wird eine Menge von Zuständen erzeugt (Anzahl Zustände: zwischen $1$ und $(2 \cdot AnzahlZeichen \cdot Komplexitaet)$ wobei $AnzahlZeichen$ die Anzahl der Zeichen des Alphabets und die $Komplexität$ ein Faktor ist welcher als Parameter an den Konstruktor übergeben wird).
   \item Jedem Zustand werden für jedes Zeichen des Alphabets zufällig Verbindungen auf andere Zuständen zugeordnet.
   \item Der erste Zustand (q0) wird zum Startzustand.
   \item Um sicherzustellen dass jeder Automat erreichbare akzeptierende Zustände hat, werden alle nicht erreichbaren Zustände entfernt.
-  \item Eine zufällige Menge von Zuständen ($1$ - $\frac{AnzahlZustaende}{5}$) wird zu akzeptierenden Zuständen.
+  \item Eine zufällige Menge von Zuständen (zwischen $1$ und $\frac{AnzahlZustaende}{5}$) wird zu akzeptierenden Zuständen.
 \end{enumerate}
 
 

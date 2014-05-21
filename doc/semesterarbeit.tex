@@ -287,7 +287,6 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 % \thispagestyle{empty}  %% no header/footer (only) on this page
  \maketitle
 
-\input{content/00_preface/dank.tex}
 \input{content/00_preface/abstract.tex}
 
 \clearpage
@@ -311,6 +310,7 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 \input{content/01_einleitung/einleitung.tex}
 \input{content/02_grundlagen/grundlagen.tex}
 \input{content/03_umsetzung/umsetzung.tex}
+\input{content/04_analyse/analyse.tex}
 
 \clearpage
 
@@ -320,6 +320,7 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  \appendix  %% include it, if something (bibliography, index, ...) follows below
+\begin{appendix}
 \input{content/99_anhang/anhang.tex}
 
 %%% start a new page and display the list of figures
@@ -329,6 +330,8 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 %%% start a new page and display the list of tables
 % \newpage
  \listoftables
+
+\lstlistoflistings
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -341,7 +344,7 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 
 %%% name of the bibliography file
  \bibliography{projekt.bib}
-
+\end{appendix}
 \end{document}
 %%% }}}
 %%% END OF FILE
