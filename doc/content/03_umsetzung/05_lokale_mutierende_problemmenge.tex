@@ -3,15 +3,15 @@
 Der evolutionäre Algorithmus mit den lokalen mutierenden Problemmengen basiert auf einem anderen Prinzip. Hier treten jeweils zwei Kandidaten gegeneinander an und versuchen die Mitgeführten Probleme des Gegenspielers zu lösen. Derjenige der besser abschneidet gewinnt und kommt eine Runde weiter.
 
 \begin{enumerate}
-\item Initialisierung (Sprache, Lösungskandidaten mit einer Problemmenge pro Kandidat, Referenzautomat)
-\item Durchiterieren der Liste der Lösungskandidaten in Zweierschritten (\lstinline$i+=2$). Selektion des von \lstinline$i$ten und \lstinline$i+1$ten Lösungskandidaten
-\item Berechnung der Fitness des \lstinline$i$ten Lösungskandidaten unter Verwendung des Problem Sets des \lstinline$i+1$ten Lösungskandidates
-\item Berechnung der Fitness des \lstinline$i+1$-ten Lösungskandidaten unter Verwendung des Problem Sets des \lstinline$i$-ten Lösungskandidates
-\item Hat einer Lösungskandidat alle Probleme korrekt gelöst? Falls ja, wird er mit dem Referenzautomaten verglichen. Wenn er einer korrekten Lösung entspricht wird der Algorithmus angehalten und die Anzahl gebrauchter Zyklen wird zurückgegeben
-\item Ist die Fitness der beiden Lösungskandidaten gleich? Falls ja, wird zufällig einer selektiert. Falls nein, wird vom Lösungskandidaten mit der höheren Fitness selektiert
-\item Vom selektierten Lösungskandidaten wird eine \textit{Deep Copy} erstellt und zufällig mutiert
-\item Die 50\% einfachsten Probleme der Problemmengen vom selektierten Lösungskandidaten und der Kopie werden gelöscht und durch zufällige, neue ersetzt 
-\item Der selektierte Lösungskandidat und die mutierte Kopie werden der Liste der Lösungskandidaten der nächsten Runde hinzugefügt
-\item Die Liste der Lösungskandidaten der nächsten Runde wird durchmischt (Die Reihenfolge der Lösungskandidaten wird randomisiert)
+\item Initialisierung (Sprache, Population mit einer Problemmenge pro Individuum, Referenzautomat)
+\item Durchiterieren der Population in Zweierschritten (\lstinline$i+=2$). Selektion des von \lstinline$i$ten und \lstinline$i+1$ten Individuums
+\item Berechnung der Fitness des \lstinline$i$ten Individuums unter Verwendung des Problem Sets des \lstinline$i+1$ten Individuums
+\item Berechnung der Fitness des \lstinline$i+1$-ten Individuums unter Verwendung des Problem Sets des \lstinline$i$-ten Individuums
+\item Hat ein Individuum alle Probleme korrekt gelöst? Falls ja, wird er mit dem Referenzautomaten verglichen. Wenn er einer korrekten Lösung entspricht wird der Algorithmus angehalten und die Anzahl benötigter Zyklen wird zurückgegeben
+\item Ist die Fitness beider Individuen gleich? Falls ja, wird zufällig eines selektiert. Falls nein, wird das Individuum mit der höheren Fitness selektiert
+\item Vom selektierten Individuum wird eine \Gls{deepcopy} erstellt und zufällig mutiert
+\item Die 50\% einfachsten Probleme der Problemmengen vom selektierten Individuum und der Kopie werden gelöscht und durch zufällige, neue ersetzt 
+\item Das selektierte Individuum und die mutierte Kopie werden der Population der nächsten Runde hinzugefügt
+\item Die Population der nächsten Runde wird durchmischt (Die Reihenfolge der Individuen wird randomisiert)
 \item Wenn das Zykluslimit noch nicht überschritten ist, weiter mit 2. ansonsten war der Algorithmus nicht erfolgreich und bricht ab
 \end{enumerate}

@@ -1,5 +1,5 @@
 \subsection{Automaten}
-Es wurde versucht Automaten sowohl möglichst nah an der theoretischen Vorgabe als auch möglichst effizient zu implementieren. Herausgekommen ist dabei folgende Grundimplementation:
+Es wurde versucht Automaten sowohl möglichst nah an der theoretischen Vorgabe als auch möglichst effizient zu implementieren. Daraus hat folgende Grundimplementation resultiert.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.5\textwidth]{images/dfa_classdiag_simple.pdf}
@@ -30,9 +30,9 @@ Das Quintupel ($Q$, $\Sigma$, $\delta$, $q0$, $F$) ist darin wie folgt abgebilde
   \caption[Implementation Automaten]{Implementation automaten}
 \end{table}
 
-Ein solcher Automat kann nun mithilfe seiner $process(Word)$ Funktion ein Wort (Eine Liste von Zeichen) verarbeiten indem er sich die Referenz des ersten Zustandes $startState$ holt und dann Zeichen für Zeichen jeweils mit $process(Character)$ die Referenz des nächsten Zustandes herausliest. Zurückgegeben wird schlussendlich derjenige Zustand der am Ende der verarbeiteten Zeichenkette erreicht wurde. Mithilfe der $isAcceptingState(State)$ Methode könnte man nun feststellen ob das Wort akzeptiert wird oder nicht. 
+Ein solcher Automat kann nun mithilfe seiner \lstinline$process(Word)$ Funktion ein Wort (Eine Liste von Zeichen) verarbeiten indem er sich die Referenz des ersten Zustandes \lstinline$startState$ holt und dann Zeichen für Zeichen jeweils mit \lstinline$process(Character)$ die Referenz des nächsten Zustandes herausliest. Zurückgegeben wird schlussendlich derjenige Zustand der am Ende der verarbeiteten Zeichenkette erreicht wurde. Mithilfe der \lstinline$isAcceptingState(State)$ Methode kann festgestellt werden ob das Wort akzeptiert wird oder nicht. 
 
-Zum besseren Verständnis folgend die Process Methode der DFA Klasse als Pseudocode:
+Zum besseren Verständnis folgend die \lstinline$process$ Methode der DFA Klasse als Pseudocode:
 
 \begin{lstlisting}[language=Python, caption={Process Methode der DFA Klasse}]
 def process(word):
@@ -64,7 +64,7 @@ digraph G {
 
 \begin{itemize}
   \item \lstinline$digraph G$ definiert den Graphentypen
-  \item \lstinline$q0 -> q1$ definiert den vom Knoten \lstinline$q0$ auf den Knoten \lstinline$q1$
+  \item \lstinline$q0 -> q1$ definiert den Übergang vom Knoten \lstinline$q0$ auf den Knoten \lstinline$q1$
   \item \lstinline$[label="0"]$ fügt die Beschriftung \flqq 0\frqq dem Übergang hinzu
   \item \lstinline$[peripheries=2]$ umrandet den entsprechenden Knoten doppelt
   \item \lstinline$[color=darkred]$ färbt den entsprechenden Knoten dunkelrot ein
@@ -73,7 +73,7 @@ digraph G {
 Eine Anleitung zur DOT Sprache ist in den Quellen verlinkt. \cite{graphvizdotref}
 
 \paragraph{Überprüfen von Automaten}
-Um beim zufälligen mutieren und rekombinieren der Automaten prüfen zu können ob ein Automat die selbe Sprache akzeptiert wie der gegebene reguläre Ausdruck wurde das Java Package \lstinline$dk.brics.automaton$ von der dänischen Aarhus Universität verwendet.\cite{bricsautomaton}
+Um beim zufälligen mutieren und rekombinieren der Automaten prüfen zu können, ob ein Automat die selbe Sprache akzeptiert wie der gegebene reguläre Ausdruck, wurde das Java Package \lstinline$dk.brics.automaton$ von der dänischen Aarhus Universität verwendet.\cite{bricsautomaton}
 
 In diesem Package sind verschiedene Algorithmen rund um endliche Automaten implementiert. Unter anderem kann es einen Automaten aus einem regulären Ausdruck erzeugen und verschiedene Automaten darauf überprüfen ob sie die selbe Sprache akzeptieren. Die Umwandlung von einem Automaten unserer Implementation in einen \lstinline$dk.brics.automaton$ wurde im Package \lstinline$ch.zhaw.regularLanguages.dfa.transformation$ implementiert. Es enthält ein Interface \lstinline$Transformer<S, T>$ welches die Methode \lstinline$T transform(S input)$ vorschreibt und die konkrete Implementation \lstinline$TransformDFAToBricsAutomaton$ welches die Transformation von unserem DFA in einen \lstinline$dk.brics.automaton.Automaton$ beherrscht. Die Umwandlung läuft wie folgt ab:
 \begin{enumerate}
@@ -85,7 +85,7 @@ In diesem Package sind verschiedene Algorithmen rund um endliche Automaten imple
 \end{enumerate}
 
 \paragraph{Vereinfachung}
-Um die konsistent der Automaten zu erhöhen, wurde eine Methode zum entfernen aller nicht erreichbarer Zustände implementiert. Insbesondere verhindert dies eine \flqq Aufsplittung\frqq wie sie in Abbildung \ref{fig:split_dfa} zu sehen ist. In diesem Beispiel gibt es keine Verbindung vom Startzustand $q0$ zum einzig akzeptierenden Zustand $q4$.
+Zur Erhöhung der Konsistenz von Automaten, wurde eine Methode zum entfernen aller nicht erreichbaren Zustände implementiert. Insbesondere verhindert dies eine \flqq Aufsplittung\frqq wie sie in Abbildung \ref{fig:split_dfa} zu sehen ist. In diesem Beispiel gibt es keine Verbindung vom Startzustand $q0$ zum einzig akzeptierenden Zustand $q4$.
 
 \begin{figure}[H]
   \centering
@@ -94,7 +94,7 @@ Um die konsistent der Automaten zu erhöhen, wurde eine Methode zum entfernen al
   \label{fig:split_dfa}
 \end{figure}
 
-In der Methode zum entfernen der nicht erreichbaren Zustände werden vom Startzustand aus alle möglichen Verbindungen getestet. Jene Zustände die so nicht erreicht werden können werden nicht beibehalten. Zum besseren Verständnis ist folgend die Methode als in Python-Pseudocode dokumentiert.  
+In der Methode zum entfernen der nicht erreichbaren Zustände werden vom Startzustand aus alle möglichen Verbindungen getestet. Jene Zustände die so nicht erreicht werden können werden entfernt. Zum besseren Verständnis ist folgend die Methode als in Python-Pseudocode dokumentiert.  
 
 \begin{lstlisting}[language=Python, caption={Algorithmus zum entfernen von nicht erreichbaren Zuständen}, label={lst:remove_unreachable_states}]
 def removeUnreachableStates(dfa):
@@ -122,7 +122,7 @@ def removeUnreachableStates(dfa):
 
 \subsubsection{RandomDeterministicFiniteAutomaton}
 \label{subsec:RandomDeterministicFiniteAutomaton}
-Der \lstinline$RandomDeterministicFiniteAutomaton$ ist ein erweiterter DFA welcher den normalen endlichen Automaten um einen zufälligen Konstruktor und eine \lstinline$mutate$ Methode zum zufälligen mutieren des Automaten erweitert.
+Der \lstinline$RandomDeterministicFiniteAutomaton$ ist eine Erweiterung für unsere DFA Klasse, welche den normalen endlichen Automaten um einen zufälligen Konstruktor und eine \lstinline$mutate$ Methode zum zufälligen mutieren des Automaten erweitert.
 
 \paragraph{Der Konstruktor} erzeugt mithilfe eines gegebenen Alphabets und einem Faktor für die Komplexität des Problems - wie folgt beschrieben - zufällige Automaten.
 \begin{enumerate}
@@ -133,8 +133,7 @@ Der \lstinline$RandomDeterministicFiniteAutomaton$ ist ein erweiterter DFA welch
   \item Eine zufällige Menge von Zuständen (zwischen $1$ und $\frac{AnzahlZustaende}{5}$) wird zu akzeptierenden Zuständen.
 \end{enumerate}
 
-
-\paragraph{Die \lstinline$mutate$ Methode} greift auf ein Mutationsregister zurück in welchem die Methoden zum Verändern von Automaten registriert sind. Dabei wählt es zufällig eine Methode aus und führt diese durch. Wenn die Mutation erfoglreich war sind wir fertig. Wenn nicht wird erneut eine Zufällige Methode ausgesucht. Dies wird solange wiederholt bis der Automat erfolgreich verändert wurde.
+\paragraph{Die \lstinline$mutate$ Methode} greift auf ein Mutationsregister zurück in welchem die Methoden zum Verändern von Automaten registriert sind. Dabei wählt es zufällig eine Methode aus und führt diese durch. Wenn die Mutation erfolgreich war sind wir fertig. Wenn nicht wird erneut eine zufällige Methode ausgesucht. Dies wird solange wiederholt bis der Automat erfolgreich verändert wurde.
 
 \begin{center}
   \begin{tabular}{| l | p{7cm} | p{4cm} |}
@@ -142,7 +141,7 @@ Der \lstinline$RandomDeterministicFiniteAutomaton$ ist ein erweiterter DFA welch
     \textbf{Aktion} &  \textbf{Beschreibung} & \textbf{Bedingungen}\\
     \hline
     Zustand hinzufügen 
-    & Es wird ein Zustand zum automaten hinzugefügt. Für jedes Zeichen im Alphabet wird ein Übergang auf einen zufälligen Zustand des Automaten gelegt. Danach wird berechnet wieviele Verbindungen in diesem Automaten durchschnittlich zu einem Zustand führen ($avg$). Mit diesem Resultat werden zwischen $\frac{avg}{2}$ und $avg \cdot 2$ zufällig ausgewählte Verbindungen von zufällig ausgewählten Zuständen zum neuen gelegt.
+    & Es wird ein Zustand zum Automaten hinzugefügt. Für jedes Zeichen im Alphabet wird ein Übergang auf einen zufälligen Zustand des Automaten gelegt. Danach wird berechnet wieviele Verbindungen in diesem Automaten durchschnittlich zu einem Zustand führen ($avg$). Mit diesem Resultat werden zwischen $\frac{avg}{2}$ und $avg \cdot 2$ zufällig ausgewählte Verbindungen von zufällig ausgewählten Zuständen zum neuen gelegt.
     & - \\
     \hline
     Zustand entfernen

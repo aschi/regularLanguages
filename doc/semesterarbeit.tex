@@ -48,7 +48,6 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 \usepackage[T1]{fontenc}
 \usepackage{ngerman} % which should have the same result as \usepackage[ngerman]{babel}
 \usepackage{float}
-
 %%%
 %%% technical packages
 %%%
@@ -171,6 +170,51 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
   \end{center}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Glossar
+\usepackage[toc]{glossaries}
+
+\makeglossaries
+
+\newglossaryentry{population}
+{
+  name=Population,
+  description={ist die Menge aller Individuen in einem evolutionären Algorithmus}
+}
+\newglossaryentry{individuum}
+{
+  name=Individuum,
+  description={ist Teil der Population. Entspricht in unserem Falle einem endlichen Automaten oder einem endlichen Automaten mit Problemmenge}
+}
+\newglossaryentry{loesungskandidat}
+{
+  name=Lösungskandidat,
+  description={wird als Synonym für Individuum verwendet}
+}
+\newglossaryentry{deepcopy}
+{
+  name={Deep Copy},
+  description={Eine Kopie eines Objektes bei welchem auch alle enthaltenen Objekte kopiert wurden}
+}
+\newglossaryentry{c_g_alg}
+{
+  name={GK Algorithmus},
+  description={Ein evolutionärer Algorithmus mit einer globalen, konstanten Problemmenge}
+}
+\newglossaryentry{e_g_alg}
+{
+  name={GM Algorithmus},
+  description={Ein evolutionärer Algorithmus mit einer globalen, mutierenden Problemmenge}
+}
+\newglossaryentry{e_l_alg}
+{
+  name={LM Algorithmus},
+  description={Ein evolutionärer Algorithmus mit lokalen, mutierenden Problemmengen}
+}
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
 %%% define the titlepage
@@ -186,7 +230,7 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 \author{Adrian Schmid}
 
 %%% date
-\date{Zürich, 01.01.2014}
+\date{Zürich, 22.05.2014}
 
 % \publishers{}
 
@@ -229,7 +273,7 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 % \chead[]{}
 
 %%% heading - right
- \ohead[]{Evaluation von verschiedenen Ansätzen für Evolutionäre Algorithmen}
+ \ohead[]{Evaluation von verschiedenen Ansätzen für evolutionäre Algorithmen}
 
 %%% footer - left
 % \ifoot[]{}
@@ -292,9 +336,7 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 \clearpage
 %%% start a new page and display the table of contents
 % \newpage
- \tableofcontents
-
-
+\tableofcontents
 %%% display the main document on a new page 
 % \newpage
 
@@ -311,6 +353,7 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 \input{content/02_grundlagen/grundlagen.tex}
 \input{content/03_umsetzung/umsetzung.tex}
 \input{content/04_analyse/analyse.tex}
+\input{content/05_auswertung/auswertung.tex}
 
 \clearpage
 
@@ -322,7 +365,7 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
  \appendix  %% include it, if something (bibliography, index, ...) follows below
 \begin{appendix}
 \input{content/99_anhang/anhang.tex}
-
+\printglossary[title=Glossar]
 %%% start a new page and display the list of figures
 % \newpage
  \listoffigures
@@ -344,6 +387,7 @@ a4paper,     %% defines the paper size: a4paper (default), a5paper, letterpaper,
 
 %%% name of the bibliography file
  \bibliography{projekt.bib}
+
 \end{appendix}
 \end{document}
 %%% }}}

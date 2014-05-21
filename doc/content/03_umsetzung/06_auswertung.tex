@@ -1,9 +1,9 @@
 \subsection{Messen und Auswerten}
-Bei ersten Versuchsreihen hat sich gezeigt, dass die evolutionären Algorithmen nicht in jedem Falle in einer annehmbaren Zeit konvergieren. Dies kann verschiedene Ursachen haben. Wenn zuwenig Lösungskandidaten vorhanden sind, kommt es vor dass die Fitness aller oder zu vieler Lösungskaniddaten gleich ist. So kann nicht entschieden werden welche Automaten gut und welche schlecht sind. Wenn die Problemmenge zu klein ist, kann dies den selben Effekt haben. Die Problemstellung der endlichen Automaten verstärkt dieses Problem, weil selbst kleinste Änderungen die Bedeutung eines Automaten komplett verändern können.
+Bei ersten Versuchsreihen hat sich gezeigt, dass die evolutionären Algorithmen nicht in jedem Falle in einer annehmbaren Zeit konvergieren. Abhängig von der Grösse der Population und der Grösse der Problemmenge und des betrachteten Problems wurden Unterschiede im Konvergenzverhalten festgestellt.
 
-Zum Vergleichen der verschiedenen Algorithmen wurden verschiedene Werte für die Grössen der Problemmenge und der Menge der Lösungskandidaten gewählt. Die Algorithmen wurden mit diesen, wechselnden, Eingabeparametern laufen gelassen und es wird gemessen wie oft die Algorithmen in annehmbarer Zeit eine Lösung gefunden haben. Dieser Wert wird dann auf eine Zahl zwischen 0 und 100 herunterskaliert um vergleichbare Prozentwerte zu erhalten.
+Zum Vergleichen der verschiedenen Algorithmen wurden verschiedene Werte für die Grössen der Problemmenge und der Population gewählt. Die Algorithmen werden mit diesen, wechselnden, Eingabeparametern laufen gelassen und es wird gemessen wie oft die Algorithmen in annehmbarer Zeit eine Lösung finden. Dieser Wert wird dann auf eine Zahl zwischen 0 und 100 herunter skaliert um vergleichbare Werte zu erhalten. Zum Schluss werden diese Werte visualisiert.
 
-Dies geschieht in zwei Schritten. In einem ersten Schritt laufen Java-Konsolenanwendungen und versuchen gegebene Probleme mit verschiedenen Eingabeparametern zu lösen. Sie loggen diese Ergebnise in Logfiles mit folgendem Format:
+Dieser Ablauf wurde in zwei Schritte unterteilt. In einem ersten Schritt laufen Java-Konsolenanwendungen und versuchen gegebene Probleme mit verschiedenen Eingabeparametern zu lösen. Sie loggen diese Ergebnisse in Logfiles mit folgendem Format:
 
 \begin{lstlisting}[caption={Log Format}, label={lst:log_format}]
 Mon Dec 30 06:05:10 CET 2013: Problem Count: 150
@@ -25,10 +25,10 @@ Mon Dec 30 06:17:34 CET 2013: No solution found: 63
 Mon Dec 30 06:17:34 CET 2013: logging finished. (runtime: 744178ms)
 \end{lstlisting}
 
-In diesem Beispiel wurde ein Algorithmus mit einer 250 Problemen, 150 Lösungskandidaten und einem Zykluslimit von 500 laufen gelassen. In 37 von 100 Fällen wurde eine Lösung gefunden. Bei den erfolgreichen Versuchen wurde durchschnittlich nach 71 Zyklen die Lösung entdeckt. Im schnellsten Fall war die Lösung bereits nach 14 Zyklen gefunden, im langsamsten Fall dauerte die Lösungsfindung 261 Zyklen.
+In diesem Beispiel wurde ein Algorithmus mit einer 250 Problemen, 150 Individuen und einem Zykluslimit von 500 laufen gelassen. In 37 von 100 Fällen wurde eine Lösung gefunden. Bei den erfolgreichen Versuchen wurde durchschnittlich nach 71 Zyklen die Lösung entdeckt. Im schnellsten Fall war die Lösung bereits nach 14 Zyklen gefunden, im langsamsten Fall dauerte die Lösungsfindung 261 Zyklen.
 
-Implementiert ist das Ganze im Package \lstinline$ch.zhaw.regularLanguages.evolution.runners$.
+Die Java-Konsolenanwendungen sind im Package \lstinline$ch.zhaw.regularLanguages.evolution.runners$ implementiert.
 
-In einem zweiten Schritt werden diese Logfiles von einem Pythonscript ausgelesen, Logfiles mit dem selben Prefix und der selben Problem- und Lösungskandidatenmengengrössen werden zusammengefasst. Am Schluss werden die Ergebnisse mithilfe der Python Matplotlib \cite{matplotlib} geplottet. Das Python Script ist unter \lstinline$doc/statistics/log_analysis.py$ hinterlegt.
+Im zweiten Schritt werden diese Logfiles von einem Python Script ausgelesen, Logfiles mit dem selben Präfix und der selben Problem- und Populationsgrössen werden zusammengefasst. Am Schluss werden die Ergebnisse mithilfe der Python Matplotlib \cite{matplotlib} geplottet. Das Python Script ist unter \lstinline$doc/statistics/log_analysis.py$ hinterlegt.
 
 Um Vergleichswerte zu haben, wurde ein Zufallsalgorithmus implementiert, welcher versucht die Probleme durch einfaches ausprobieren zufälliger Automaten zu lösen. Die Erfolgsquote dieses Algorithmus wurde in die selbe Form gebracht wie diejenige der anderen.

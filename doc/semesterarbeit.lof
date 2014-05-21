@@ -6,16 +6,16 @@
 \contentsline {figure}{\numberline {6}{\ignorespaces EA Initialisierung Klassendiagramm}}{17}{figure.6}
 \contentsline {figure}{\numberline {7}{\ignorespaces Problemgenerierung Klassendiagramm}}{18}{figure.7}
 \contentsline {figure}{\numberline {8}{\ignorespaces Durch f\IeC {\"u}nf teilbar Problem - KG Algorithmus}}{23}{figure.8}
-\contentsline {figure}{\numberline {9}{\ignorespaces KG Algorithmus - Skalierung mit Problemmengengr\IeC {\"o}sse}}{24}{figure.9}
-\contentsline {figure}{\numberline {10}{\ignorespaces KG Algorithmus - Skalierung mit Anzahl Kandidaten}}{24}{figure.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces ABAB Problem - Globale Mutierende Problemmenge}}{25}{figure.11}
-\contentsline {figure}{\numberline {12}{\ignorespaces GM Algorithmus - Skalierung mit Problemmengengr\IeC {\"o}sse}}{26}{figure.12}
-\contentsline {figure}{\numberline {13}{\ignorespaces GM Algorithmus - Skalierung mit Anzahl L\IeC {\"o}sungskandidaten}}{27}{figure.13}
+\contentsline {figure}{\numberline {9}{\ignorespaces \Gls {c_g_alg} - Skalierung mit Problemmengengr\IeC {\"o}sse}}{24}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces \Gls {c_g_alg} - Skalierung mit Populationsgr\IeC {\"o}sse}}{24}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces ABAB Problem - Globale Mutierende Problemmenge}}{26}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces \Gls {e_g_alg} - Skalierung mit Problemmengengr\IeC {\"o}sse}}{26}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces \Gls {e_g_alg} - Skalierung mit Populationsgr\IeC {\"o}sse}}{27}{figure.13}
 \contentsline {figure}{\numberline {14}{\ignorespaces ABAB Problem - Lokale mutierende Problemmenge}}{28}{figure.14}
 \contentsline {figure}{\numberline {15}{\ignorespaces Random Algorithmus ABAB Problem}}{29}{figure.15}
 \contentsline {figure}{\numberline {16}{\ignorespaces Problemmengen}}{30}{figure.16}
 \contentsline {figure}{\numberline {17}{\ignorespaces Zu geringes Gef\IeC {\"a}lle in der Fitnessverteilung}}{31}{figure.17}
 \contentsline {figure}{\numberline {18}{\ignorespaces Evolutionsverhalten lokale Problemenge vs. globale Problemmenge}}{32}{figure.18}
-\contentsline {figure}{\numberline {19}{\ignorespaces \flqq abab\frqq Automat}}{33}{figure.19}
-\contentsline {figure}{\numberline {20}{\ignorespaces \flqq Durch drei teilbar\frqq Automat}}{34}{figure.20}
-\contentsline {figure}{\numberline {21}{\ignorespaces \flqq Durch f\IeC {\"u}nf teilbar\frqq Automat}}{35}{figure.21}
+\contentsline {figure}{\numberline {19}{\ignorespaces \flqq abab\frqq Automat}}{34}{figure.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces \flqq Durch drei teilbar\frqq Automat}}{35}{figure.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces \flqq Durch f\IeC {\"u}nf teilbar\frqq Automat}}{36}{figure.21}

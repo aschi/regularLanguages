@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.3.4)  21 MAY 2014 16:07
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.3.4)  22 MAY 2014 00:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -624,44 +624,140 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip53
 )
-(./semesterarbeit.aux
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries.sty
+Package: glossaries 2012/05/21 v3.02 (NLCT)
 
-LaTeX Warning: Label `fig:endlicher_automat' multiply defined.
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
 
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+\XKV@toks=\toks25
+\XKV@tempa@toks=\toks26
+\XKV@depth=\count120
+File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/mfirstuc.sty
+Package: mfirstuc 2012/05/21 v1.06 (NLCT)
 
-LaTeX Warning: Label `fig:div3_automat' multiply defined.
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
 
+(/usr/share/texlive/texmf-dist/tex/latex/etex-pkg/etex.sty
+Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
+\et@xins=\count121
 )
+\etb@tempcnta=\count122
+)
+\@glsmfirst=\toks27
+\@glsmrest=\toks28
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xfor/xfor.sty
+Package: xfor 2009/02/05 v1.05 (NLCT)
+)
+\gls@level=\count123
+\@gls@tmpb=\toks29
+\gls@tmplen=\skip54
+\glswrite=\write3
+\glskeylisttok=\toks30
+\glslabeltok=\toks31
+\glsshorttok=\toks32
+\glslongtok=\toks33
+
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-hypernav.st
+y
+Package: glossary-hypernav 2007/07/04 v1.01 (NLCT)
+) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-list.sty
+Package: glossary-list 2011/03/28 v3.0 (NLCT)
+\glslistdottedwidth=\skip55
+) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-long.sty
+Package: glossary-long 2011/03/28 v3.0 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip56
+\LTright=\skip57
+\LTpre=\skip58
+\LTpost=\skip59
+\LTchunksize=\count124
+\LTcapwidth=\dimen123
+\LT@head=\box33
+\LT@firsthead=\box34
+\LT@foot=\box35
+\LT@lastfoot=\box36
+\LT@cols=\count125
+\LT@rows=\count126
+\c@LT@tables=\count127
+\c@LT@chunks=\count128
+\LT@p@ftn=\toks34
+)
+Class scrartcl Info: longtable captions redefined on input line 43.
+\glsdescwidth=\skip60
+\glspagelistwidth=\skip61
+)
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-super.sty
+Package: glossary-super 2011/03/28 v3.0 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/supertabular/supertabular.sty
+Package: supertabular 2004/02/20 v4.1e the supertabular environment
+\c@tracingst=\count129
+\ST@wd=\dimen124
+\ST@rightskip=\skip62
+\ST@leftskip=\skip63
+\ST@parfillskip=\skip64
+\ST@pageleft=\dimen125
+\ST@headht=\dimen126
+\ST@tailht=\dimen127
+\ST@pagesofar=\dimen128
+\ST@pboxht=\dimen129
+\ST@lineht=\dimen130
+\ST@stretchht=\dimen131
+\ST@prevht=\dimen132
+\ST@toadd=\dimen133
+\ST@dimen=\dimen134
+\ST@pbox=\box37
+))
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-tree.sty
+Package: glossary-tree 2011/03/28 v3.0 (NLCT)
+\glstreeindent=\skip65
+))
+\glo@main@file=\write4
+\openout4 = `semesterarbeit.glo'.
+
+Package glossaries Info: Writing glossary file semesterarbeit.glo on input line
+ 177.
+
+(./semesterarbeit.aux)
 \openout1 = `semesterarbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 253.
-LaTeX Font Info:    ... okay on input line 253.
-\c@lstlisting=\count120
- (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 297.
+LaTeX Font Info:    ... okay on input line 297.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 297.
+LaTeX Font Info:    ... okay on input line 297.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 297.
+LaTeX Font Info:    ... okay on input line 297.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 297.
+LaTeX Font Info:    ... okay on input line 297.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 297.
+LaTeX Font Info:    ... okay on input line 297.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 297.
+LaTeX Font Info:    ... okay on input line 297.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 297.
+LaTeX Font Info:    ... okay on input line 297.
+\c@lstlisting=\count130
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count121
-\scratchdimen=\dimen123
-\scratchbox=\box33
-\nofMPsegments=\count122
-\nofMParguments=\count123
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count124
-\MPscratchDim=\dimen124
-\MPnumerator=\count125
-\makeMPintoPDFobject=\count126
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count131
+\scratchdimen=\dimen135
+\scratchbox=\box38
+\nofMPsegments=\count132
+\nofMParguments=\count133
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count134
+\MPscratchDim=\dimen136
+\MPnumerator=\count135
+\makeMPintoPDFobject=\count136
+\everyMPtoPDFconversion=\toks36
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -677,8 +773,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box34
-Package hyperref Info: Link coloring OFF on input line 253.
+\AtBeginShipoutBox=\box39
+Package hyperref Info: Link coloring OFF on input line 297.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -686,44 +782,46 @@ Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count127
+\c@section@level=\count137
 )
-LaTeX Info: Redefining \ref on input line 253.
-LaTeX Info: Redefining \pageref on input line 253.
-LaTeX Info: Redefining \nameref on input line 253.
+LaTeX Info: Redefining \ref on input line 297.
+LaTeX Info: Redefining \pageref on input line 297.
+LaTeX Info: Redefining \nameref on input line 297.
 
 (./semesterarbeit.out) (./semesterarbeit.out)
-\@outlinefile=\write3
-\openout3 = `semesterarbeit.out'.
+\@outlinefile=\write5
+\openout5 = `semesterarbeit.out'.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 289.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 333.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 289.
+LaTeX Font Info:    Try loading font information for U+msa on input line 333.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 289.
+LaTeX Font Info:    Try loading font information for U+msb on input line 333.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 (./content/00_preface/abstract.tex [1
 
+\openout3 = `semesterarbeit.ist'.
+
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) [2
 
 ] (./semesterarbeit.toc)
-\tf@toc=\write4
-\openout4 = `semesterarbeit.toc'.
+\tf@toc=\write6
+\openout6 = `semesterarbeit.toc'.
 
  [1
 
@@ -738,12 +836,12 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
  [2
 
-]
-(./content/01_einleitung/glossar.tex)) (./content/02_grundlagen/grundlagen.tex
-[3] (./content/02_grundlagen/01_grundlagen_automaten.tex [4
+])
+(./content/02_grundlagen/grundlagen.tex [3]
+(./content/02_grundlagen/01_grundlagen_automaten.tex [4
 
 ]
-<images/endlicher_automat.pdf, id=198, 198.7425pt x 142.5325pt>
+<images/endlicher_automat.pdf, id=186, 198.7425pt x 142.5325pt>
 File: images/endlicher_automat.pdf Graphic file (type pdf)
 
 <use images/endlicher_automat.pdf>
@@ -751,26 +849,26 @@ Package pdftex.def Info: images/endlicher_automat.pdf used on input line 27.
 (pdftex.def)             Requested size: 198.742pt x 142.53214pt.
  [5 <./images/endlicher_automat.pdf>])
 (./content/02_grundlagen/02_grundlagen_ea.tex
-Overfull \hbox (0.30954pt too wide) in paragraph at lines 2--4
+Overfull \hbox (0.30954pt too wide) in paragraph at lines 2--3
 \T1/cmr/m/n/12 Such-pro-ble-me nä-he-rungs-wei-se durch ver-ein-fa-chen-de al-g
 o-rith-mi-sche Um-set-zung von Prin-
  []
 
-<images/evolutionaerer_algorithmus.pdf, id=220, 398.3386pt x 369.88583pt>
+<images/evolutionaerer_algorithmus.pdf, id=210, 398.3386pt x 369.88583pt>
 File: images/evolutionaerer_algorithmus.pdf Graphic file (type pdf)
 
 <use images/evolutionaerer_algorithmus.pdf>
 Package pdftex.def Info: images/evolutionaerer_algorithmus.pdf used on input li
-ne 11.
+ne 10.
 (pdftex.def)             Requested size: 224.06548pt x 208.06026pt.
  [6] [7 <./images/evolutionaerer_algorithmus.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 31--37
+Underfull \hbox (badness 10000) in paragraph at lines 30--36
 
  []
 
 [8])) (./content/03_umsetzung/umsetzung.tex [9]
 (./content/03_umsetzung/01_automaten.tex
-<images/dfa_classdiag_simple.pdf, id=267, 419.969pt x 228.052pt>
+<images/dfa_classdiag_simple.pdf, id=262, 419.969pt x 228.052pt>
 File: images/dfa_classdiag_simple.pdf Graphic file (type pdf)
 
 <use images/dfa_classdiag_simple.pdf>
@@ -790,7 +888,7 @@ Overfull \hbox (8.31183pt too wide) in paragraph at lines 48--49
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 ) [11]
-<images/split_automaton.pdf, id=316, 273.02pt x 232.87pt>
+<images/split_automaton.pdf, id=311, 273.02pt x 232.87pt>
 File: images/split_automaton.pdf Graphic file (type pdf)
 
 <use images/split_automaton.pdf>
@@ -802,17 +900,17 @@ LaTeX Warning: Command \" invalid in math mode on input line 129.
 
 Missing character: There is no ä in font cmr12!
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
 []\T1/cmr/m/n/12 Nicht ak-zep-tie-ren-de
  []
 
 
-Overfull \hbox (29.8025pt too wide) in paragraph at lines 140--165
+Overfull \hbox (29.8025pt too wide) in paragraph at lines 139--164
  [] 
  []
 
 [14]) (./content/03_umsetzung/02_ea.tex
-<images/simple_uml_evolution.pdf, id=377, 592.61403pt x 350.10799pt>
+<images/simple_uml_evolution.pdf, id=372, 592.61403pt x 350.10799pt>
 File: images/simple_uml_evolution.pdf Graphic file (type pdf)
 
 <use images/simple_uml_evolution.pdf>
@@ -823,13 +921,19 @@ Package pdftex.def Info: images/simple_uml_evolution.pdf used on input line 6.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (36.60638pt too wide) in paragraph at lines 11--12
-[]\T1/cmr/m/n/12 Die Klas-sen wel-che die Al-go-rith-men bein-hal-ten und ver-w
-en-den ei-ne Men-ge von []
+Overfull \hbox (14.41734pt too wide) in paragraph at lines 11--12
+[]\T1/cmr/m/n/12 Die Klas-sen wel-che die Al-go-rith-men bein-hal-ten ver-wen-d
+en ei-ne Men-ge von []
+ []
+
+
+Overfull \hbox (17.44704pt too wide) in paragraph at lines 11--12
+[][][] \T1/cmr/m/n/12 (Po-pu-la-ti-on) und ein [][][][]. Der evo-lu-tio-näre Al
+-go-rith-mus kann je-weils mit []
  []
 
 [15] [16 <./images/simple_uml_evolution.pdf>]
-<images/simple_uml_evolution_initialisation.pdf, id=407, 631.96097pt x 281.8529
+<images/simple_uml_evolution_initialisation.pdf, id=402, 631.96097pt x 281.8529
 8pt>
 File: images/simple_uml_evolution_initialisation.pdf Graphic file (type pdf)
  <use images/simple_uml_evolution_initialisation.pdf>
@@ -837,12 +941,12 @@ Package pdftex.def Info: images/simple_uml_evolution_initialisation.pdf used on
  input line 27.
 (pdftex.def)             Requested size: 358.50612pt x 159.89664pt.
 
-Overfull \hbox (43.73244pt too wide) in paragraph at lines 38--39
-\T1/cmr/m/n/12 ra-tor auch gan-ze Pro-blem-Sets ge-ne-rie-ren. Als Pa-ra-me-ter
- hier-für be-nö-tigt der []
+Overfull \hbox (33.29054pt too wide) in paragraph at lines 38--39
+\T1/cmr/m/n/12 tor auch gan-ze Pro-blem-Sets ge-ne-rie-ren. Als Pa-ra-me-ter hi
+er-für be-nö-tigt der []
  []
 
-<images/simple_uml_pg.pdf, id=408, 367.77399pt x 208.78pt>
+<images/simple_uml_pg.pdf, id=403, 367.77399pt x 208.78pt>
 File: images/simple_uml_pg.pdf Graphic file (type pdf)
 
 <use images/simple_uml_pg.pdf>
@@ -862,29 +966,22 @@ Overfull \hbox (5.47508pt too wide) in paragraph at lines 49--1
 (./content/03_umsetzung/04_globale_mutierende_problemmenge.tex [18 <./images/si
 mple_uml_pg.pdf>])
 (./content/03_umsetzung/05_lokale_mutierende_problemmenge.tex [19])
-(./content/03_umsetzung/06_auswertung.tex [20]
-Overfull \hbox (8.29788pt too wide) in paragraph at lines 6--7
-[]\T1/cmr/m/n/12 Dies ge-schieht in zwei Schrit-ten. In ei-nem ers-ten Schritt 
-lau-fen Java-Konsolenanwendungen
- []
-
-)) (./content/04_analyse/analyse.tex [21] (./content/04_analyse/01_probleme.tex
+(./content/03_umsetzung/06_auswertung.tex [20]))
+(./content/04_analyse/analyse.tex [21] (./content/04_analyse/01_probleme.tex
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3.
-) (./content/04_analyse/02_C_G.tex
-<images/C_G_div5_solved.pdf, id=508, 867.24pt x 722.7pt>
+)
+(./content/04_analyse/02_C_G.tex
+<images/C_G_div5_solved.pdf, id=507, 867.24pt x 722.7pt>
 File: images/C_G_div5_solved.pdf Graphic file (type pdf)
 
 <use images/C_G_div5_solved.pdf>
 Package pdftex.def Info: images/C_G_div5_solved.pdf used on input line 6.
 (pdftex.def)             Requested size: 358.50612pt x 298.75702pt.
+ [22
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[22
-
-] <images/C_G_PS_div5PS_solved.pdf, id=515, 786.94pt x 642.4pt>
+]
+<images/C_G_PS_div5PS_solved.pdf, id=514, 786.94pt x 642.4pt>
 File: images/C_G_PS_div5PS_solved.pdf Graphic file (type pdf)
 
 <use images/C_G_PS_div5PS_solved.pdf>
@@ -892,14 +989,11 @@ Package pdftex.def Info: images/C_G_PS_div5PS_solved.pdf used on input line 21.
 
 (pdftex.def)             Requested size: 349.54158pt x 285.33289pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<images/C_G_CS_div5CS_solved.pdf, id=518, 786.94pt x 642.4pt>
+<images/C_G_CS_div5CS_solved.pdf, id=517, 786.94pt x 642.4pt>
 File: images/C_G_CS_div5CS_solved.pdf Graphic file (type pdf)
 
 <use images/C_G_CS_div5CS_solved.pdf>
-Package pdftex.def Info: images/C_G_CS_div5CS_solved.pdf used on input line 36.
+Package pdftex.def Info: images/C_G_CS_div5CS_solved.pdf used on input line 28.
 
 (pdftex.def)             Requested size: 349.54158pt x 285.33289pt.
  [23 <./images/C_G_div5_solved.pdf>]
@@ -911,38 +1005,50 @@ Overfull \vbox (37.86584pt too high) has occurred while \output is active []
 pdfTeX warning: pdflatex (file ./images/C_G_CS_div5CS_solved.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
 >]) (./content/04_analyse/03_E_G.tex
-<images/E_G_abab_solved.pdf, id=1068, 786.94pt x 658.46pt>
+<images/E_G_abab_solved.pdf, id=1072, 786.94pt x 658.46pt>
 File: images/E_G_abab_solved.pdf Graphic file (type pdf)
 
 <use images/E_G_abab_solved.pdf>
 Package pdftex.def Info: images/E_G_abab_solved.pdf used on input line 4.
-(pdftex.def)             Requested size: 358.50612pt x 299.97153pt.
- [25 <./images/E_G_abab_solved.pdf>]
-<images/E_G_PS_div5PS_solved.pdf, id=1254, 786.94pt x 642.4pt>
+(pdftex.def)             Requested size: 345.06274pt x 288.71857pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/E_G_PS_div5PS_solved.pdf, id=1075, 786.94pt x 642.4pt>
 File: images/E_G_PS_div5PS_solved.pdf Graphic file (type pdf)
 
 <use images/E_G_PS_div5PS_solved.pdf>
 Package pdftex.def Info: images/E_G_PS_div5PS_solved.pdf used on input line 19.
 
-(pdftex.def)             Requested size: 349.54158pt x 285.33289pt.
- [26 <./images/E_G_PS_div5PS_solved.pdf>]
-<images/E_G_CS_div5CS_solved.pdf, id=1440, 786.94pt x 642.4pt>
+(pdftex.def)             Requested size: 345.06274pt x 281.67665pt.
+ [25]
+Overfull \vbox (37.59529pt too high) has occurred while \output is active []
+
+
+[26 <./images/E_G_abab_solved.pdf> <./images/E_G_PS_div5PS_solved.pdf
+
+pdfTeX warning: pdflatex (file ./images/E_G_PS_div5PS_solved.pdf): PDF inclusio
+n: multiple pdfs with page group included in a single page
+>] <images/E_G_CS_div5CS_solved.pdf, id=1446, 786.94pt x 642.4pt>
 File: images/E_G_CS_div5CS_solved.pdf Graphic file (type pdf)
 
 <use images/E_G_CS_div5CS_solved.pdf>
-Package pdftex.def Info: images/E_G_CS_div5CS_solved.pdf used on input line 37.
+Package pdftex.def Info: images/E_G_CS_div5CS_solved.pdf used on input line 36.
 
 (pdftex.def)             Requested size: 349.54158pt x 285.33289pt.
  [27 <./images/E_G_CS_div5CS_solved.pdf>]) (./content/04_analyse/04_E_L.tex
-<images/E_L_abab_solved.pdf, id=1618, 786.94pt x 658.46pt>
+<images/E_L_abab_solved.pdf, id=1626, 786.94pt x 658.46pt>
 File: images/E_L_abab_solved.pdf Graphic file (type pdf)
 
 <use images/E_L_abab_solved.pdf>
-Package pdftex.def Info: images/E_L_abab_solved.pdf used on input line 6.
-(pdftex.def)             Requested size: 340.57706pt x 284.97093pt.
- [28 <./images/E_L_abab_solved.pdf>])
+Package pdftex.def Info: images/E_L_abab_solved.pdf used on input line 4.
+(pdftex.def)             Requested size: 336.0982pt x 281.2233pt.
+ [28
+
+ <./images/E_L_abab_solved.pdf>])
 (./content/04_analyse/05_random.tex
-<images/RAND_ABAB_RAND_solved.pdf, id=1805, 578.16pt x 256.96pt>
+<images/RAND_ABAB_RAND_solved.pdf, id=1813, 578.16pt x 256.96pt>
 File: images/RAND_ABAB_RAND_solved.pdf Graphic file (type pdf)
 
 <use images/RAND_ABAB_RAND_solved.pdf>
@@ -951,54 +1057,57 @@ Package pdftex.def Info: images/RAND_ABAB_RAND_solved.pdf used on input line 6.
 (pdftex.def)             Requested size: 358.50612pt x 159.33315pt.
 ) (./content/04_analyse/06_fazit.tex
 [29 <./images/RAND_ABAB_RAND_solved.pdf>]
-<images/problemmengen.pdf, id=1849, 369.38pt x 377.41pt>
+<images/problemmengen.pdf, id=1857, 369.38pt x 377.41pt>
 File: images/problemmengen.pdf Graphic file (type pdf)
 
 <use images/problemmengen.pdf>
-Package pdftex.def Info: images/problemmengen.pdf used on input line 14.
+Package pdftex.def Info: images/problemmengen.pdf used on input line 15.
 (pdftex.def)             Requested size: 179.24963pt x 183.14728pt.
  [30 <./images/problemmengen.pdf>]
-<images/bars_fitness.pdf, id=1864, 578.16pt x 361.35pt>
+<images/bars_fitness.pdf, id=1873, 578.16pt x 361.35pt>
 File: images/bars_fitness.pdf Graphic file (type pdf)
 
 <use images/bars_fitness.pdf>
-Package pdftex.def Info: images/bars_fitness.pdf used on input line 33.
+Package pdftex.def Info: images/bars_fitness.pdf used on input line 34.
 (pdftex.def)             Requested size: 313.69029pt x 196.0524pt.
  [31 <./images/bars_fitness.pdf>]
-<images/evolutionsverhalten_lokal_vs_global.pdf, id=2049, 1156.32pt x 433.62pt>
+<images/evolutionsverhalten_lokal_vs_global.pdf, id=2059, 1156.32pt x 433.62pt>
 File: images/evolutionsverhalten_lokal_vs_global.pdf Graphic file (type pdf)
 <use images/evolutionsverhalten_lokal_vs_global.pdf>
 Package pdftex.def Info: images/evolutionsverhalten_lokal_vs_global.pdf used on
- input line 53.
+ input line 54.
 (pdftex.def)             Requested size: 358.50612pt x 134.43404pt.
-)) [32 <./images/evolutionsverhalten_lokal_vs_global.pdf>] (./content/99_anhang
-/anhang.tex
+))
+(./content/05_auswertung/auswertung.tex [32 <./images/evolutionsverhalten_lokal
+_vs_global.pdf>]) [33
+
+] (./content/99_anhang/anhang.tex
 (./content/99_anhang/automaten.tex
-<images/abab_automat.pdf, id=2206, 176.66pt x 413.545pt>
+<images/abab_automat.pdf, id=2221, 176.66pt x 413.545pt>
 File: images/abab_automat.pdf Graphic file (type pdf)
 
 <use images/abab_automat.pdf>
 Package pdftex.def Info: images/abab_automat.pdf used on input line 6.
 (pdftex.def)             Requested size: 176.65956pt x 413.54398pt.
- [33
+ [34
 
  <./images/abab_automat.pdf>]
-<images/div3_automat.pdf, id=2220, 198.7425pt x 142.5325pt>
+<images/div3_automat.pdf, id=2235, 198.7425pt x 142.5325pt>
 File: images/div3_automat.pdf Graphic file (type pdf)
 
 <use images/div3_automat.pdf>
 Package pdftex.def Info: images/div3_automat.pdf used on input line 17.
 (pdftex.def)             Requested size: 198.742pt x 142.53214pt.
- [34
+ [35
 
  <./images/div3_automat.pdf>]
-<images/div5_automat.pdf, id=2235, 199.74625pt x 323.2075pt>
+<images/div5_automat.pdf, id=2251, 199.74625pt x 323.2075pt>
 File: images/div5_automat.pdf Graphic file (type pdf)
 
 <use images/div5_automat.pdf>
 Package pdftex.def Info: images/div5_automat.pdf used on input line 28.
 (pdftex.def)             Requested size: 199.74576pt x 323.20671pt.
-) [35
+) [36
 
  <./images/div5_automat.pdf>]
 (./content/99_anhang/kick_off.tex
@@ -1006,27 +1115,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--22
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 30--31
-
- []
-
-) [36
-
-] (./content/99_anhang/design_review.tex
+) (./content/99_anhang/design_review.tex [37]
 Underfull \hbox (badness 10000) in paragraph at lines 26--28
 
  []
 
-) [37
+)) [38] (./semesterarbeit.gls) (./semesterarbeit.lof)
+\tf@lof=\write7
+\openout7 = `semesterarbeit.lof'.
 
-]) (./semesterarbeit.lof)
-\tf@lof=\write5
-\openout5 = `semesterarbeit.lof'.
-
- (./semesterarbeit.lot)
-\tf@lot=\write6
-\openout6 = `semesterarbeit.lot'.
+ (./semesterarbeit.lot
+[39])
+\tf@lot=\write8
+\openout8 = `semesterarbeit.lot'.
 
 
 
@@ -1035,49 +1136,43 @@ Class scrartcl Warning: Usage of deprecated \float@listhead!
 (scrartcl)              instead of \float@listhead.
 (scrartcl)              Definition of \float@listhead my be removed from
 (scrartcl)              `scrartcl' soon, so it should not be used  on input lin
-e 334.
+e 377.
 
 (./semesterarbeit.lol)
-\tf@lol=\write7
-\openout7 = `semesterarbeit.lol'.
+\tf@lol=\write9
+\openout9 = `semesterarbeit.lol'.
 
- (./semesterarbeit.bbl [38
-
-]
+ (./semesterarbeit.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 22.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 348.
- [39]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 348.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 392.
+ [40]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 392.
 
 (./semesterarbeit.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 348.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 348.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 392.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 392.
 Package rerunfilecheck Info: File `semesterarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: F72BDAD93C56AC15925E0E2E0B846614;2007.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 348.
+(rerunfilecheck)             Checksum: 3563CDA49490928698B7F52D6417A57E;1782.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 392.
  ) 
 Here is how much of TeX's memory you used:
- 11131 strings out of 495007
- 161721 string characters out of 3179691
- 484760 words of memory out of 3000000
- 13810 multiletter control sequences out of 15000+200000
+ 13494 strings out of 495007
+ 197788 string characters out of 3179691
+ 482725 words of memory out of 3000000
+ 16110 multiletter control sequences out of 15000+200000
  23332 words of font info for 62 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,11n,47p,1114b,1609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 45i,11n,69p,1434b,1896s stack positions out of 5000i,500n,10000p,200000b,50000s
  </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk> </home/
 adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1000.600pk> </home/adrian/.te
-xmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/adrian/.texmf-var/fo
-nts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/adrian/.texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecti1200.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknapp
-en/ec/ecbx1200.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx
+xmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/adrian/.texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/adrian/.texmf-var/fonts/pk/ljf
+our/jknappen/ec/ecbx1200.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/ecti1200.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx
 1440.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1200.600pk
 > </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1728.600pk> </home/a
 drian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1200.600pk> </home/adrian/.tex
@@ -1091,10 +1186,10 @@ i12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on semesterarbeit.pdf (41 pages, 954489 bytes).
+Output written on semesterarbeit.pdf (42 pages, 954769 bytes).
 PDF statistics:
- 2945 PDF objects out of 2984 (max. 8388607)
- 1642 compressed objects within 17 object streams
- 251 named destinations out of 1000 (max. 500000)
- 330 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2973 PDF objects out of 2984 (max. 8388607)
+ 1666 compressed objects within 17 object streams
+ 258 named destinations out of 1000 (max. 500000)
+ 314 words of extra memory for PDF output out of 10000 (max. 10000000)
 

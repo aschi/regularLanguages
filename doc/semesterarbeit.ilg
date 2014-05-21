@@ -1,0 +1,63 @@
+This is makeindex, version 2.15 [TeX Live 2012] (kpathsea + Thai support).
+Scanning input file semesterarbeit.ist...
+!! Input index error (file = semesterarbeit.ist, line = 1):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 2):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 3):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 4):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 5):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 6):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 7):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 8):
+   -- Unknown index keyword preamble"\\glossarysection[\\glossarytoctitle].
+!! Input index error (file = semesterarbeit.ist, line = 9):
+   -- Unknown index keyword postamble"\%\n\\end.
+!! Input index error (file = semesterarbeit.ist, line = 10):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 11):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 12):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 13):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 14):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 15):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 16):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 17):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 18):
+   -- Unknown index keyword delim_0"\.
+!! Input index error (file = semesterarbeit.ist, line = 19):
+   -- Unknown index keyword delim_1"\.
+!! Input index error (file = semesterarbeit.ist, line = 20):
+   -- Unknown index keyword delim_2"\.
+!! Input index error (file = semesterarbeit.ist, line = 21):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 22):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 23):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 24):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 25):
+   -- Unknown index keyword heading_prefix"\\glsgroupheading\.
+!! Input index error (file = semesterarbeit.ist, line = 26):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 27):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 28):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = semesterarbeit.ist, line = 29):
+   -- Missing arguments -- need two (premature LFD).
+done (0 entries accepted, 29 rejected).
+Nothing written in semesterarbeit.ind.
+Transcript written in semesterarbeit.ilg.
