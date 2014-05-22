@@ -44,10 +44,10 @@ In der Abbildung \ref{fig:bars_fitness.pdf} ist ersichtlich, dass in diesem Beis
 	\item Die verwendete Problemmenge ist zu klein
 \end{itemize}
 
-Die Wahrscheinlichkeit, dass Ersteres eintritt wird durch das verwenden von grösseren Populationen vermindert. Die anderen beiden Faktoren müssen über die Problemmenge abgefangen werden. Das Verwenden von grösseren Populationen führt auch dazu, dass die Wahrscheinlichkeit bereits bei der Initialisierung einen oder mehrere Automaten zu generieren die sehr nahe an der Lösung sind steigt. Die Kehrseite des Ganzen ist, dass der Rechenaufwand linear mit der Populationsgrösse zunimmt.
+Die Wahrscheinlichkeit, dass Ersteres eintritt wird durch das verwenden von grösseren Populationen vermindert. Die anderen beiden Faktoren müssen über die Problemmenge abgefangen werden. Das Verwenden von grösseren Populationen führt auch dazu, dass die Wahrscheinlichkeit bereits bei der Initialisierung einen oder mehrere Automaten zu generieren, die sehr nahe an der Lösung sind, steigt. Die Kehrseite des Ganzen ist, dass der Rechenaufwand linear mit der Populationsgrösse zunimmt.
 
 \subsubsection{Lokale vs. globale Selektionsverfahren}
-Warum lokale Selektionsverfahren weniger schnell konvergieren als globale zeigte sich nach dem plotten von Fitnesswerten und dem entsprechenden Evolutionsverhalten.
+Warum lokale Selektionsverfahren weniger schnell konvergieren als globale, zeigte sich nach dem Plotten von Fitnesswerten und dem entsprechenden Evolutionsverhalten.
 
 \begin{figure}[ht]
   \centering
@@ -56,4 +56,4 @@ Warum lokale Selektionsverfahren weniger schnell konvergieren als globale zeigte
   \label{fig:evolutionsverhalten_lokal_vs_global}
 \end{figure}
 
-In der Abbildung \ref{fig:evolutionsverhalten_lokal_vs_global} sind links und rechts die selben Individuen abgebildet. Grün eingefärbt sind diejenigen, welche die nächste Runde erreichen, die roten sterben aus. In der linken Grafik sterben die Individuen 5 und 7 aus obwohl sie besser konditioniert sind als die Individuen 1 und 9. Dies ist so, weil für dieses Verfahren ein \flqq 1 versus 1\frqq Selektionsverfahren implementiert wurde (Siehe Kapitel \ref{subsec:LocalEvolvingProblemSet}). Das heisst, dass hier jeweils die Individuen 0 und 1, 2 und 3, 4 und 5 etc. gegeneinander antreten und das jeweils bessere weiter kommt. Wie gut die Automaten im Vergleich zum grossen Ganzen sind ist irrelevant.
+In der Abbildung \ref{fig:evolutionsverhalten_lokal_vs_global} sind links und rechts die selben Individuen abgebildet. Grün eingefärbt sind diejenigen, welche die nächste Runde erreichen, die roten sterben aus. In der linken Grafik sterben die Individuen 5 und 7 aus obwohl sie besser konditioniert sind als die Individuen 1 und 9. Dies ist so, weil für dieses Verfahren ein \flqq 1 versus 1\frqq Selektionsverfahren implementiert wurde (Siehe Kapitel \ref{subsec:LocalEvolvingProblemSet}). Das heisst, dass hier jeweils die Individuen 0 und 1, 2 und 3, 4 und 5 etc. gegeneinander antreten und das jeweils Bessere weiter kommt. Wie gut die Automaten im Vergleich zur Gesamtpopulation konditioniert sind, ist irrelevant.

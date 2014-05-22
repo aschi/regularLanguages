@@ -7,7 +7,7 @@ Der evolutionäre Algorithmus mit den lokalen mutierenden Problemmengen basiert 
 \item Durchiterieren der Population in Zweierschritten (\lstinline$i+=2$). Selektion des von \lstinline$i$ten und \lstinline$i+1$ten Individuums
 \item Berechnung der Fitness des \lstinline$i$ten Individuums unter Verwendung des Problem Sets des \lstinline$i+1$ten Individuums
 \item Berechnung der Fitness des \lstinline$i+1$-ten Individuums unter Verwendung des Problem Sets des \lstinline$i$-ten Individuums
-\item Hat ein Individuum alle Probleme korrekt gelöst? Falls ja, wird er mit dem Referenzautomaten verglichen. Wenn er einer korrekten Lösung entspricht wird der Algorithmus angehalten und die Anzahl benötigter Zyklen wird zurückgegeben
+\item Hat ein Individuum alle Probleme korrekt gelöst? Falls ja, wird es mit dem Referenzautomaten verglichen. Wenn es einer korrekten Lösung entspricht wird der Algorithmus angehalten und die Anzahl benötigter Zyklen wird zurückgegeben
 \item Ist die Fitness beider Individuen gleich? Falls ja, wird zufällig eines selektiert. Falls nein, wird das Individuum mit der höheren Fitness selektiert
 \item Vom selektierten Individuum wird eine \Gls{deepcopy} erstellt und zufällig mutiert
 \item Die 50\% einfachsten Probleme der Problemmengen vom selektierten Individuum und der Kopie werden gelöscht und durch zufällige, neue ersetzt 

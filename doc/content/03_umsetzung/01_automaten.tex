@@ -30,7 +30,7 @@ Das Quintupel ($Q$, $\Sigma$, $\delta$, $q0$, $F$) ist darin wie folgt abgebilde
   \caption[Implementation Automaten]{Implementation automaten}
 \end{table}
 
-Ein solcher Automat kann nun mithilfe seiner \lstinline$process(Word)$ Funktion ein Wort (Eine Liste von Zeichen) verarbeiten indem er sich die Referenz des ersten Zustandes \lstinline$startState$ holt und dann Zeichen für Zeichen jeweils mit \lstinline$process(Character)$ die Referenz des nächsten Zustandes herausliest. Zurückgegeben wird schlussendlich derjenige Zustand der am Ende der verarbeiteten Zeichenkette erreicht wurde. Mithilfe der \lstinline$isAcceptingState(State)$ Methode kann festgestellt werden ob das Wort akzeptiert wird oder nicht. 
+Ein solcher Automat kann nun mithilfe seiner \lstinline$process(Word)$ Funktion ein Wort (Eine Liste von Zeichen) verarbeiten indem er sich die Referenz des ersten Zustandes \lstinline$startState$ holt und dann Zeichen für Zeichen jeweils mit \lstinline$process(Character)$ die Referenz des nächsten Zustandes herausliest. Zurückgegeben wird schlussendlich derjenige Zustand der am Ende der verarbeiteten Zeichenkette erreicht wird. Mithilfe der \lstinline$isAcceptingState(State)$ Methode kann festgestellt werden ob der erreichte Zustand und somit das Wort akzeptiert wird oder nicht. 
 
 Zum besseren Verständnis folgend die \lstinline$process$ Methode der DFA Klasse als Pseudocode:
 
@@ -73,7 +73,7 @@ digraph G {
 Eine Anleitung zur DOT Sprache ist in den Quellen verlinkt. \cite{graphvizdotref}
 
 \paragraph{Überprüfen von Automaten}
-Um beim zufälligen mutieren und rekombinieren der Automaten prüfen zu können, ob ein Automat die selbe Sprache akzeptiert wie der gegebene reguläre Ausdruck, wurde das Java Package \lstinline$dk.brics.automaton$ von der dänischen Aarhus Universität verwendet.\cite{bricsautomaton}
+Um beim zufälligen Mutieren und Rekombinieren der Automaten prüfen zu können, ob ein Automat die selbe Sprache akzeptiert wie der gegebene reguläre Ausdruck, wurde das Java Package \lstinline$dk.brics.automaton$ von der dänischen Aarhus Universität verwendet.\cite{bricsautomaton}
 
 In diesem Package sind verschiedene Algorithmen rund um endliche Automaten implementiert. Unter anderem kann es einen Automaten aus einem regulären Ausdruck erzeugen und verschiedene Automaten darauf überprüfen ob sie die selbe Sprache akzeptieren. Die Umwandlung von einem Automaten unserer Implementation in einen \lstinline$dk.brics.automaton$ wurde im Package \lstinline$ch.zhaw.regularLanguages.dfa.transformation$ implementiert. Es enthält ein Interface \lstinline$Transformer<S, T>$ welches die Methode \lstinline$T transform(S input)$ vorschreibt und die konkrete Implementation \lstinline$TransformDFAToBricsAutomaton$ welches die Transformation von unserem DFA in einen \lstinline$dk.brics.automaton.Automaton$ beherrscht. Die Umwandlung läuft wie folgt ab:
 \begin{enumerate}
@@ -94,7 +94,7 @@ Zur Erhöhung der Konsistenz von Automaten, wurde eine Methode zum entfernen all
   \label{fig:split_dfa}
 \end{figure}
 
-In der Methode zum entfernen der nicht erreichbaren Zustände werden vom Startzustand aus alle möglichen Verbindungen getestet. Jene Zustände die so nicht erreicht werden können werden entfernt. Zum besseren Verständnis ist folgend die Methode als in Python-Pseudocode dokumentiert.  
+Die Methode zum entfernen der nicht erreichbaren Zustände testet vom Startzustand aus alle möglichen Verbindungen. Jene Zustände die so nicht erreicht werden können werden entfernt. Zum besseren Verständnis ist folgend die Methode als in Python-Pseudocode dokumentiert.  
 
 \begin{lstlisting}[language=Python, caption={Algorithmus zum entfernen von nicht erreichbaren Zuständen}, label={lst:remove_unreachable_states}]
 def removeUnreachableStates(dfa):

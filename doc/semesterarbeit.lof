@@ -5,10 +5,10 @@
 \contentsline {figure}{\numberline {5}{\ignorespaces EA Grundstruktur Klassendiagramm}}{16}{figure.5}
 \contentsline {figure}{\numberline {6}{\ignorespaces EA Initialisierung Klassendiagramm}}{17}{figure.6}
 \contentsline {figure}{\numberline {7}{\ignorespaces Problemgenerierung Klassendiagramm}}{18}{figure.7}
-\contentsline {figure}{\numberline {8}{\ignorespaces Durch f\IeC {\"u}nf teilbar Problem - KG Algorithmus}}{23}{figure.8}
+\contentsline {figure}{\numberline {8}{\ignorespaces Durch f\IeC {\"u}nf teilbar Problem - \Gls {c_g_alg}}}{23}{figure.8}
 \contentsline {figure}{\numberline {9}{\ignorespaces \Gls {c_g_alg} - Skalierung mit Problemmengengr\IeC {\"o}sse}}{24}{figure.9}
 \contentsline {figure}{\numberline {10}{\ignorespaces \Gls {c_g_alg} - Skalierung mit Populationsgr\IeC {\"o}sse}}{24}{figure.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces ABAB Problem - Globale Mutierende Problemmenge}}{26}{figure.11}
+\contentsline {figure}{\numberline {11}{\ignorespaces ABAB Problem - Globale, mutierende Problemmenge}}{26}{figure.11}
 \contentsline {figure}{\numberline {12}{\ignorespaces \Gls {e_g_alg} - Skalierung mit Problemmengengr\IeC {\"o}sse}}{26}{figure.12}
 \contentsline {figure}{\numberline {13}{\ignorespaces \Gls {e_g_alg} - Skalierung mit Populationsgr\IeC {\"o}sse}}{27}{figure.13}
 \contentsline {figure}{\numberline {14}{\ignorespaces ABAB Problem - Lokale mutierende Problemmenge}}{28}{figure.14}

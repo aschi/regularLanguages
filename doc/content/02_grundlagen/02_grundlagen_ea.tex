@@ -13,7 +13,7 @@ Die Zielfunktion beeinflusst nur die Selektion. Dieser Operator wählt Individue
 \end{figure}
 
 \subsubsection{Anwendung auf unser Problem}
-Unser Problem der Findung von regulären Automaten welche die selbe Sprache akzeptieren wie ein gegebener regulärer Ausdruck, lässt sich mit einigen Anpassungen in diesem Standardmodell eines evolutionären Algorithmus abbilden.
+Unser Problem der Findung von endlichen Automaten welche die selbe Sprache akzeptieren wie ein gegebener regulärer Ausdruck, lässt sich mit einigen Anpassungen in diesem Standardmodell eines evolutionären Algorithmus abbilden.
 
 \paragraph{Initialisierung}
 In der Initialisierungsphase wird eine Population von Automaten zufällig erzeugt. Das heisst eine eine zufällige Anzahl von Zuständen wird erzeugt, diese werden Zufällig miteinander verbunden und zum Schluss wird ein zufälliger Startzustand und eine Menge von akzeptierenden Zuständen festgelegt.
@@ -25,13 +25,13 @@ Es werden jeweils diejenigen Automaten selektiert welche eine höhere Fitness au
 Die Problemmenge ist eine Menge von Tupeln ($Wort$, $Soll Ausgabe$) welche verwendet wird um die Fitness von Automaten zu bestimmen. Im Rahmen dieser Arbeit werden verschiedene Ansätze zur Erzeugung und zum Verhalten solcher Problemmengen ausprobiert. Dabei wird das Konvergenzverhalten des evolutionären Algorithmus untersucht.
 
 \paragraph{Fitness}
-Die Fitness von Automaten wird durch ausprobieren verschiedener Problemen und dem darauf folgenden Vergleich der Ausgabe mit einer Soll-Ausgabe bestimmt. Die Soll Ausgabe wird mithilfe des gegebenen regulären Ausdrucks bestimmen. Der Wert der Fitnessfunktion entspricht der Anzahl richtig gelöster Probleme aus der entsprechenden Problemmenge.
+Die Fitness von Automaten wird durch das Ausprobieren verschiedener Probleme und dem darauf folgenden Vergleich der Ausgabe mit einer Soll-Ausgabe bestimmt. Die Soll Ausgabe wird mithilfe des gegebenen regulären Ausdrucks bestimmt. Der Wert der Fitnessfunktion entspricht der Anzahl richtig gelöster Probleme aus der entsprechenden Problemmenge.
 
 \textbf{Definitionen:}\\
 $P$ = Problemmenge (Menge von Tupeln)\\
-$P_i$ = i-tes Element aus der Problemmenge (Tupel ($Wort$, $Soll Ausgabe$))\\
-$P_{i1}$ = 1. Element (Wort) des i-ten Elementes aus der Problemmenge\\
-$P_{i2}$ = 2. Element (Soll Ausgabe; $1$ oder $0$) des i-ten Elementes aus der Problemmenge\\
+$P_i$ = i-tes Element aus der Problemmenge (Tupel $\{Wort, Soll Ausgabe\}$)\\
+$P_{i1}$ = 1. Element (Wort) des i-ten Tupels aus der Problemmenge\\
+$P_{i2}$ = 2. Element (Soll Ausgabe; $1$ oder $0$) des i-ten Tupels aus der Problemmenge\\
 $p$ = Anzahl Elemente in der Problemmenge $P$\\
 
 \begin{equation}
@@ -63,7 +63,7 @@ Daraus folgt:\\
 \end{equation}
 
 \paragraph{Rekombination}
-Wenn man zwei endliche Automaten graphisch zusammenfügt, wird der resultierende Automat ein komplett anderes Verhalten aufweisen als die beiden Eltern. Deshalb verzichten wir auf die Rekombination im herkömmlichen Sinne. Wir klonen jeweils die selektierten Automaten und mutieren die so entstandenen Kinder.
+Wenn zwei endliche Automaten graphisch zusammenfügt werden, wird der resultierende Automat ein komplett anderes Verhalten aufweisen als die beiden Eltern. Deshalb verzichten wir auf die Rekombination im herkömmlichen Sinne. Wir klonen jeweils die selektierten Automaten und mutieren die so entstandenen Kinder.
 
 \paragraph{Mutation}
 Bei der Mutation soll jeweils eine zufällige Veränderung an einem Automaten durchgeführt werden. Wir haben uns auf folgende Mutationen festgelegt:

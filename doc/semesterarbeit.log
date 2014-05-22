@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.3.4)  22 MAY 2014 00:23
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.3.4)  22 MAY 2014 12:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -841,7 +841,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (./content/02_grundlagen/01_grundlagen_automaten.tex [4
 
 ]
-<images/endlicher_automat.pdf, id=186, 198.7425pt x 142.5325pt>
+<images/endlicher_automat.pdf, id=180, 198.7425pt x 142.5325pt>
 File: images/endlicher_automat.pdf Graphic file (type pdf)
 
 <use images/endlicher_automat.pdf>
@@ -854,7 +854,7 @@ Overfull \hbox (0.30954pt too wide) in paragraph at lines 2--3
 o-rith-mi-sche Um-set-zung von Prin-
  []
 
-<images/evolutionaerer_algorithmus.pdf, id=210, 398.3386pt x 369.88583pt>
+<images/evolutionaerer_algorithmus.pdf, id=204, 398.3386pt x 369.88583pt>
 File: images/evolutionaerer_algorithmus.pdf Graphic file (type pdf)
 
 <use images/evolutionaerer_algorithmus.pdf>
@@ -866,20 +866,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--36
 
  []
 
+
+Overfull \hbox (1.22183pt too wide) in paragraph at lines 66--67
+[] []\T1/cmss/bx/n/12 Rekombination[][] \T1/cmr/m/n/12 Wenn zwei end-li-che Au-
+to-ma-ten gra-phisch zu-sam-men-fügt wer-den, wird
+ []
+
 [8])) (./content/03_umsetzung/umsetzung.tex [9]
 (./content/03_umsetzung/01_automaten.tex
-<images/dfa_classdiag_simple.pdf, id=262, 419.969pt x 228.052pt>
+<images/dfa_classdiag_simple.pdf, id=256, 419.969pt x 228.052pt>
 File: images/dfa_classdiag_simple.pdf Graphic file (type pdf)
 
 <use images/dfa_classdiag_simple.pdf>
 Package pdftex.def Info: images/dfa_classdiag_simple.pdf used on input line 5.
 (pdftex.def)             Requested size: 224.06548pt x 121.67429pt.
-
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
-) [10
+ [10
 
  <./images/dfa_classdiag_simple.pdf>]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
 Overfull \hbox (8.31183pt too wide) in paragraph at lines 48--49
 []\T1/cmr/m/n/12 In der sta-ti-schen Klas-se [][][][] wur-de ei-ne Me-tho-de []
 [][][][]
@@ -888,7 +894,7 @@ Overfull \hbox (8.31183pt too wide) in paragraph at lines 48--49
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 ) [11]
-<images/split_automaton.pdf, id=311, 273.02pt x 232.87pt>
+<images/split_automaton.pdf, id=305, 273.02pt x 232.87pt>
 File: images/split_automaton.pdf Graphic file (type pdf)
 
 <use images/split_automaton.pdf>
@@ -910,7 +916,7 @@ Overfull \hbox (29.8025pt too wide) in paragraph at lines 139--164
  []
 
 [14]) (./content/03_umsetzung/02_ea.tex
-<images/simple_uml_evolution.pdf, id=372, 592.61403pt x 350.10799pt>
+<images/simple_uml_evolution.pdf, id=366, 592.61403pt x 350.10799pt>
 File: images/simple_uml_evolution.pdf Graphic file (type pdf)
 
 <use images/simple_uml_evolution.pdf>
@@ -933,7 +939,7 @@ Overfull \hbox (17.44704pt too wide) in paragraph at lines 11--12
  []
 
 [15] [16 <./images/simple_uml_evolution.pdf>]
-<images/simple_uml_evolution_initialisation.pdf, id=402, 631.96097pt x 281.8529
+<images/simple_uml_evolution_initialisation.pdf, id=396, 631.96097pt x 281.8529
 8pt>
 File: images/simple_uml_evolution_initialisation.pdf Graphic file (type pdf)
  <use images/simple_uml_evolution_initialisation.pdf>
@@ -941,12 +947,7 @@ Package pdftex.def Info: images/simple_uml_evolution_initialisation.pdf used on
  input line 27.
 (pdftex.def)             Requested size: 358.50612pt x 159.89664pt.
 
-Overfull \hbox (33.29054pt too wide) in paragraph at lines 38--39
-\T1/cmr/m/n/12 tor auch gan-ze Pro-blem-Sets ge-ne-rie-ren. Als Pa-ra-me-ter hi
-er-für be-nö-tigt der []
- []
-
-<images/simple_uml_pg.pdf, id=403, 367.77399pt x 208.78pt>
+<images/simple_uml_pg.pdf, id=397, 367.77399pt x 208.78pt>
 File: images/simple_uml_pg.pdf Graphic file (type pdf)
 
 <use images/simple_uml_pg.pdf>
@@ -956,13 +957,8 @@ Package pdftex.def Info: images/simple_uml_pg.pdf used on input line 42.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./content/03_umsetzung/03_globale_feste_problemmenge.tex
-Overfull \hbox (5.47508pt too wide) in paragraph at lines 49--1
-\T1/cmr/m/n/12 ei-nem ge-ge-be-nen Al-pha-bet er-le-digt der Kon-struk-tor der 
-[]
- []
-
-[17 <./images/simple_uml_evolution_initialisation.pdf>])
+) (./content/03_umsetzung/03_globale_feste_problemmenge.tex [17 <./images/simpl
+e_uml_evolution_initialisation.pdf>])
 (./content/03_umsetzung/04_globale_mutierende_problemmenge.tex [18 <./images/si
 mple_uml_pg.pdf>])
 (./content/03_umsetzung/05_lokale_mutierende_problemmenge.tex [19])
@@ -972,7 +968,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3.
 )
 (./content/04_analyse/02_C_G.tex
-<images/C_G_div5_solved.pdf, id=507, 867.24pt x 722.7pt>
+<images/C_G_div5_solved.pdf, id=501, 867.24pt x 722.7pt>
 File: images/C_G_div5_solved.pdf Graphic file (type pdf)
 
 <use images/C_G_div5_solved.pdf>
@@ -981,7 +977,7 @@ Package pdftex.def Info: images/C_G_div5_solved.pdf used on input line 6.
  [22
 
 ]
-<images/C_G_PS_div5PS_solved.pdf, id=514, 786.94pt x 642.4pt>
+<images/C_G_PS_div5PS_solved.pdf, id=510, 786.94pt x 642.4pt>
 File: images/C_G_PS_div5PS_solved.pdf Graphic file (type pdf)
 
 <use images/C_G_PS_div5PS_solved.pdf>
@@ -989,7 +985,7 @@ Package pdftex.def Info: images/C_G_PS_div5PS_solved.pdf used on input line 21.
 
 (pdftex.def)             Requested size: 349.54158pt x 285.33289pt.
 
-<images/C_G_CS_div5CS_solved.pdf, id=517, 786.94pt x 642.4pt>
+<images/C_G_CS_div5CS_solved.pdf, id=513, 786.94pt x 642.4pt>
 File: images/C_G_CS_div5CS_solved.pdf Graphic file (type pdf)
 
 <use images/C_G_CS_div5CS_solved.pdf>
@@ -1005,7 +1001,7 @@ Overfull \vbox (37.86584pt too high) has occurred while \output is active []
 pdfTeX warning: pdflatex (file ./images/C_G_CS_div5CS_solved.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
 >]) (./content/04_analyse/03_E_G.tex
-<images/E_G_abab_solved.pdf, id=1072, 786.94pt x 658.46pt>
+<images/E_G_abab_solved.pdf, id=1068, 786.94pt x 658.46pt>
 File: images/E_G_abab_solved.pdf Graphic file (type pdf)
 
 <use images/E_G_abab_solved.pdf>
@@ -1015,7 +1011,7 @@ Package pdftex.def Info: images/E_G_abab_solved.pdf used on input line 4.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/E_G_PS_div5PS_solved.pdf, id=1075, 786.94pt x 642.4pt>
+<images/E_G_PS_div5PS_solved.pdf, id=1071, 786.94pt x 642.4pt>
 File: images/E_G_PS_div5PS_solved.pdf Graphic file (type pdf)
 
 <use images/E_G_PS_div5PS_solved.pdf>
@@ -1030,7 +1026,7 @@ Overfull \vbox (37.59529pt too high) has occurred while \output is active []
 
 pdfTeX warning: pdflatex (file ./images/E_G_PS_div5PS_solved.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
->] <images/E_G_CS_div5CS_solved.pdf, id=1446, 786.94pt x 642.4pt>
+>] <images/E_G_CS_div5CS_solved.pdf, id=1442, 786.94pt x 642.4pt>
 File: images/E_G_CS_div5CS_solved.pdf Graphic file (type pdf)
 
 <use images/E_G_CS_div5CS_solved.pdf>
@@ -1038,7 +1034,7 @@ Package pdftex.def Info: images/E_G_CS_div5CS_solved.pdf used on input line 36.
 
 (pdftex.def)             Requested size: 349.54158pt x 285.33289pt.
  [27 <./images/E_G_CS_div5CS_solved.pdf>]) (./content/04_analyse/04_E_L.tex
-<images/E_L_abab_solved.pdf, id=1626, 786.94pt x 658.46pt>
+<images/E_L_abab_solved.pdf, id=1622, 786.94pt x 658.46pt>
 File: images/E_L_abab_solved.pdf Graphic file (type pdf)
 
 <use images/E_L_abab_solved.pdf>
@@ -1048,7 +1044,7 @@ Package pdftex.def Info: images/E_L_abab_solved.pdf used on input line 4.
 
  <./images/E_L_abab_solved.pdf>])
 (./content/04_analyse/05_random.tex
-<images/RAND_ABAB_RAND_solved.pdf, id=1813, 578.16pt x 256.96pt>
+<images/RAND_ABAB_RAND_solved.pdf, id=1809, 578.16pt x 256.96pt>
 File: images/RAND_ABAB_RAND_solved.pdf Graphic file (type pdf)
 
 <use images/RAND_ABAB_RAND_solved.pdf>
@@ -1057,21 +1053,21 @@ Package pdftex.def Info: images/RAND_ABAB_RAND_solved.pdf used on input line 6.
 (pdftex.def)             Requested size: 358.50612pt x 159.33315pt.
 ) (./content/04_analyse/06_fazit.tex
 [29 <./images/RAND_ABAB_RAND_solved.pdf>]
-<images/problemmengen.pdf, id=1857, 369.38pt x 377.41pt>
+<images/problemmengen.pdf, id=1853, 369.38pt x 377.41pt>
 File: images/problemmengen.pdf Graphic file (type pdf)
 
 <use images/problemmengen.pdf>
 Package pdftex.def Info: images/problemmengen.pdf used on input line 15.
 (pdftex.def)             Requested size: 179.24963pt x 183.14728pt.
  [30 <./images/problemmengen.pdf>]
-<images/bars_fitness.pdf, id=1873, 578.16pt x 361.35pt>
+<images/bars_fitness.pdf, id=1869, 578.16pt x 361.35pt>
 File: images/bars_fitness.pdf Graphic file (type pdf)
 
 <use images/bars_fitness.pdf>
 Package pdftex.def Info: images/bars_fitness.pdf used on input line 34.
 (pdftex.def)             Requested size: 313.69029pt x 196.0524pt.
  [31 <./images/bars_fitness.pdf>]
-<images/evolutionsverhalten_lokal_vs_global.pdf, id=2059, 1156.32pt x 433.62pt>
+<images/evolutionsverhalten_lokal_vs_global.pdf, id=2055, 1156.32pt x 433.62pt>
 File: images/evolutionsverhalten_lokal_vs_global.pdf Graphic file (type pdf)
 <use images/evolutionsverhalten_lokal_vs_global.pdf>
 Package pdftex.def Info: images/evolutionsverhalten_lokal_vs_global.pdf used on
@@ -1083,7 +1079,7 @@ _vs_global.pdf>]) [33
 
 ] (./content/99_anhang/anhang.tex
 (./content/99_anhang/automaten.tex
-<images/abab_automat.pdf, id=2221, 176.66pt x 413.545pt>
+<images/abab_automat.pdf, id=2217, 176.66pt x 413.545pt>
 File: images/abab_automat.pdf Graphic file (type pdf)
 
 <use images/abab_automat.pdf>
@@ -1092,7 +1088,7 @@ Package pdftex.def Info: images/abab_automat.pdf used on input line 6.
  [34
 
  <./images/abab_automat.pdf>]
-<images/div3_automat.pdf, id=2235, 198.7425pt x 142.5325pt>
+<images/div3_automat.pdf, id=2231, 198.7425pt x 142.5325pt>
 File: images/div3_automat.pdf Graphic file (type pdf)
 
 <use images/div3_automat.pdf>
@@ -1101,7 +1097,7 @@ Package pdftex.def Info: images/div3_automat.pdf used on input line 17.
  [35
 
  <./images/div3_automat.pdf>]
-<images/div5_automat.pdf, id=2251, 199.74625pt x 323.2075pt>
+<images/div5_automat.pdf, id=2247, 199.74625pt x 323.2075pt>
 File: images/div5_automat.pdf Graphic file (type pdf)
 
 <use images/div5_automat.pdf>
@@ -1156,23 +1152,23 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 392.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 392.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 392.
 Package rerunfilecheck Info: File `semesterarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: 3563CDA49490928698B7F52D6417A57E;1782.
+(rerunfilecheck)             Checksum: 37D8B3A3049D413A3E7AA23AC6ADFBF0;1730.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 392.
  ) 
 Here is how much of TeX's memory you used:
- 13494 strings out of 495007
- 197788 string characters out of 3179691
- 482725 words of memory out of 3000000
- 16110 multiletter control sequences out of 15000+200000
+ 13496 strings out of 495007
+ 197813 string characters out of 3179691
+ 482719 words of memory out of 3000000
+ 16112 multiletter control sequences out of 15000+200000
  23332 words of font info for 62 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  45i,11n,69p,1434b,1896s stack positions out of 5000i,500n,10000p,200000b,50000s
  </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk> </home/
-adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1000.600pk> </home/adrian/.te
-xmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/adrian/.texmf-var/fo
-nts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/adrian/.texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecbx1200.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknapp
-en/ec/ecti1200.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx
+adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/adrian/.te
+xmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1000.600pk> </home/adrian/.texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/adrian/.texmf-var/fonts/pk/ljf
+our/jknappen/ec/ecrm1000.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/ecbx1200.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx
 1440.600pk> </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1200.600pk
 > </home/adrian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1728.600pk> </home/a
 drian/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1200.600pk> </home/adrian/.tex
@@ -1186,10 +1182,10 @@ i12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on semesterarbeit.pdf (42 pages, 954769 bytes).
+Output written on semesterarbeit.pdf (42 pages, 954393 bytes).
 PDF statistics:
- 2973 PDF objects out of 2984 (max. 8388607)
- 1666 compressed objects within 17 object streams
+ 2971 PDF objects out of 2984 (max. 8388607)
+ 1664 compressed objects within 17 object streams
  258 named destinations out of 1000 (max. 500000)
- 314 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 306 words of extra memory for PDF output out of 10000 (max. 10000000)
 
