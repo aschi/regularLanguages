@@ -4,7 +4,7 @@ Diese Semesterarbeit beschäftigt sich mit Grundlagen der Automatentheorie, Grun
 
 ##Installation:
 1. Dateien herunterladen: git clone git@github.com:aschi/regularLanguages.git
-2. Installieren mvn install
+2. Installieren: mvn install
 3. Gegebenenfalls Eclipse Projekt erstellen: mvn eclipse:eclipse
 
 ##Verzeichnisstruktur
